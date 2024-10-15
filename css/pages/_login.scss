@@ -109,6 +109,7 @@ body.login {
             color: var(--red-text);
             font-weight: 500;
             margin-top: 1.6rem;
+            line-height: normal;
             &.active {
               display: block;
             }
@@ -168,6 +169,14 @@ body.join {
           @extend .flex-col;
           margin-bottom: 3.4rem;
 
+          p.msg {
+            font-weight: 400;
+          }
+
+          p.msg.correct {
+            color: var(--highlight);
+          }
+
           input,
           input[type="password"] {
             width: auto;
@@ -176,6 +185,15 @@ body.join {
             border-radius: 5px;
             padding: 1.7rem 1.6rem;
             margin-bottom: 0;
+          }
+
+          .field-security {
+            &.error {
+              border-color: var(--red-text);
+              input:focus {
+                outline: none;
+              }
+            }
           }
 
           div.field-exists,

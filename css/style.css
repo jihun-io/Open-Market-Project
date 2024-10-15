@@ -156,6 +156,7 @@ body.login main section form fieldset p.msg {
   color: var(--red-text);
   font-weight: 500;
   margin-top: 1.6rem;
+  line-height: normal;
 }
 body.login main section form fieldset p.msg.active {
   display: block;
@@ -198,6 +199,12 @@ body.join main section form {
 body.join main section form fieldset {
   margin-bottom: 3.4rem;
 }
+body.join main section form fieldset p.msg {
+  font-weight: 400;
+}
+body.join main section form fieldset p.msg.correct {
+  color: var(--highlight);
+}
 body.join main section form fieldset input,
 body.join main section form fieldset input[type=password] {
   width: auto;
@@ -206,6 +213,12 @@ body.join main section form fieldset input[type=password] {
   border-radius: 5px;
   padding: 1.7rem 1.6rem;
   margin-bottom: 0;
+}
+body.join main section form fieldset .field-security.error {
+  border-color: var(--red-text);
+}
+body.join main section form fieldset .field-security.error input:focus {
+  outline: none;
 }
 body.join main section form fieldset div.field-exists,
 body.join main section form fieldset div.field-business {
