@@ -1,0 +1,56 @@
+body.not-found {
+  main {
+    min-height: 100dvh;
+    @extend .flex-col;
+    @extend .flex-center;
+    article {
+      @extend .flex-row;
+      column-gap: 5rem;
+      img {
+        width: 27rem;
+        height: 23.6rem;
+        position: relative;
+        top: -1.6rem;
+      }
+      div.msg {
+        h1 {
+          font-size: 3.6rem;
+          font-weight: 700;
+          line-height: 4.4rem;
+        }
+        p {
+          color: var(--gray-text);
+          margin-top: 2rem;
+          margin-bottom: 4rem;
+          line-height: normal;
+        }
+        ul {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+          column-gap: 1.4rem;
+          li {
+            @extend .flex-center;
+            a,
+            button {
+              width: 100%;
+              font-size: 1.8rem;
+              font-weight: 700;
+              line-height: 2.2rem;
+              color: var(--gray-text);
+              padding: 1.9rem 0;
+              border: 1px solid var(--gray-border);
+              border-radius: 5px;
+              text-align: center;
+            }
+
+            a {
+              background-color: var(--highlight);
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

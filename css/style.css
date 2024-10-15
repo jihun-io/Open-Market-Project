@@ -1,0 +1,839 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+@import url(/css/reset.css);
+body.home main section.carousel {
+  height: 50rem;
+  background-color: var(--gray-bg);
+  position: relative;
+}
+body.home main section.carousel div.controller {
+  padding: 0 3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  justify-content: space-between;
+}
+body.home main section.carousel div.event-banner {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  -moz-column-gap: 0.6rem;
+       column-gap: 0.6rem;
+}
+body.home main section.carousel div.event-banner button {
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: #fff;
+}
+body.home main section.carousel div.event-banner button.active {
+  background-color: #000;
+}
+body.home main section.product-lists {
+  padding-top: 8rem;
+  padding-bottom: 18rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+  -moz-column-gap: 7rem;
+       column-gap: 7rem;
+  row-gap: 7.8rem;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+body.home main section.product-lists article.item {
+  width: 38rem;
+}
+body.home main section.product-lists article.item img {
+  width: 38rem;
+  height: 38rem;
+  border-radius: 10px;
+  border: 1px solid var(--gray-border);
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 1.6rem;
+}
+body.home main section.product-lists article.item p.seller,
+body.home main section.product-lists article.item h3.seller {
+  color: var(--gray);
+}
+body.home main section.product-lists article.item p:not(:last-child),
+body.home main section.product-lists article.item h3:not(:last-child) {
+  margin-bottom: 1rem;
+}
+body.home main section.product-lists article.item p span.number,
+body.home main section.product-lists article.item h3 span.number {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+body.login main section form fieldset {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  padding-top: 3.3rem;
+  padding-bottom: 3.6rem;
+  border-radius: 10px;
+}
+
+body.login {
+  padding: 16rem calc(44.318181818vw - 16.5909090909rem);
+}
+body.login header h1 img {
+  width: 23.8rem;
+  height: 7.4rem;
+}
+body.login main {
+  margin-top: 7rem;
+}
+body.login main section ul.button-row {
+  justify-content: space-between;
+  align-items: flex-start;
+  background: white;
+}
+body.login main section ul.button-row li {
+  align-items: flex-start;
+  width: 50%;
+  background-color: #fff;
+  border-left: 1px solid var(--gray-border);
+  border-right: 1px solid var(--gray-border);
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+body.login main section ul.button-row li button {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-weight: 500;
+  border-top: 1px solid var(--gray-border);
+  border-bottom: 0;
+  border-left: 0;
+  border-radius: 10px 10px 0 0;
+  background-color: var(--gray-bg);
+  line-height: 1.9rem;
+  color: #000;
+}
+body.login main section ul.button-row li button:after {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 15px;
+  bottom: -10px;
+  z-index: -10;
+  background-color: var(--gray-bg);
+}
+body.login main section ul.button-row li button.buyer:after {
+  left: -1px;
+  border-left: 1px solid var(--gray-border);
+}
+body.login main section ul.button-row li button.seller:after {
+  right: -1px;
+  border-right: 1px solid var(--gray-border);
+}
+body.login main section ul.button-row li button.active {
+  background-color: #fff;
+}
+body.login main section ul.button-row li button.active:after {
+  z-index: 10;
+  background-color: #fff;
+}
+body.login main section form fieldset {
+  border-radius: 10px;
+  background-color: var(--gray-bg);
+  background-color: #fff;
+  border: 1px solid var(--gray-border);
+}
+body.login main section form fieldset input {
+  width: 25vw;
+  min-width: 32rem;
+  height: 6rem;
+  border-bottom: 1px solid var(--gray-border);
+}
+body.login main section form fieldset input[type=password] {
+  margin-bottom: 1rem;
+}
+body.login main section form fieldset p.msg {
+  display: none;
+  color: var(--red-text);
+  font-weight: 500;
+  margin-top: 1.6rem;
+}
+body.login main section form fieldset p.msg.active {
+  display: block;
+}
+body.login main section form button[type=submit] {
+  width: 100%;
+  font-size: 1.8rem;
+  padding: 2.1rem;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: var(--highlight);
+  margin-top: 2.6rem;
+  line-height: 1;
+}
+body.login main ul.joins {
+  margin-top: 3rem;
+  justify-content: center;
+}
+body.login main ul.joins li:not(:last-child)::after {
+  content: "|";
+  color: var(--gray-text);
+  display: inline-block;
+  margin: 0 1.4rem;
+}
+body.login main ul.joins li a {
+  color: var(--gray-text);
+}
+
+body.join main label {
+  color: var(--gray);
+  margin-top: 2rem;
+}
+body.join main label:not([for=agree]) {
+  margin-bottom: 1rem;
+}
+body.join main section form {
+  align-items: center;
+}
+body.join main section form fieldset {
+  margin-bottom: 3.4rem;
+}
+body.join main section form fieldset input,
+body.join main section form fieldset input[type=password] {
+  width: auto;
+  min-width: 0;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  padding: 1.7rem 1.6rem;
+  margin-bottom: 0;
+}
+body.join main section form fieldset div.field-exists,
+body.join main section form fieldset div.field-business {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  -moz-column-gap: 1.2rem;
+       column-gap: 1.2rem;
+}
+body.join main section form fieldset div.field-exists input#id,
+body.join main section form fieldset div.field-business input#id {
+  border-radius: 5px;
+  border: 1px solid var(--gray-border);
+  margin-bottom: 0;
+}
+body.join main section form fieldset div.field-exists button,
+body.join main section form fieldset div.field-business button {
+  border-radius: 5px;
+  background-color: var(--highlight);
+  color: #fff;
+  font-weight: 500;
+  line-height: normal;
+  padding: 1.7rem 3.15rem;
+  min-width: 12.2rem;
+}
+body.join main section form fieldset div.field-security {
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+body.join main section form fieldset div.field-security img {
+  margin: 0 1.6rem;
+}
+body.join main section form fieldset div.field-security input {
+  border: 0;
+}
+body.join main section form fieldset label[for=name],
+body.join main section form fieldset label[for=business] {
+  margin-top: 5rem;
+}
+body.join main section form fieldset div.field-phone {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 1.2rem;
+       column-gap: 1.2rem;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container {
+  position: relative;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container input#phone-area {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  pointer-events: none;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container input#phone-area::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .select-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  min-width: 0;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  padding: 1.7rem 1.6rem;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .select-wrapper input {
+  border: none;
+  padding: 0;
+  height: 100%;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .select-wrapper::after {
+  content: "";
+  display: block;
+  width: 2.4rem;
+  height: 1.4rem;
+  background-image: url(/images/icon-down-arrow.svg);
+  background-position: center;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .select-wrapper.active::after {
+  background-image: url(/images/icon-up-arrow.svg);
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .optionList {
+  position: absolute;
+  left: 0;
+  top: 6rem;
+  width: 100%;
+  height: 15rem;
+  overflow-y: scroll;
+  background-color: #fff;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  z-index: 10;
+  margin-top: 0.6rem;
+  display: none;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .optionList.active {
+  display: block;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .optionList li {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+body.join main section form fieldset div.field-phone div.phone-area-container .optionList li:hover {
+  background-color: var(--highlight);
+  color: #fff;
+}
+body.join main section form fieldset div.field-phone input {
+  width: auto;
+  min-width: 0;
+  text-align: center;
+}
+body.join main section form fieldset div.field-phone input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+body.join main section form fieldset div.business-only {
+  display: none;
+}
+body.join main section form div.agree {
+  width: 100%;
+  padding: 0 3.5rem;
+}
+body.join main section form div.agree input[type=checkbox] {
+  width: 1.6rem;
+  height: 1.6rem;
+  min-width: 0;
+  display: none;
+}
+body.join main section form div.agree input[type=checkbox]:checked + label::before {
+  background-image: url(/images/check-fill-box.svg);
+}
+body.join main section form div.agree label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--gray);
+  line-height: normal;
+  margin-top: 0;
+}
+body.join main section form div.agree label::before {
+  content: "";
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(/images/check-box.svg);
+  background-size: cover;
+  margin-top: 0.2rem;
+}
+body.join main section form div.agree label span a {
+  color: var(--gray);
+  font-weight: 700;
+  text-decoration: underline;
+}
+body.join main section form button[type=submit] {
+  margin-top: 3.4rem;
+}
+body.join main section form button[type=submit][disabled] {
+  background-color: var(--gray-border);
+  cursor: not-allowed;
+}
+
+body.details article.product-info {
+  padding-top: 8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+  row-gap: 5rem;
+}
+body.details article.product-info img {
+  width: 60rem;
+  height: 60rem;
+}
+body.details article.product-info div.purchase {
+  flex-grow: 1;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+body.details article.product-info div.purchase div.item-info p.seller {
+  font-size: 1.8rem;
+  color: var(--gray);
+}
+body.details article.product-info div.purchase div.item-info p.title {
+  font-size: 3.6rem;
+  margin-top: 1.6rem;
+  margin-bottom: 2rem;
+}
+body.details article.product-info div.purchase div.item-info p.price {
+  font-size: 1.8rem;
+}
+body.details article.product-info div.purchase div.item-info p.price span {
+  font-size: 3.6rem;
+  font-weight: 700;
+  margin-right: 0.2rem;
+}
+body.details article.product-info div.purchase div.buy-info p.shipping {
+  color: var(--gray);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+body.details article.product-info div.purchase div.buy-info div.amount {
+  display: grid;
+  grid-template-columns: 5rem 5rem 5rem;
+  grid-template-rows: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-top: 0.2rem solid var(--gray-border);
+  border-bottom: 0.2rem solid var(--gray-border);
+}
+body.details article.product-info div.purchase div.buy-info div.amount button img {
+  width: 2rem;
+  height: 2rem;
+}
+body.details article.product-info div.purchase div.buy-info div.amount button:first-child {
+  border: 1px solid var(--gray-border);
+  border-right: 0;
+  border-radius: 5px 0 0 5px;
+}
+body.details article.product-info div.purchase div.buy-info div.amount button:last-child {
+  border: 1px solid var(--gray-border);
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+}
+body.details article.product-info div.purchase div.buy-info div.amount input[type=number] {
+  font-size: 1.8rem;
+  border: 1px solid var(--gray-border);
+  text-align: center;
+}
+body.details article.product-info div.purchase div.buy-info div.amount input[type=number]::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+body.details article.product-info div.purchase div.buy-info p.total {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1.8rem;
+  padding-top: 4.6rem;
+  padding-bottom: 3rem;
+}
+body.details article.product-info div.purchase div.buy-info p.total span.total-text {
+  font-weight: 500;
+}
+body.details article.product-info div.purchase div.buy-info p.total span.total-amount {
+  color: var(--gray);
+}
+body.details article.product-info div.purchase div.buy-info p.total span.total-amount span.count,
+body.details article.product-info div.purchase div.buy-info p.total span.total-amount span.total-price {
+  color: var(--highlight);
+  font-weight: 700;
+}
+body.details article.product-info div.purchase div.buy-info p.total span.total-amount span.amount::after {
+  content: "|";
+  margin-left: 1.1rem;
+  margin-right: 1.2rem;
+}
+body.details article.product-info div.purchase div.buy-info p.total span.total-amount span.value {
+  color: var(--highlight);
+}
+body.details article.product-info div.purchase div.buy-info p.total span.total-amount span.value span.total-price {
+  font-size: 3.6rem;
+}
+body.details article.product-info div.purchase div.buy-info ul.btn-row {
+  -moz-column-gap: 1.4rem;
+       column-gap: 1.4rem;
+}
+body.details article.product-info div.purchase div.buy-info ul.btn-row li {
+  width: 100%;
+  min-width: 20rem;
+}
+body.details article.product-info div.purchase div.buy-info ul.btn-row li:first-child {
+  flex-basis: calc(100% - 20rem - 1.4rem);
+}
+body.details article.product-info div.purchase div.buy-info ul.btn-row li:last-child {
+  flex-basis: 20rem;
+}
+body.details article.product-info div.purchase div.buy-info ul.btn-row button {
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  color: #fff;
+  background-color: var(--gray);
+  padding-top: 1.9rem;
+  padding-bottom: 1.9rem;
+  border-radius: 5px;
+}
+body.details article.product-info div.purchase div.buy-info ul.btn-row button.purchase {
+  background-color: var(--highlight);
+}
+body.details article.product-details {
+  margin-top: 14rem;
+}
+body.details article.product-details ul {
+  justify-content: space-around;
+}
+body.details article.product-details ul li {
+  width: 100%;
+}
+body.details article.product-details ul li button {
+  width: 100%;
+  font-weight: 500;
+  border-bottom: 6px solid #e0e0e0;
+  padding-top: 1.9rem;
+  padding-bottom: 1.2rem;
+  line-height: 2.3rem;
+}
+body.details article.product-details ul li button.active {
+  color: var(--highlight);
+  font-weight: 700;
+  border-bottom: 6px solid var(--highlight);
+}
+body.details dialog {
+  border: 1px solid var(--gray-border);
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  padding-left: 7.5rem;
+  padding-right: 7.5rem;
+}
+body.details dialog div.window-controller {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+body.details dialog div.window-controller button {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+body.details dialog p {
+  text-align: center;
+  line-height: 2rem;
+}
+body.details dialog ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  margin-top: 3rem;
+  width: 21rem;
+}
+body.details dialog ul li button {
+  width: 100%;
+  height: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+  line-height: 1.8rem;
+}
+body.details dialog ul li button.modal-no {
+  border: 1px solid var(--gray-border);
+}
+body.details dialog ul li button.modal-yes {
+  color: #fff;
+  background-color: var(--highlight);
+}
+
+body.not-found main {
+  min-height: 100dvh;
+}
+body.not-found main article {
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+}
+body.not-found main article img {
+  width: 27rem;
+  height: 23.6rem;
+  position: relative;
+  top: -1.6rem;
+}
+body.not-found main article div.msg h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 4.4rem;
+}
+body.not-found main article div.msg p {
+  color: var(--gray-text);
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  line-height: normal;
+}
+body.not-found main article div.msg ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  -moz-column-gap: 1.4rem;
+       column-gap: 1.4rem;
+}
+body.not-found main article div.msg ul li a,
+body.not-found main article div.msg ul li button {
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+  color: var(--gray-text);
+  padding: 1.9rem 0;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  text-align: center;
+}
+body.not-found main article div.msg ul li a {
+  background-color: var(--highlight);
+  color: #fff;
+}
+
+.home header,
+.details header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.home header div.header-left,
+.details header div.header-left {
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+}
+.home header div.header-left h1 img,
+.details header div.header-left h1 img {
+  width: 12.4rem;
+  height: 3.8rem;
+}
+.home header div.header-left form,
+.details header div.header-left form {
+  width: 20.8333333333vw;
+  min-width: 33.3333333333vw;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid var(--highlight);
+  border-radius: 5rem;
+  height: 4.6rem;
+  padding: 0 2.2rem;
+}
+.home header div.header-left form input,
+.details header div.header-left form input {
+  width: 100%;
+  height: 2rem;
+}
+.home header div.header-left form button,
+.details header div.header-left form button {
+  margin-left: 2.2rem;
+}
+.home header div.header-left form button img,
+.details header div.header-left form button img {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+.home header ul,
+.details header ul {
+  -moz-column-gap: 2.6rem;
+       column-gap: 2.6rem;
+}
+.home header ul li:first-child,
+.details header ul li:first-child {
+  width: 4.6rem;
+}
+.home header ul li:last-child,
+.details header ul li:last-child {
+  width: 5.6rem;
+}
+.home header ul li a,
+.details header ul li a {
+  padding: 0.1rem 0;
+  align-items: center;
+  font-size: 1.2rem;
+  row-gap: 0.4rem;
+  color: var(--gray);
+}
+.home header ul li a img,
+.details header ul li a img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+footer {
+  padding-top: 5.4rem;
+  padding-bottom: 6.3rem;
+  background-color: var(--gray-bg);
+  font-size: 1.4rem;
+}
+footer nav {
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2.2rem;
+  border-bottom: 1px solid var(--gray-border);
+}
+footer nav ul.legal {
+  flex-wrap: wrap;
+  row-gap: 1.3rem;
+}
+footer nav ul.legal li:not(:last-child)::after {
+  content: "|";
+  margin-left: 1.4rem;
+  margin-right: 1.4rem;
+}
+footer nav ul.legal li a {
+  color: #000;
+}
+footer nav ul.social {
+  -moz-column-gap: 1.4rem;
+       column-gap: 1.4rem;
+}
+footer ul.shop-info {
+  padding-top: 3rem;
+  color: var(--gray);
+}
+footer ul.shop-info li {
+  line-height: 2.4rem;
+}
+
+:root {
+  --highlight: #21bf48;
+  --gray: #767676;
+  --gray-bg: #f2f2f2;
+  --gray-border: #c4c4c4;
+  --gray-text: #333;
+  --red-text: #eb5757;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.prevent-select, body.join main section form fieldset div.field-phone div.phone-area-container input#phone-area, body.join main section form fieldset div.field-phone div.phone-area-container .optionList li {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  --webkit-user-select: none;
+  --moz-user-select: none;
+  --ms-user-select: none;
+  --o-user-select: none;
+}
+
+.padding, body.home main section.product-lists, body.details article, .home header,
+.details header, footer {
+  padding-left: max(20px, min(22.73vw - 116.36px, 320px));
+  padding-right: max(20px, min(22.73vw - 116.36px, 320px));
+}
+
+.flex-row, body.home main section.carousel div.controller, body.login main section ul.button-row, body.login main ul.joins, body.details article.product-info, body.details article.product-info div.purchase div.buy-info ul.btn-row, body.details article.product-details ul, body.not-found main article, .home header div.header-left,
+.details header div.header-left, .home header div.header-left form,
+.details header div.header-left form, .home header ul,
+.details header ul, footer nav, footer nav ul.legal, footer nav ul.social {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col, body.home main section.product-lists article.item, body.login, body.login main section ul.button-row li, body.login main section form fieldset, body.join main section form, body.join main section form fieldset, body.join main section form fieldset div.business-only.active, body.not-found main, .home header ul li a,
+.details header ul li a {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center, body.home main section.carousel div.event-banner, body.login, body.details article.product-info div.purchase div.buy-info div.amount button, body.not-found main, body.not-found main article div.msg ul li, .home header div.header-left h1,
+.details header div.header-left h1, .home header div.header-left form button,
+.details header div.header-left form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+strong {
+  font-weight: 700;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid var(--highlight);
+}
+
+@media (max-width: 1280px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media (max-width: 720px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media (max-width: 480px) {
+  html {
+    font-size: 7px;
+  }
+}/*# sourceMappingURL=style.css.map */

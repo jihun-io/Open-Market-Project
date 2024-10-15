@@ -1,0 +1,43 @@
+footer {
+  @extend .padding;
+  padding-top: 5.4rem;
+  padding-bottom: 6.3rem;
+  background-color: var(--gray-bg);
+  font-size: 1.4rem;
+  nav {
+    @extend .flex-row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2.2rem;
+    border-bottom: 1px solid var(--gray-border);
+
+    ul.legal {
+      @extend .flex-row;
+      flex-wrap: wrap;
+      row-gap: 1.3rem;
+
+      li {
+        &:not(:last-child)::after {
+          content: "|";
+          margin-left: 1.4rem;
+          margin-right: 1.4rem;
+        }
+        a {
+          color: #000;
+        }
+      }
+    }
+
+    ul.social {
+      @extend .flex-row;
+      column-gap: 1.4rem;
+    }
+  }
+  ul.shop-info {
+    padding-top: 3rem;
+    color: var(--gray);
+    li {
+      line-height: 2.4rem;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+body.home {
+  main {
+    section.carousel {
+      height: 50rem;
+      background-color: var(--gray-bg);
+      position: relative;
+      div.controller {
+        @extend .flex-row;
+        padding: 0 3rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        justify-content: space-between;
+      }
+      div.event-banner {
+        @extend .flex-center;
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        column-gap: 0.6rem;
+        button {
+          width: 0.6rem;
+          height: 0.6rem;
+          background-color: #fff;
+          &.active {
+            background-color: #000;
+          }
+        }
+      }
+    }
+    section.product-lists {
+      @extend .padding;
+      padding-top: 8rem;
+      padding-bottom: 18rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+      column-gap: 7rem;
+      row-gap: 7.8rem;
+      flex-wrap: wrap;
+      justify-items: center;
+      article.item {
+        @extend .flex-col;
+        width: 38rem;
+        img {
+          width: 38rem;
+          height: 38rem;
+          border-radius: 10px;
+          border: 1px solid var(--gray-border);
+          object-fit: cover;
+          margin-bottom: 1.6rem;
+        }
+        p,
+        h3 {
+          &.seller {
+            color: var(--gray);
+          }
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+          span.number {
+            font-size: 2.4rem;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
