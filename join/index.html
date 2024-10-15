@@ -26,6 +26,9 @@
               <input type="text" name="id" id="id" />
               <button>중복확인</button>
             </div>
+            <p class="msg msg-id">
+              20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.
+            </p>
             <label for="password">비밀번호</label>
             <div class="field-security">
               <input type="password" name="password" id="password" />
@@ -35,19 +38,19 @@
                 alt="안전하지 않음"
               />
             </div>
+            <p class="msg msg-pw">
+              8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+            </p>
             <label for="passwordCheck">비밀번호 재확인</label>
             <div class="field-security">
-              <input
-                type="passwordCheck"
-                name="passwordCheck"
-                id="passwordCheck"
-              />
+              <input type="password" name="passwordCheck" id="passwordCheck" />
               <img
                 class="second-pw-check"
                 src="/images/icon-check-off.svg"
                 alt="안전하지 않음"
               />
             </div>
+            <p class="msg msg-pw-check">비밀번호가 일치하지 않습니다.</p>
             <label for="name">이름</label>
             <input type="text" name="name" id="name" />
             <label for="phone">휴대폰번호</label>
@@ -89,6 +92,7 @@
                 maxlength="4"
               />
             </div>
+            <p class="msg msg-phone">해당 사용자 전화번호는 이미 존재합니다.</p>
             <div class="business-only">
               <label for="business">사업자 등록번호</label>
               <div class="field-business">
@@ -101,7 +105,7 @@
           </fieldset>
           <div class="agree">
             <input type="checkbox" name="agree" id="agree" />
-            <label for="agree">
+            <label for="agree" tabindex="0">
               <span
                 >호두샵의 <a href="/terms">이용약관</a> 및
                 <a href="/privacy">개인정보처리방침</a>에 대한 내용을 확인하였고
@@ -117,9 +121,13 @@
       const buttons = document.querySelectorAll(".button-row button");
       const buyersOnly = document.querySelector("div.business-only");
 
+      const msgs = document.querySelectorAll(".msg");
+
       const select = document.querySelector(".select-wrapper");
       const optionList = document.querySelector(".optionList");
       const options = document.querySelectorAll(".optionList li");
+
+      const phoneNumbers = document.querySelectorAll(".field-phone input");
 
       buttons.forEach((button, index) => {
         button.addEventListener("click", () => {
@@ -140,7 +148,9 @@
         optionList.scrollTo(0, 0);
       });
 
+      // 접근성을 고려한 키보드 이벤트 추가
       select.addEventListener("keypress", (e) => {
+        e.preventDefault();
         if (e.key === "Enter" || e.key === " ") {
           optionList.classList.toggle("active");
           select.classList.toggle("active");
@@ -153,14 +163,78 @@
           e.preventDefault();
           select.querySelector("input").value = option.textContent;
           optionList.classList.remove("active");
+          phoneNumbers[1].focus();
         });
 
+        // 접근성을 고려한 키보드 이벤트 추가
         option.addEventListener("keypress", (e) => {
+          e.preventDefault();
           if (e.key === "Enter" || e.key === " ") {
             select.querySelector("input").value = option.textContent;
             optionList.classList.remove("active");
           }
+          phoneNumbers[1].focus();
         });
+      });
+
+      // 휴대전화번호 입력 시 자동으로 포커스 이동 및 길이 제한
+      phoneNumbers.forEach((phone, index) => {
+        phone.addEventListener("input", (e) => {
+          if (e.target.value.length >= e.target.maxLength) {
+            if (index === 1) phoneNumbers[index + 1].focus();
+            e.target.value = e.target.value.slice(0, e.target.maxLength);
+          }
+        });
+      });
+
+      //8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+      const passwords = document.querySelectorAll("input[type='password']");
+      const firstCheck = document.querySelector(".first-pw-check");
+      const secondCheck = document.querySelector(".second-pw-check");
+
+      const fieldSecurities = document.querySelectorAll(".field-security");
+
+      passwords[0].addEventListener("blur", () => {
+        const regex =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+        if (regex.test(passwords[0].value)) {
+          firstCheck.src = "/images/icon-check-on.svg";
+          firstCheck.alt = "안전함";
+          msgs[1].classList.remove("active");
+          fieldSecurities[0].classList.remove("error");
+        } else {
+          firstCheck.src = "/images/icon-check-off.svg";
+          firstCheck.alt = "안전하지 않음";
+          msgs[1].classList.add("active");
+          fieldSecurities[0].classList.add("error");
+        }
+      });
+
+      passwords[1].addEventListener("blur", () => {
+        if (
+          passwords[0].value === passwords[1].value &&
+          passwords[1].value !== ""
+        ) {
+          secondCheck.src = "/images/icon-check-on.svg";
+          secondCheck.alt = "안전함";
+          msgs[2].classList.remove("active");
+          fieldSecurities[1].classList.remove("error");
+        } else {
+          secondCheck.src = "/images/icon-check-off.svg";
+          secondCheck.alt = "안전하지 않음";
+          msgs[2].classList.add("active");
+          fieldSecurities[1].classList.add("error");
+        }
+      });
+
+      const agreeLabel = document.querySelector(".agree label");
+      const agreeInput = document.querySelector(".agree input");
+
+      agreeLabel.addEventListener("keypress", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          agreeInput.checked = !agreeInput.checked;
+        }
       });
     </script>
   </body>
