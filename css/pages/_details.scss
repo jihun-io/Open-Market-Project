@@ -225,4 +225,36 @@ body[class^="route-items"] {
       }
     }
   }
+
+  main.no-product {
+    @extend .flex-col;
+    @extend .flex-center;
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    ul {
+      @extend .flex-row;
+      @extend .flex-center;
+      column-gap: 2rem;
+      a,
+      button {
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 2.2rem;
+        color: var(--gray-text);
+        padding: 1.9rem 3.8rem;
+        border: 1px solid var(--gray-border);
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      a {
+        background-color: var(--highlight);
+        color: #fff;
+      }
+    }
+  }
 }

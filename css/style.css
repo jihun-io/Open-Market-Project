@@ -719,6 +719,31 @@ body[class^=route-items] dialog ul li button.modal-yes {
   color: #fff;
   background-color: var(--highlight);
 }
+body[class^=route-items] main.no-product h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+body[class^=route-items] main.no-product ul {
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+body[class^=route-items] main.no-product ul a,
+body[class^=route-items] main.no-product ul button {
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+  color: var(--gray-text);
+  padding: 1.9rem 3.8rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  text-align: center;
+}
+body[class^=route-items] main.no-product ul a {
+  background-color: var(--highlight);
+  color: #fff;
+}
 
 body.route-not-found main {
   min-height: 100dvh;
@@ -912,7 +937,7 @@ footer ul.shop-info li {
   padding-right: max(20px, min(22.73vw - 116.36px, 320px));
 }
 
-.flex-row, body.route-home main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body.route-not-found main article, .route-home header div.header-left,
+.flex-row, body.route-home main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-not-found main article, .route-home header div.header-left,
 [class^=route-items] header div.header-left, .route-home header div.header-left form,
 [class^=route-items] header div.header-left form, .route-home header ul,
 [class^=route-items] header ul, footer nav, footer nav ul.legal, footer nav ul.social {
@@ -920,13 +945,13 @@ footer ul.shop-info li {
   flex-direction: row;
 }
 
-.flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-not-found main, .route-home header ul li a,
+.flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body[class^=route-items] main.no-product, body.route-not-found main, .route-home header ul li a,
 [class^=route-items] header ul li a {
   display: flex;
   flex-direction: column;
 }
 
-.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-join, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
+.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-join, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
 [class^=route-items] header div.header-left h1, .route-home header div.header-left form button,
 [class^=route-items] header div.header-left form button {
   display: flex;
