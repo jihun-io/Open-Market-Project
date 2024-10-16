@@ -1,7 +1,36 @@
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 
-export default function Home() {
+async function getProducts(API_URL) {
+  const res = await fetch(`${API_URL}/products`);
+  const data = await res.json();
+
+  let result;
+
+  result = data.results
+    .map((product) => {
+      return `
+      <a href="/items/${product.id}">
+        <article class="item">
+          <img src="${product.image}" alt="${product.name}" />
+          <p class="seller">${product.seller.store_name}</p>
+          <h3 class="title">${product.name}</h3>
+          <p class="price">
+            <span class="number">${product.price.toLocaleString(
+              "ko-KR"
+            )}</span>원
+          </p>
+        </article>
+      </a>
+    `;
+    })
+    .join("");
+
+  return result;
+}
+
+export default async function Home({ API_URL }) {
+  const products = await getProducts(API_URL);
   return `
     ${Header()}
     <main>
@@ -35,63 +64,7 @@ export default function Home() {
       </section>
       <section class="product-lists">
         <h2 class="sr-only">상품 목록</h2>
-        <article class="item">
-          <img
-            src="/images/그림파우치_맥북 사본.jpeg"
-            alt="노트북 파우치 상품의 목업 이미지."
-          />
-          <p class="seller">우당탕탕 라이캣의 실험실</p>
-          <h3 class="title">Hack Your Life 개발자 노트북 파우치</h3>
-          <p class="price">
-            <span class="number">29,000</span>원
-          </p>
-        </article>
-        <article class="item">
-          <img
-            src="/images/열쇠고리_고양이_그림자컷.jpeg"
-            alt="고양이 키링 상품의 목업 이미지."
-          />
-          <p class="seller">제주코딩베이스캠프</p>
-          <h3 class="title">네 개발잡니다 개발자키링 금속키링</h3>
-          <p class="price">
-            <span class="number">29,000</span>원
-          </p>
-        </article>
-        <article class="item">
-          <img
-            src="/images/무릎담요-제품-소개1.png"
-            alt="무릎 담요 상품의 목업 이미지."
-          />
-          <p class="seller">백엔드글로벌</p>
-          <h3 class="title">딥러닝 개발자 무릎 담요</h3>
-          <p class="price">
-            <span class="number">29,000</span>원
-          </p>
-        </article>
-        <article class="item">
-          <img
-            src="/images/세트_사선부분컷.jpeg"
-            alt="스티커 팩 상품의 목업 이미지."
-          />
-          <p class="seller">코딩앤유</p>
-          <h3 class="title">우당탕탕 라이캣의 실험실 스티커 팩</h3>
-          <p class="price">
-            <span class="number">29,000</span>원
-          </p>
-        </article>
-        <article class="item">
-          <img
-            src="/images/열쇠고리_개구리_가로1.jpeg"
-            alt="개구리 키링 상품의 목업 이미지."
-          />
-          <p class="seller">파이썬스쿨</p>
-          <h3 class="title">
-            버그를 Java라 버그잡는 개리씨 키링 개발자키링...
-          </h3>
-          <p class="price">
-            <span class="number">29,000</span>원
-          </p>
-        </article>
+        ${products}
       </section>
     </main>
     ${Footer()}
