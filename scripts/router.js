@@ -100,8 +100,24 @@ window.addEventListener("popstate", () => router());
 
 document.body.addEventListener("click", (e) => {
   if (e.target.matches("a")) {
-    e.preventDefault();
-    const href = e.target.href;
+    const href = e.target.getAttribute("href");
+    const target = e.target.getAttribute("target");
+
+    // 외부 링크 처리
+    if (!href.startsWith("/")) {
+      // 외부 링크는 기본 동작 유지
+      return;
+    }
+
+    e.preventDefault(); // 내부 링크의 기본 동작 방지
+
+    // target="_blank" 처리
+    if (target === "_blank") {
+      window.open(href, "_blank");
+      return; // 여기서 함수 종료
+    }
+
+    // 일반 내부 링크 처리
     window.history.pushState({}, "", href);
     router();
   }
