@@ -142,9 +142,11 @@ export async function formSubmit() {
     button.addEventListener("click", () => {
       buttons.forEach((button) => button.classList.remove("active"));
       button.classList.add("active");
-      if (button.classList.contains("buyer"))
+      if (button.classList.contains("buyer")) {
+        joinType = "seller";
         buyersOnly.classList.remove("active");
-      else {
+      } else {
+        joinType = "buyer";
         buyersOnly.classList.add("active");
       }
     });
