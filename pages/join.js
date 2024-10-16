@@ -1,4 +1,12 @@
-export default function Join() {
+let apiUrl;
+let buyerUrl;
+let sellerUrl;
+
+export default function Join({ API_URL }) {
+  apiUrl = `${API_URL}/accounts`;
+  buyerUrl = `${API_URL}/accounts/buyer/signup`;
+  sellerUrl = `${API_URL}/accounts/seller/signup`;
+
   return {
     title: "회원가입 - HODU",
     content: /*html*/ `
@@ -107,7 +115,7 @@ export default function Join() {
   };
 }
 
-export function formSubmit() {
+export async function formSubmit() {
   const buttons = document.querySelectorAll(".button-row button");
   const buyersOnly = document.querySelector("div.business-only");
 
@@ -179,24 +187,74 @@ export function formSubmit() {
 
   // 아이디 유효성 검사
 
-  const id = document.querySelector("#id");
+  const id = document.querySelector("input#id");
   const idMsg = document.querySelector(".msg-id");
+  const idCheck = document.querySelector(".field-exists button");
 
-  id.addEventListener("blur", () => {
+  const idValidation = () => {
     const regex = /^[A-Za-z0-9]{1,20}$/;
+    let result;
     if (id.value === "") {
-      id.classList.add("error");
-      idMsg.classList.add("active");
-      idMsg.textContent = "필수 정보입니다.";
+      result = "need";
     } else if (regex.test(id.value)) {
-      id.classList.remove("error");
-      idMsg.classList.remove("active");
-      idMsg.textContent = "";
+      result = "success";
     } else {
+      result = "fail";
+    }
+    return result;
+  };
+
+  idCheck.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const checkId = idValidation();
+    switch (checkId) {
+      case "need":
+        idMsg.classList.remove("correct");
+        id.classList.add("error");
+        idMsg.classList.add("active");
+        idMsg.textContent = "필수 정보입니다.";
+        return;
+      case "fail":
+        idMsg.classList.remove("correct");
+        id.classList.add("error");
+        idMsg.classList.add("active");
+        idMsg.textContent =
+          "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+        return;
+      case "success":
+        id.classList.remove("error");
+        idMsg.classList.remove("active");
+        break;
+    }
+
+    const req = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: id.value }),
+    };
+
+    try {
+      const res = await fetch(`${apiUrl}/validate-username/`, req);
+      if (res.ok) {
+        const data = await res.json();
+
+        if (data.message === "사용 가능한 아이디입니다.") {
+          id.classList.remove("error");
+          idMsg.classList.add("active");
+          idMsg.classList.add("correct");
+          idMsg.textContent = "멋진 아이디네요 :)";
+        }
+      } else {
+        throw new Error("Network response was not ok");
+      }
+    } catch (err) {
+      console.error(err);
+      idMsg.classList.remove("correct");
       id.classList.add("error");
       idMsg.classList.add("active");
-      idMsg.textContent =
-        "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+      idMsg.textContent = "이미 사용 중인 아이디입니다.";
     }
   });
 
@@ -336,5 +394,13 @@ export function formSubmit() {
       e.preventDefault();
       agreeInput.checked = !agreeInput.checked;
     }
+  });
+
+  // 폼 제출 로직
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("submit");
   });
 }
