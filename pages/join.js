@@ -175,16 +175,6 @@ export async function formSubmit() {
     });
   });
 
-  // 휴대전화번호 입력 시 자동으로 포커스 이동 및 길이 제한
-  phoneNumbers.forEach((phone, index) => {
-    phone.addEventListener("input", (e) => {
-      if (e.target.value.length >= e.target.maxLength) {
-        if (index === 1) phoneNumbers[index + 1].focus();
-        e.target.value = e.target.value.slice(0, e.target.maxLength);
-      }
-    });
-  });
-
   // 아이디 유효성 검사
 
   const id = document.querySelector("input#id");
@@ -384,6 +374,85 @@ export async function formSubmit() {
         phoneMsg.textContent = "";
       }
     });
+  });
+
+  // 휴대전화번호 입력 시 자동으로 포커스 이동 및 길이 제한
+  phoneNumbers.forEach((phone, index) => {
+    phone.addEventListener("input", (e) => {
+      if (e.target.value.length >= e.target.maxLength) {
+        if (index === 1) phoneNumbers[index + 1].focus();
+        e.target.value = e.target.value.slice(0, e.target.maxLength);
+      }
+    });
+  });
+
+  // 사업자 등록번호 유효성 검사
+  const business = document.querySelector("input#business");
+  const businessMsg = document.querySelector(".msg-business");
+  const businessCheck = document.querySelector(".field-business button");
+
+  business.addEventListener("input", (e) => {
+    if (e.target.value.length > 10) {
+      e.target.value = e.target.value.slice(0, 10);
+    }
+  });
+
+  businessCheck.addEventListener("click", async (e) => {
+    e.preventDefault();
+    businessMsg.textContent = "확인 중...";
+    businessMsg.classList.add("active");
+    businessMsg.classList.add("correct");
+    await delay(150);
+
+    const req = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ company_registration_number: business.value }),
+    };
+    try {
+      const res = await fetch(
+        `${defaultApiUrl}/seller/validate-registration-number/`,
+        req
+      );
+      if (res.ok) {
+        const data = await res.json();
+        if (data.message === "사용 가능한 사업자등록번호입니다.") {
+          business.classList.remove("error");
+          businessMsg.classList.add("active");
+          businessMsg.classList.add("correct");
+          businessMsg.textContent = "인증되었습니다.";
+        }
+      } else {
+        const result = await res.json();
+        throw new Error(result.error);
+      }
+    } catch (err) {
+      if (
+        err.toString() ===
+        "Error: company_registration_number 필드를 추가해주세요."
+      ) {
+        businessMsg.classList.remove("correct");
+        business.classList.add("error");
+        businessMsg.classList.add("active");
+        businessMsg.textContent = "사업자등록번호를 입력해주세요.";
+      } else if (
+        err.toString() === "Error: 사업자등록번호는 10자리 숫자여야 합니다."
+      ) {
+        businessMsg.classList.remove("correct");
+        business.classList.add("error");
+        businessMsg.classList.add("active");
+        businessMsg.textContent = "사업자등록번호는 10자리 숫자여야 합니다.";
+      } else if (
+        err.toString() === "Error: 이미 등록된 사업자등록번호입니다."
+      ) {
+        businessMsg.classList.remove("correct");
+        business.classList.add("error");
+        businessMsg.classList.add("active");
+        businessMsg.textContent = "이미 사용 중인 사업자 등록번호입니다.";
+      }
+    }
   });
 
   const agreeLabel = document.querySelector(".agree label");
