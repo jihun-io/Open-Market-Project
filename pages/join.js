@@ -1,11 +1,9 @@
-let apiUrl;
-let buyerUrl;
-let sellerUrl;
+let joinType = "buyer";
+
+let defaultApiUrl;
 
 export default function Join({ API_URL }) {
-  apiUrl = `${API_URL}/accounts`;
-  buyerUrl = `${API_URL}/accounts/buyer/signup`;
-  sellerUrl = `${API_URL}/accounts/seller/signup`;
+  defaultApiUrl = `${API_URL}/accounts`;
 
   return {
     title: "회원가입 - HODU",
@@ -116,6 +114,14 @@ export default function Join({ API_URL }) {
 }
 
 export async function formSubmit() {
+  let apiUrl = () => {
+    if (joinType === "buyer") {
+      return defaultApiUrl + "/buyer/";
+    } else {
+      return defaultApiUrl + "/seller/";
+    }
+  };
+
   const buttons = document.querySelectorAll(".button-row button");
   const buyersOnly = document.querySelector("div.business-only");
 
@@ -226,7 +232,7 @@ export async function formSubmit() {
     };
 
     try {
-      const res = await fetch(`${apiUrl}/validate-username/`, req);
+      const res = await fetch(`${defaultApiUrl}/validate-username/`, req);
       if (res.ok) {
         const data = await res.json();
 
