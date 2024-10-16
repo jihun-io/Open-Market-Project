@@ -100,8 +100,8 @@ export default function Join({ API_URL }) {
             <input type="checkbox" name="agree" id="agree" />
             <label for="agree" tabindex="0">
               <span
-                >호두샵의 <a href="/terms">이용약관</a> 및
-                <a href="/privacy">개인정보처리방침</a>에 대한 내용을 확인하였고
+                >호두샵의 <a href="/terms" target="_blank">이용약관</a> 및
+                <a href="/privacy" target="_blank">개인정보처리방침</a>에 대한 내용을 확인하였고
                 동의합니다.</span
               ></label
             >
