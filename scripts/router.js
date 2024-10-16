@@ -81,10 +81,7 @@ async function router() {
   content.innerHTML = pageContent;
 
   // 모든 route 관련 클래스를 body에서 제거
-  document.body.classList.remove(
-    ...routes.map((route) => `route-${route.path.slice(1).split("/")[0]}`),
-    "route-not-found"
-  );
+  document.body.classList = "";
 
   // 현재 route에 해당하는 클래스를 body에 추가
   document.body.classList.add(routeClass);
