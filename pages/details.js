@@ -2,49 +2,86 @@ import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 
 async function getData(API_URL, productId) {
-  const res = await fetch(`${API_URL}/products/${productId}`);
-  const data = await res.json();
-  return data;
+  const res = await fetch(`${API_URL}/products/${productId}`)
+    .then((res) => {
+      const data = res.json();
+      return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
+    });
+  return res;
+}
+
+async function fetchData(API_URL, productId) {
+  const product = await getData(API_URL, productId)
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.log(error);
+      return error;
+    });
+
+  if (product.detail === "No Product matches the given query.") {
+    return false;
+  } else {
+    return product;
+  }
 }
 
 export default async function Details({ API_URL, params }) {
   const productId = params.id;
 
-  try {
-    const product = await getData(API_URL, productId);
+  const result = await fetchData(API_URL, productId);
+  if (result === false) {
     return {
-      title: `${product.name} - HODU`,
+      title: "상품이 존재하지 않습니다. - HODU",
+      content: `
+        ${Header()}
+        <main class="no-product">
+          <h2>상품이 존재하지 않습니다.</h2>
+          <ul>
+            <li><a href="/">메인으로</a></li>
+            <li><button onclick="history.back()">이전 페이지</button></li>
+          </ul>
+        </main>
+        ${Footer()}
+      `,
+    };
+  } else {
+    return {
+      title: `${result.name} - HODU`,
       content: `
       ${Header()}
       <h2 class="sr-only">상품 정보</h2>
       <article class="product-info">
       <img
-        src="${product.image}"
-        alt="${product.name}"
+        src="${result.image}"
+        alt="${result.name}"
       />
       <div class="purchase">
         <div class="item-info">
-          <p class="seller">${product.seller.store_name}</p>
-          <p class="title">${product.name}</p>
-          <p class="price"><span>${product.price.toLocaleString(
+          <p class="seller">${result.seller.store_name}</p>
+          <p class="title">${result.name}</p>
+          <p class="price"><span>${result.price.toLocaleString(
             "ko-KR"
           )}</span>원</p>
         </div>
         <div class="buy-info">
           <p class="shipping">
           ${
-            product.shipping_method === "PARCEL"
+            result.shipping_method === "PARCEL"
               ? "택배배송 / "
-              : product.shipping_method === "DELIVERY"
+              : result.shipping_method === "DELIVERY"
               ? "직접배송(화물배달) /"
               : "방문수령 /"
           }
             ${
-              product.shipping_fee === 0
+              result.shipping_fee === 0
                 ? "무료배송"
-                : `배송비 ${
-                    product.shipping_fee.toLocaleString("ko-KR") + "원"
-                  }`
+                : `배송비 ${result.shipping_fee.toLocaleString("ko-KR") + "원"}`
             }
           </p>
           <div class="amount">
@@ -63,7 +100,7 @@ export default async function Details({ API_URL, params }) {
               ><span class="amount"
                 >총 수량 <span class="count">1</span>개</span
               ><span class="value"
-                ><span class="total-price">${product.price.toLocaleString(
+                ><span class="total-price">${result.price.toLocaleString(
                   "ko-KR"
                 )}</span>원</span
               ></span
@@ -101,9 +138,6 @@ export default async function Details({ API_URL, params }) {
   </dialog>
   `,
     };
-  } catch (error) {
-    console.log(await getData(API_URL, productId));
-    return `<p>상품을 불러오는 중에 오류가 발생했습니다.</p>`;
   }
 }
 
