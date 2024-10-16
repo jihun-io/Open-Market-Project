@@ -41,28 +41,38 @@ body.route-home {
       row-gap: 7.8rem;
       flex-wrap: wrap;
       justify-items: center;
-      article.item {
-        @extend .flex-col;
-        width: 38rem;
-        img {
+
+      & > a {
+        text-decoration: none;
+        color: var(--gray-text);
+        article.item {
+          @extend .flex-col;
           width: 38rem;
-          height: 38rem;
-          border-radius: 10px;
-          border: 1px solid var(--gray-border);
-          object-fit: cover;
-          margin-bottom: 1.6rem;
-        }
-        p,
-        h3 {
-          &.seller {
-            color: var(--gray);
+          img {
+            width: 38rem;
+            height: 38rem;
+            border-radius: 10px;
+            border: 1px solid var(--gray-border);
+            object-fit: cover;
+            margin-bottom: 1.6rem;
           }
-          &:not(:last-child) {
-            margin-bottom: 1rem;
+          p,
+          h3 {
+            line-height: 2.2rem;
+            &.seller {
+              color: var(--gray);
+            }
+            &:not(:last-child) {
+              margin-bottom: 1rem;
+            }
+            span.number {
+              font-size: 2.4rem;
+              font-weight: 700;
+            }
           }
-          span.number {
-            font-size: 2.4rem;
-            font-weight: 700;
+
+          h3 {
+            font-size: 1.8rem;
           }
         }
       }
