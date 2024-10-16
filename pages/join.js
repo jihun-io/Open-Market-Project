@@ -114,6 +114,10 @@ export default function Join({ API_URL }) {
   };
 }
 
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export async function formSubmit() {
   let apiUrl = () => {
     if (joinType === "buyer") {
@@ -203,6 +207,12 @@ export async function formSubmit() {
 
   idCheck.addEventListener("click", async (e) => {
     e.preventDefault();
+    idMsg.classList.add("active");
+    idMsg.classList.add("correct");
+    idMsg.textContent = "확인 중...";
+
+    await delay(150);
+
     const checkId = idValidation();
     switch (checkId) {
       case "need":
@@ -220,7 +230,7 @@ export async function formSubmit() {
         return;
       case "success":
         id.classList.remove("error");
-        idMsg.classList.remove("active");
+        // idMsg.classList.remove("active");
         break;
     }
 
@@ -247,7 +257,6 @@ export async function formSubmit() {
         throw new Error("Network response was not ok");
       }
     } catch (err) {
-      console.error(err);
       idMsg.classList.remove("correct");
       id.classList.add("error");
       idMsg.classList.add("active");
