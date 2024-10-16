@@ -10,11 +10,11 @@ const routes = [
   { path: "/", component: Home },
   { path: "/login", component: Login },
   { path: "/join", component: Join },
-  { path: "/products/:id", component: Details },
+  { path: "/items/:id", component: Details },
 ];
 
 const routeScripts = {
-  "/products": detailsScript,
+  "/items/:id": detailsScript,
   "/join": formSubmit,
   "/login": loginSubmit,
 };
@@ -60,7 +60,6 @@ function extractParams(route, path) {
 async function router() {
   const path = window.location.pathname;
   const content = document.querySelector("body");
-  const page = matchRoute(path)?.component || NotFound;
   const matchedRoute = matchRoute(path);
 
   let pageContent;
@@ -71,7 +70,6 @@ async function router() {
   if (matchedRoute) {
     params = extractParams(matchedRoute, path);
     pageContent = await matchedRoute.component({ API_URL, params });
-    console.log(path.slice(1));
     routeClass = path.slice(1) === "" ? "route-home" : `route-${path.slice(1)}`;
     pageTitle = routeTitles[path] || "HODU";
   } else {
