@@ -17,6 +17,13 @@ const routeScripts = {
   "/login": loginSubmit,
 };
 
+const routeTitles = {
+  "/": "홈",
+  "/login": "로그인",
+  "/join": "회원가입",
+  "/details": "상품 상세",
+};
+
 function router() {
   const path = window.location.pathname;
   const content = document.querySelector("body");
@@ -39,6 +46,10 @@ function router() {
   }
 
   document.body.classList.add(routeClass);
+
+  !!routeTitles[path]
+    ? (document.title = `${routeTitles[path]} - HODU`)
+    : (document.title = "페이지를 찾을 수 없습니다 - HODU");
 
   if (routeScripts[path]) {
     routeScripts[path]();
