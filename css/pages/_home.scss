@@ -24,6 +24,7 @@ body.route-home {
           width: 0.6rem;
           height: 0.6rem;
           background-color: #fff;
+          border-radius: 50%;
           &.active {
             background-color: #000;
           }

@@ -25,6 +25,7 @@ body.route-home main section.carousel div.event-banner button {
   width: 0.6rem;
   height: 0.6rem;
   background-color: #fff;
+  border-radius: 50%;
 }
 body.route-home main section.carousel div.event-banner button.active {
   background-color: #000;
