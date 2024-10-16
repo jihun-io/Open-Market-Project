@@ -91,6 +91,7 @@ export default function Join({ API_URL }) {
                 <input type="number" name="business" id="business" />
                 <button>인증</button>
               </div>
+              <p class="msg msg-business"></p>
               <label for="store-name">스토어 이름</label>
               <input type="text" name="store-name" id="store-name" />
             </div>
