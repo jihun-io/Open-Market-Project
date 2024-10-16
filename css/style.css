@@ -41,10 +41,14 @@ body.route-home main section.product-lists {
   flex-wrap: wrap;
   justify-items: center;
 }
-body.route-home main section.product-lists article.item {
+body.route-home main section.product-lists > a {
+  text-decoration: none;
+  color: var(--gray-text);
+}
+body.route-home main section.product-lists > a article.item {
   width: 38rem;
 }
-body.route-home main section.product-lists article.item img {
+body.route-home main section.product-lists > a article.item img {
   width: 38rem;
   height: 38rem;
   border-radius: 10px;
@@ -53,18 +57,25 @@ body.route-home main section.product-lists article.item img {
      object-fit: cover;
   margin-bottom: 1.6rem;
 }
-body.route-home main section.product-lists article.item p.seller,
-body.route-home main section.product-lists article.item h3.seller {
+body.route-home main section.product-lists > a article.item p,
+body.route-home main section.product-lists > a article.item h3 {
+  line-height: 2.2rem;
+}
+body.route-home main section.product-lists > a article.item p.seller,
+body.route-home main section.product-lists > a article.item h3.seller {
   color: var(--gray);
 }
-body.route-home main section.product-lists article.item p:not(:last-child),
-body.route-home main section.product-lists article.item h3:not(:last-child) {
+body.route-home main section.product-lists > a article.item p:not(:last-child),
+body.route-home main section.product-lists > a article.item h3:not(:last-child) {
   margin-bottom: 1rem;
 }
-body.route-home main section.product-lists article.item p span.number,
-body.route-home main section.product-lists article.item h3 span.number {
+body.route-home main section.product-lists > a article.item p span.number,
+body.route-home main section.product-lists > a article.item h3 span.number {
   font-size: 2.4rem;
   font-weight: 700;
+}
+body.route-home main section.product-lists > a article.item h3 {
+  font-size: 1.8rem;
 }
 
 body.route-join main section form fieldset, body.route-login main section form fieldset {
@@ -331,8 +342,17 @@ body.route-join main section form fieldset div.field-security {
   grid-template-columns: 1fr auto;
   align-items: center;
 }
-body.route-join main section form fieldset div.field-security img {
+body.route-join main section form fieldset div.field-security div.first-pw-check,
+body.route-join main section form fieldset div.field-security div.second-pw-check {
+  width: 2.8rem;
+  height: 2.8rem;
   margin: 0 1.6rem;
+  background-image: url(/images/icon-check-off.svg);
+  background-size: cover;
+}
+body.route-join main section form fieldset div.field-security div.first-pw-check.valid,
+body.route-join main section form fieldset div.field-security div.second-pw-check.valid {
+  background-image: url(/images/icon-check-on.svg);
 }
 body.route-join main section form fieldset div.field-security input {
   border: 0;
@@ -898,7 +918,7 @@ footer ul.shop-info li {
   flex-direction: row;
 }
 
-.flex-col, body.route-home main section.product-lists article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-not-found main, .route-home header ul li a,
+.flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-not-found main, .route-home header ul li a,
 .route-details header ul li a {
   display: flex;
   flex-direction: column;

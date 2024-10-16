@@ -163,8 +163,16 @@ body.route-join {
             grid-template-columns: 1fr auto;
             align-items: center;
 
-            img {
+            div.first-pw-check,
+            div.second-pw-check {
+              width: 2.8rem;
+              height: 2.8rem;
               margin: 0 1.6rem;
+              background-image: url(/images/icon-check-off.svg);
+              background-size: cover;
+              &.valid {
+                background-image: url(/images/icon-check-on.svg);
+              }
             }
 
             input {
