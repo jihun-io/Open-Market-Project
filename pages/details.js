@@ -32,7 +32,13 @@ export default async function Details({ API_URL, params }) {
         </div>
         <div class="buy-info">
           <p class="shipping">
-          ${product.shipping_method === "PARCEL" ? "택배배송 / " : "방문수령 /"}
+          ${
+            product.shipping_method === "PARCEL"
+              ? "택배배송 / "
+              : product.shipping_method === "DELIVERY"
+              ? "직접배송(화물배달) /"
+              : "방문수령 /"
+          }
             ${
               product.shipping_fee === 0
                 ? "무료배송"
