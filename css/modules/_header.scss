@@ -1,5 +1,5 @@
 .route-home header,
-.route-details header {
+[class^="route-items"] header {
   display: flex;
   justify-content: space-between;
   align-items: center;

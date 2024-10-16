@@ -516,46 +516,48 @@ body.route-join main ul.joins li a {
   color: var(--gray-text);
 }
 
-body.route-details article.product-info {
+body[class^=route-items] article.product-info {
   padding-top: 8rem;
   flex-wrap: wrap;
   justify-content: center;
   -moz-column-gap: 5rem;
        column-gap: 5rem;
   row-gap: 5rem;
+  height: -moz-fit-content;
+  height: fit-content;
 }
-body.route-details article.product-info img {
+body[class^=route-items] article.product-info img {
   width: 60rem;
   height: 60rem;
 }
-body.route-details article.product-info div.purchase {
+body[class^=route-items] article.product-info div.purchase {
   flex-grow: 1;
   display: grid;
   grid-template-rows: 1fr auto;
 }
-body.route-details article.product-info div.purchase div.item-info p.seller {
+body[class^=route-items] article.product-info div.purchase div.item-info p.seller {
   font-size: 1.8rem;
   color: var(--gray);
 }
-body.route-details article.product-info div.purchase div.item-info p.title {
+body[class^=route-items] article.product-info div.purchase div.item-info p.title {
   font-size: 3.6rem;
   margin-top: 1.6rem;
   margin-bottom: 2rem;
 }
-body.route-details article.product-info div.purchase div.item-info p.price {
+body[class^=route-items] article.product-info div.purchase div.item-info p.price {
   font-size: 1.8rem;
 }
-body.route-details article.product-info div.purchase div.item-info p.price span {
+body[class^=route-items] article.product-info div.purchase div.item-info p.price span {
   font-size: 3.6rem;
   font-weight: 700;
   margin-right: 0.2rem;
 }
-body.route-details article.product-info div.purchase div.buy-info p.shipping {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.shipping {
   color: var(--gray);
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-body.route-details article.product-info div.purchase div.buy-info div.amount {
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount {
   display: grid;
   grid-template-columns: 5rem 5rem 5rem;
   grid-template-rows: 5rem;
@@ -564,31 +566,31 @@ body.route-details article.product-info div.purchase div.buy-info div.amount {
   border-top: 0.2rem solid var(--gray-border);
   border-bottom: 0.2rem solid var(--gray-border);
 }
-body.route-details article.product-info div.purchase div.buy-info div.amount button img {
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button img {
   width: 2rem;
   height: 2rem;
 }
-body.route-details article.product-info div.purchase div.buy-info div.amount button:first-child {
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:first-child {
   border: 1px solid var(--gray-border);
   border-right: 0;
   border-radius: 5px 0 0 5px;
 }
-body.route-details article.product-info div.purchase div.buy-info div.amount button:last-child {
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:last-child {
   border: 1px solid var(--gray-border);
   border-left: 0;
   border-radius: 0 5px 5px 0;
 }
-body.route-details article.product-info div.purchase div.buy-info div.amount input[type=number] {
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount input[type=number] {
   font-size: 1.8rem;
   border: 1px solid var(--gray-border);
   text-align: center;
 }
-body.route-details article.product-info div.purchase div.buy-info div.amount input[type=number]::-webkit-inner-spin-button {
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount input[type=number]::-webkit-inner-spin-button {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-body.route-details article.product-info div.purchase div.buy-info p.total {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total {
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
@@ -597,43 +599,43 @@ body.route-details article.product-info div.purchase div.buy-info p.total {
   padding-top: 4.6rem;
   padding-bottom: 3rem;
 }
-body.route-details article.product-info div.purchase div.buy-info p.total span.total-text {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total span.total-text {
   font-weight: 500;
 }
-body.route-details article.product-info div.purchase div.buy-info p.total span.total-amount {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total span.total-amount {
   color: var(--gray);
 }
-body.route-details article.product-info div.purchase div.buy-info p.total span.total-amount span.count,
-body.route-details article.product-info div.purchase div.buy-info p.total span.total-amount span.total-price {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total span.total-amount span.count,
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total span.total-amount span.total-price {
   color: var(--highlight);
   font-weight: 700;
 }
-body.route-details article.product-info div.purchase div.buy-info p.total span.total-amount span.amount::after {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total span.total-amount span.amount::after {
   content: "|";
   margin-left: 1.1rem;
   margin-right: 1.2rem;
 }
-body.route-details article.product-info div.purchase div.buy-info p.total span.total-amount span.value {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total span.total-amount span.value {
   color: var(--highlight);
 }
-body.route-details article.product-info div.purchase div.buy-info p.total span.total-amount span.value span.total-price {
+body[class^=route-items] article.product-info div.purchase div.buy-info p.total span.total-amount span.value span.total-price {
   font-size: 3.6rem;
 }
-body.route-details article.product-info div.purchase div.buy-info ul.btn-row {
+body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row {
   -moz-column-gap: 1.4rem;
        column-gap: 1.4rem;
 }
-body.route-details article.product-info div.purchase div.buy-info ul.btn-row li {
+body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row li {
   width: 100%;
   min-width: 20rem;
 }
-body.route-details article.product-info div.purchase div.buy-info ul.btn-row li:first-child {
+body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row li:first-child {
   flex-basis: calc(100% - 20rem - 1.4rem);
 }
-body.route-details article.product-info div.purchase div.buy-info ul.btn-row li:last-child {
+body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row li:last-child {
   flex-basis: 20rem;
 }
-body.route-details article.product-info div.purchase div.buy-info ul.btn-row button {
+body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row button {
   width: 100%;
   text-align: center;
   font-weight: 700;
@@ -645,19 +647,19 @@ body.route-details article.product-info div.purchase div.buy-info ul.btn-row but
   padding-bottom: 1.9rem;
   border-radius: 5px;
 }
-body.route-details article.product-info div.purchase div.buy-info ul.btn-row button.purchase {
+body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row button.purchase {
   background-color: var(--highlight);
 }
-body.route-details article.product-details {
+body[class^=route-items] article.product-details {
   margin-top: 14rem;
 }
-body.route-details article.product-details ul {
+body[class^=route-items] article.product-details ul {
   justify-content: space-around;
 }
-body.route-details article.product-details ul li {
+body[class^=route-items] article.product-details ul li {
   width: 100%;
 }
-body.route-details article.product-details ul li button {
+body[class^=route-items] article.product-details ul li button {
   width: 100%;
   font-weight: 500;
   border-bottom: 6px solid #e0e0e0;
@@ -665,35 +667,35 @@ body.route-details article.product-details ul li button {
   padding-bottom: 1.2rem;
   line-height: 2.3rem;
 }
-body.route-details article.product-details ul li button.active {
+body[class^=route-items] article.product-details ul li button.active {
   color: var(--highlight);
   font-weight: 700;
   border-bottom: 6px solid var(--highlight);
 }
-body.route-details dialog {
+body[class^=route-items] dialog {
   border: 1px solid var(--gray-border);
   padding-top: 5rem;
   padding-bottom: 4rem;
   padding-left: 7.5rem;
   padding-right: 7.5rem;
 }
-body.route-details dialog div.window-controller {
+body[class^=route-items] dialog div.window-controller {
   position: absolute;
   top: 0;
   right: 0;
 }
-body.route-details dialog div.window-controller button {
+body[class^=route-items] dialog div.window-controller button {
   position: absolute;
   top: 1.8rem;
   right: 1.8rem;
   width: 2.2rem;
   height: 2.2rem;
 }
-body.route-details dialog p {
+body[class^=route-items] dialog p {
   text-align: center;
   line-height: 2rem;
 }
-body.route-details dialog ul {
+body[class^=route-items] dialog ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
@@ -702,7 +704,7 @@ body.route-details dialog ul {
   margin-top: 3rem;
   width: 21rem;
 }
-body.route-details dialog ul li button {
+body[class^=route-items] dialog ul li button {
   width: 100%;
   height: 100%;
   padding-top: 1rem;
@@ -710,10 +712,10 @@ body.route-details dialog ul li button {
   border-radius: 5px;
   line-height: 1.8rem;
 }
-body.route-details dialog ul li button.modal-no {
+body[class^=route-items] dialog ul li button.modal-no {
   border: 1px solid var(--gray-border);
 }
-body.route-details dialog ul li button.modal-yes {
+body[class^=route-items] dialog ul li button.modal-yes {
   color: #fff;
   background-color: var(--highlight);
 }
@@ -767,7 +769,7 @@ body.route-not-found main article div.msg ul li a {
 }
 
 .route-home header,
-.route-details header {
+[class^=route-items] header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -776,17 +778,17 @@ body.route-not-found main article div.msg ul li a {
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .route-home header div.header-left,
-.route-details header div.header-left {
+[class^=route-items] header div.header-left {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
 }
 .route-home header div.header-left h1 img,
-.route-details header div.header-left h1 img {
+[class^=route-items] header div.header-left h1 img {
   width: 12.4rem;
   height: 3.8rem;
 }
 .route-home header div.header-left form,
-.route-details header div.header-left form {
+[class^=route-items] header div.header-left form {
   width: 20.8333333333vw;
   min-width: 33.3333333333vw;
   justify-content: space-between;
@@ -797,34 +799,34 @@ body.route-not-found main article div.msg ul li a {
   padding: 0 2.2rem;
 }
 .route-home header div.header-left form input,
-.route-details header div.header-left form input {
+[class^=route-items] header div.header-left form input {
   width: 100%;
   height: 2rem;
 }
 .route-home header div.header-left form button,
-.route-details header div.header-left form button {
+[class^=route-items] header div.header-left form button {
   margin-left: 2.2rem;
 }
 .route-home header div.header-left form button img,
-.route-details header div.header-left form button img {
+[class^=route-items] header div.header-left form button img {
   width: 2.8rem;
   height: 2.8rem;
 }
 .route-home header ul,
-.route-details header ul {
+[class^=route-items] header ul {
   -moz-column-gap: 2.6rem;
        column-gap: 2.6rem;
 }
 .route-home header ul li:first-child,
-.route-details header ul li:first-child {
+[class^=route-items] header ul li:first-child {
   width: 4.6rem;
 }
 .route-home header ul li:last-child,
-.route-details header ul li:last-child {
+[class^=route-items] header ul li:last-child {
   width: 5.6rem;
 }
 .route-home header ul li a,
-.route-details header ul li a {
+[class^=route-items] header ul li a {
   padding: 0.1rem 0;
   align-items: center;
   font-size: 1.2rem;
@@ -832,7 +834,7 @@ body.route-not-found main article div.msg ul li a {
   color: var(--gray);
 }
 .route-home header ul li a img,
-.route-details header ul li a img {
+[class^=route-items] header ul li a img {
   width: 3.2rem;
   height: 3.2rem;
 }
@@ -904,29 +906,29 @@ footer ul.shop-info li {
   --o-user-select: none;
 }
 
-.padding, body.route-home main section.product-lists, body.route-details article, .route-home header,
-.route-details header, footer {
+.padding, body.route-home main section.product-lists, body[class^=route-items] article, .route-home header,
+[class^=route-items] header, footer {
   padding-left: max(20px, min(22.73vw - 116.36px, 320px));
   padding-right: max(20px, min(22.73vw - 116.36px, 320px));
 }
 
-.flex-row, body.route-home main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body.route-details article.product-info, body.route-details article.product-info div.purchase div.buy-info ul.btn-row, body.route-details article.product-details ul, body.route-not-found main article, .route-home header div.header-left,
-.route-details header div.header-left, .route-home header div.header-left form,
-.route-details header div.header-left form, .route-home header ul,
-.route-details header ul, footer nav, footer nav ul.legal, footer nav ul.social {
+.flex-row, body.route-home main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body.route-not-found main article, .route-home header div.header-left,
+[class^=route-items] header div.header-left, .route-home header div.header-left form,
+[class^=route-items] header div.header-left form, .route-home header ul,
+[class^=route-items] header ul, footer nav, footer nav ul.legal, footer nav ul.social {
   display: flex;
   flex-direction: row;
 }
 
 .flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-not-found main, .route-home header ul li a,
-.route-details header ul li a {
+[class^=route-items] header ul li a {
   display: flex;
   flex-direction: column;
 }
 
-.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-join, body.route-details article.product-info div.purchase div.buy-info div.amount button, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
-.route-details header div.header-left h1, .route-home header div.header-left form button,
-.route-details header div.header-left form button {
+.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-join, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
+[class^=route-items] header div.header-left h1, .route-home header div.header-left form button,
+[class^=route-items] header div.header-left form button {
   display: flex;
   justify-content: center;
   align-items: center;
