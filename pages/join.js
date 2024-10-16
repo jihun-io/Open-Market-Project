@@ -196,16 +196,31 @@ export async function formSubmit() {
 
   const idValidation = () => {
     const regex = /^[A-Za-z0-9]{1,20}$/;
-    let result;
     if (id.value === "") {
-      result = "need";
+      idMsg.classList.remove("correct");
+      id.classList.add("error");
+      idMsg.classList.add("active");
+      idMsg.textContent = "필수 정보입니다.";
+      return "need";
     } else if (regex.test(id.value)) {
-      result = "success";
+      id.classList.remove("error");
+      return "correct";
     } else {
-      result = "fail";
+      idMsg.classList.remove("correct");
+      id.classList.add("error");
+      idMsg.classList.add("active");
+      idMsg.textContent =
+        "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+      return "error";
     }
-    return result;
   };
+
+  id.addEventListener("blur", () => {
+    const idValidationResult = idValidation();
+    if (idValidationResult === "correct") {
+      idMsg.classList.remove("active");
+    }
+  });
 
   idCheck.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -213,28 +228,11 @@ export async function formSubmit() {
     idMsg.classList.add("correct");
     idMsg.textContent = "확인 중...";
 
-    await delay(150);
-
-    const checkId = idValidation();
-    switch (checkId) {
-      case "need":
-        idMsg.classList.remove("correct");
-        id.classList.add("error");
-        idMsg.classList.add("active");
-        idMsg.textContent = "필수 정보입니다.";
-        return;
-      case "fail":
-        idMsg.classList.remove("correct");
-        id.classList.add("error");
-        idMsg.classList.add("active");
-        idMsg.textContent =
-          "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
-        return;
-      case "success":
-        id.classList.remove("error");
-        // idMsg.classList.remove("active");
-        break;
+    const idValidationResult = idValidation();
+    if (idValidationResult === "error") {
+      return;
     }
+    await delay(150);
 
     const req = {
       method: "POST",
@@ -483,8 +481,42 @@ export async function formSubmit() {
     }
   });
 
-  // 폼 제출 로직
+  // 가입 버튼 활성화 로직
+  const submitBtn = document.querySelector("button[type='submit']");
   const form = document.querySelector("form");
+
+  function checkForm() {
+    const buyerInputs = document.querySelectorAll(
+      "fieldset input:not(.business-only input)"
+    );
+    const sellerInputs = document.querySelectorAll("fieldset input");
+
+    const inputs = joinType === "buyer" ? buyerInputs : sellerInputs;
+
+    // text나 password, number 타입의 input 중에 값이 없는 경우와 체크박스가 체크되지 않은 경우
+    const check = Array.from(inputs).every((input) => {
+      if (input.type === "checkbox") {
+        return input.checked;
+      } else {
+        return input.value !== "";
+      }
+    });
+    if (check && agreeInput.checked) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  }
+
+  form.addEventListener("input", () => {
+    checkForm();
+  });
+
+  form.addEventListener("keypress", () => {
+    checkForm();
+  });
+
+  // 폼 제출 로직
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
