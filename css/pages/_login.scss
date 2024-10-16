@@ -185,14 +185,20 @@ body.join {
             border-radius: 5px;
             padding: 1.7rem 1.6rem;
             margin-bottom: 0;
+            &.error {
+              border-color: var(--red-text);
+              // &:focus {
+              //   outline: none;
+              // }
+            }
           }
 
           .field-security {
             &.error {
               border-color: var(--red-text);
-              input:focus {
-                outline: none;
-              }
+              // input:focus {
+              //   outline: none;
+              // }
             }
           }
 
@@ -201,9 +207,7 @@ body.join {
             display: grid;
             grid-template-columns: 1fr auto;
             column-gap: 1.2rem;
-            input#id {
-              border-radius: 5px;
-              border: 1px solid var(--gray-border);
+            input {
               margin-bottom: 0;
             }
             button {

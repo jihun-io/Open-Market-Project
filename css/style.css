@@ -214,11 +214,12 @@ body.join main section form fieldset input[type=password] {
   padding: 1.7rem 1.6rem;
   margin-bottom: 0;
 }
-body.join main section form fieldset .field-security.error {
+body.join main section form fieldset input.error,
+body.join main section form fieldset input[type=password].error {
   border-color: var(--red-text);
 }
-body.join main section form fieldset .field-security.error input:focus {
-  outline: none;
+body.join main section form fieldset .field-security.error {
+  border-color: var(--red-text);
 }
 body.join main section form fieldset div.field-exists,
 body.join main section form fieldset div.field-business {
@@ -227,10 +228,8 @@ body.join main section form fieldset div.field-business {
   -moz-column-gap: 1.2rem;
        column-gap: 1.2rem;
 }
-body.join main section form fieldset div.field-exists input#id,
-body.join main section form fieldset div.field-business input#id {
-  border-radius: 5px;
-  border: 1px solid var(--gray-border);
+body.join main section form fieldset div.field-exists input,
+body.join main section form fieldset div.field-business input {
   margin-bottom: 0;
 }
 body.join main section form fieldset div.field-exists button,
@@ -833,6 +832,12 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: 1px solid var(--highlight);
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 @media (max-width: 1280px) {

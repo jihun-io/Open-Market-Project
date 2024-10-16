@@ -82,6 +82,14 @@ textarea:focus {
   outline: 1px solid var(--highlight);
 }
 
+input[type="number"] {
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+}
+
 @media (max-width: 1280px) {
   html {
     font-size: 9px;
