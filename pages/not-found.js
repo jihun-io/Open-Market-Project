@@ -1,5 +1,5 @@
 export default function NotFound() {
-  return `
+  return /*html*/ `
     <main>
       <article>
         <img src="/images/icon-404.svg" alt="" />
@@ -14,7 +14,7 @@ export default function NotFound() {
               <a href="/">메인으로</a>
             </li>
             <li>
-              <button>이전 페이지</button>
+              <button onclick="history.back()">이전 페이지</button>
             </li>
           </ul>
         </div>
