@@ -1,5 +1,7 @@
 export default function Join() {
-  return /*html*/ `
+  return {
+    title: "회원가입 - HODU",
+    content: /*html*/ `
     <header>
       <h1>
         <a href="/"><img src="/images/Logo-hodu.png" alt="HODU" /></a>
@@ -101,7 +103,8 @@ export default function Join() {
         </form>
       </section>
     </main>
-  `;
+  `,
+  };
 }
 
 export function formSubmit() {

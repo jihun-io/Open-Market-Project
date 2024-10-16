@@ -1,5 +1,7 @@
 export default function NotFound() {
-  return /*html*/ `
+  return {
+    title: "페이지를 찾을 수 없습니다 - HODU",
+    content: /*html*/ `
     <main>
       <article>
         <img src="/images/icon-404.svg" alt="" />
@@ -20,5 +22,6 @@ export default function NotFound() {
         </div>
       </article>
     </main>
-  `;
+  `,
+  };
 }

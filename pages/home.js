@@ -31,7 +31,9 @@ async function getProducts(API_URL) {
 
 export default async function Home({ API_URL }) {
   const products = await getProducts(API_URL);
-  return `
+  return {
+    title: "홈 - HODU",
+    content: `
     ${Header()}
     <main>
       <section class="carousel">
@@ -68,5 +70,6 @@ export default async function Home({ API_URL }) {
       </section>
     </main>
     ${Footer()}
-  `;
+  `,
+  };
 }

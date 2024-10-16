@@ -12,7 +12,9 @@ export default async function Details({ API_URL, params }) {
 
   try {
     const product = await getData(API_URL, productId);
-    return `
+    return {
+      title: `${product.name} - HODU`,
+      content: `
       ${Header()}
       <h2 class="sr-only">상품 정보</h2>
       <article class="product-info">
@@ -91,7 +93,8 @@ export default async function Details({ API_URL, params }) {
       <li><button class="modal-yes">예</button></li>
     </ul>
   </dialog>
-  `;
+  `,
+    };
   } catch (error) {
     console.log(await getData(API_URL, productId));
     return `<p>상품을 불러오는 중에 오류가 발생했습니다.</p>`;

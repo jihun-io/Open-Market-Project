@@ -1,5 +1,7 @@
 export default function Login() {
-  return `
+  return {
+    title: "로그인 - HODU",
+    content: /*html*/ `
   <header>
       <h1>
         <a href="/"><img src="/images/Logo-hodu.png" alt="HODU" /></a>
@@ -36,7 +38,8 @@ export default function Login() {
     <script>
       
     </script>
-    `;
+    `,
+  };
 }
 
 export function loginSubmit() {

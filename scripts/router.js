@@ -19,14 +19,6 @@ const routeScripts = {
   "/login": loginSubmit,
 };
 
-const routeTitles = {
-  "/": "홈",
-  "/login": "로그인",
-  "/join": "회원가입",
-  "/details": "상품 상세",
-  "not-found": "페이지를 찾을 수 없습니다",
-};
-
 function matchRoute(path) {
   return routes.find((route) => {
     if (route.path === path) return true;
@@ -69,26 +61,24 @@ async function router() {
 
   if (matchedRoute) {
     params = extractParams(matchedRoute, path);
-    pageContent = await matchedRoute.component({ API_URL, params });
+    const result = await matchedRoute.component({ API_URL, params });
+    pageContent = result.content;
+    pageTitle = result.title;
     routeClass = path.slice(1) === "" ? "route-home" : `route-${path.slice(1)}`;
-    pageTitle = routeTitles[path] || "HODU";
   } else {
-    pageContent = NotFound();
+    pageContent = NotFound().content;
     routeClass = "route-not-found";
-    pageTitle = routeTitles["not-found"];
+    pageTitle = "페이지를 찾을 수 없습니다 - HODU";
   }
 
   content.innerHTML = pageContent;
+  document.title = pageTitle;
 
   // 모든 route 관련 클래스를 body에서 제거
   document.body.classList = "";
 
   // 현재 route에 해당하는 클래스를 body에 추가
   document.body.classList.add(routeClass);
-
-  !!routeTitles[path]
-    ? (document.title = `${routeTitles[path]} - HODU`)
-    : (document.title = "페이지를 찾을 수 없습니다 - HODU");
 
   const scriptPath = Object.keys(routeScripts).find((scriptPath) => {
     if (scriptPath === path) return true;
