@@ -26,9 +26,7 @@
               <input type="text" name="id" id="id" />
               <button>중복확인</button>
             </div>
-            <p class="msg msg-id">
-              20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.
-            </p>
+            <p class="msg msg-id"></p>
             <label for="password">비밀번호</label>
             <div class="field-security">
               <input type="password" name="password" id="password" />
@@ -38,9 +36,7 @@
                 alt="안전하지 않음"
               />
             </div>
-            <p class="msg msg-pw">
-              8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.
-            </p>
+            <p class="msg msg-pw"></p>
             <label for="passwordCheck">비밀번호 재확인</label>
             <div class="field-security">
               <input type="password" name="passwordCheck" id="passwordCheck" />
@@ -50,9 +46,10 @@
                 alt="안전하지 않음"
               />
             </div>
-            <p class="msg msg-pw-check">비밀번호가 일치하지 않습니다.</p>
+            <p class="msg msg-pw-check"></p>
             <label for="name">이름</label>
             <input type="text" name="name" id="name" />
+            <p class="msg msg-name"></p>
             <label for="phone">휴대폰번호</label>
             <div class="field-phone">
               <div class="phone-area-container">
@@ -92,7 +89,7 @@
                 maxlength="4"
               />
             </div>
-            <p class="msg msg-phone">해당 사용자 전화번호는 이미 존재합니다.</p>
+            <p class="msg msg-phone"></p>
             <div class="business-only">
               <label for="business">사업자 등록번호</label>
               <div class="field-business">
@@ -187,7 +184,30 @@
         });
       });
 
-      //8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+      // 아이디 유효성 검사
+
+      const id = document.querySelector("#id");
+      const idMsg = document.querySelector(".msg-id");
+
+      id.addEventListener("blur", () => {
+        const regex = /^[A-Za-z0-9]{1,20}$/;
+        if (id.value === "") {
+          id.classList.add("error");
+          idMsg.classList.add("active");
+          idMsg.textContent = "필수 정보입니다.";
+        } else if (regex.test(id.value)) {
+          id.classList.remove("error");
+          idMsg.classList.remove("active");
+          idMsg.textContent = "";
+        } else {
+          id.classList.add("error");
+          idMsg.classList.add("active");
+          idMsg.textContent =
+            "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+        }
+      });
+
+      // 비밀번호 유효성 검사
       const passwords = document.querySelectorAll("input[type='password']");
       const firstCheck = document.querySelector(".first-pw-check");
       const secondCheck = document.querySelector(".second-pw-check");
@@ -201,11 +221,20 @@
           firstCheck.src = "/images/icon-check-on.svg";
           firstCheck.alt = "안전함";
           msgs[1].classList.remove("active");
+          msgs[1].textContent = "";
           fieldSecurities[0].classList.remove("error");
+        } else if (passwords[0].value === "") {
+          firstCheck.src = "/images/icon-check-off.svg";
+          firstCheck.alt = "안전하지 않음";
+          msgs[1].classList.add("active");
+          msgs[1].textContent = "필수 정보입니다.";
+          fieldSecurities[0].classList.add("error");
         } else {
           firstCheck.src = "/images/icon-check-off.svg";
           firstCheck.alt = "안전하지 않음";
           msgs[1].classList.add("active");
+          msgs[1].textContent =
+            "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
           fieldSecurities[0].classList.add("error");
         }
       });
@@ -218,13 +247,57 @@
           secondCheck.src = "/images/icon-check-on.svg";
           secondCheck.alt = "안전함";
           msgs[2].classList.remove("active");
+          msgs[2].textContent = "";
           fieldSecurities[1].classList.remove("error");
+        } else if (passwords[1].value === "") {
+          secondCheck.src = "/images/icon-check-off.svg";
+          secondCheck.alt = "안전하지 않음";
+          msgs[2].classList.add("active");
+          msgs[2].textContent = "필수 정보입니다.";
+          fieldSecurities[1].classList.add("error");
         } else {
           secondCheck.src = "/images/icon-check-off.svg";
           secondCheck.alt = "안전하지 않음";
           msgs[2].classList.add("active");
+          msgs[2].textContent = "비밀번호가 일치하지 않습니다.";
           fieldSecurities[1].classList.add("error");
         }
+      });
+
+      // 이름 유효성 검사
+      const username = document.querySelector("#name");
+      const usernameMsg = document.querySelector(".msg-name");
+
+      username.addEventListener("blur", () => {
+        if (username.value === "") {
+          username.classList.add("error");
+          usernameMsg.classList.add("active");
+          usernameMsg.textContent = "필수 정보입니다.";
+        } else {
+          username.classList.remove("error");
+          usernameMsg.classList.remove("active");
+          usernameMsg.textContent = "";
+        }
+      });
+
+      // 휴대전화번호 유효성 검사
+      const phoneInputs = document.querySelectorAll(
+        ".field-phone > input[type='number']"
+      );
+      const phoneMsg = document.querySelector(".msg-phone");
+
+      phoneInputs.forEach((phone, index) => {
+        phone.addEventListener("blur", () => {
+          if (phoneInputs[index].value === "") {
+            phoneInputs[index].classList.add("error");
+            phoneMsg.classList.add("active");
+            phoneMsg.textContent = "필수 정보입니다.";
+          } else {
+            phone.classList.remove("error");
+            phoneMsg.classList.remove("active");
+            phoneMsg.textContent = "";
+          }
+        });
       });
 
       const agreeLabel = document.querySelector(".agree label");
