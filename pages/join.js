@@ -23,21 +23,15 @@ export default function Join() {
             <label for="password">비밀번호</label>
             <div class="field-security">
               <input type="password" name="password" id="password" />
-              <img
-                class="first-pw-check"
-                src="/images/icon-check-off.svg"
-                alt="안전하지 않음"
-              />
+              <div class="first-pw-check"
+              ></div>
             </div>
             <p class="msg msg-pw"></p>
             <label for="passwordCheck">비밀번호 재확인</label>
             <div class="field-security">
               <input type="password" name="passwordCheck" id="passwordCheck" />
-              <img
-                class="second-pw-check"
-                src="/images/icon-check-off.svg"
-                alt="안전하지 않음"
-              />
+              <div class="second-pw-check"
+              ></div>
             </div>
             <p class="msg msg-pw-check"></p>
             <label for="name">이름</label>
@@ -210,15 +204,56 @@ export function formSubmit() {
 
   const fieldSecurities = document.querySelectorAll(".field-security");
 
+  function passwordNotSafe(index) {
+    if (index === 0) {
+      firstCheck.classList.remove("valid");
+    } else {
+      secondCheck.classList.remove("valid");
+    }
+    fieldSecurities[index].classList.add("error");
+    msgs[index + 1].classList.add("active");
+    msgs[index + 1].textContent =
+      "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
+  }
+
+  function passwordSafe(index) {
+    if (index === 0) {
+      firstCheck.classList.add("valid");
+    } else {
+      secondCheck.classList.add("valid");
+    }
+    fieldSecurities[index].classList.remove("error");
+    msgs[index + 1].classList.remove("active");
+    msgs[index + 1].textContent = "";
+  }
+
+  function passwordNotSame(index) {
+    if (index === 0) {
+      firstCheck.classList.remove("valid");
+    } else {
+      secondCheck.classList.remove("valid");
+    }
+    fieldSecurities[index].classList.add("error");
+    msgs[index + 1].classList.add("active");
+    msgs[index + 1].textContent = "비밀번호가 일치하지 않습니다.";
+  }
+
+  function passwordSame(index) {
+    if (index === 0) {
+      firstCheck.classList.add("valid");
+    } else {
+      secondCheck.classList.add("valid");
+    }
+    fieldSecurities[index].classList.remove("error");
+    msgs[index + 1].classList.remove("active");
+    msgs[index + 1].textContent = "";
+  }
+
   passwords[0].addEventListener("blur", () => {
     const regex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
     if (regex.test(passwords[0].value)) {
-      firstCheck.src = "/images/icon-check-on.svg";
-      firstCheck.alt = "안전함";
-      msgs[1].classList.remove("active");
-      msgs[1].textContent = "";
-      fieldSecurities[0].classList.remove("error");
+      passwordSafe(0);
     } else if (passwords[0].value === "") {
       firstCheck.src = "/images/icon-check-off.svg";
       firstCheck.alt = "안전하지 않음";
@@ -226,12 +261,14 @@ export function formSubmit() {
       msgs[1].textContent = "필수 정보입니다.";
       fieldSecurities[0].classList.add("error");
     } else {
-      firstCheck.src = "/images/icon-check-off.svg";
-      firstCheck.alt = "안전하지 않음";
-      msgs[1].classList.add("active");
-      msgs[1].textContent =
-        "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
-      fieldSecurities[0].classList.add("error");
+      passwordNotSafe(0);
+    }
+
+    if (
+      passwords[0].value === passwords[1].value &&
+      passwords[1].value !== ""
+    ) {
+      passwordSame(1);
     }
   });
 
@@ -240,11 +277,7 @@ export function formSubmit() {
       passwords[0].value === passwords[1].value &&
       passwords[1].value !== ""
     ) {
-      secondCheck.src = "/images/icon-check-on.svg";
-      secondCheck.alt = "안전함";
-      msgs[2].classList.remove("active");
-      msgs[2].textContent = "";
-      fieldSecurities[1].classList.remove("error");
+      passwordSame(1);
     } else if (passwords[1].value === "") {
       secondCheck.src = "/images/icon-check-off.svg";
       secondCheck.alt = "안전하지 않음";
@@ -252,11 +285,7 @@ export function formSubmit() {
       msgs[2].textContent = "필수 정보입니다.";
       fieldSecurities[1].classList.add("error");
     } else {
-      secondCheck.src = "/images/icon-check-off.svg";
-      secondCheck.alt = "안전하지 않음";
-      msgs[2].classList.add("active");
-      msgs[2].textContent = "비밀번호가 일치하지 않습니다.";
-      fieldSecurities[1].classList.add("error");
+      passwordNotSame(1);
     }
   });
 
