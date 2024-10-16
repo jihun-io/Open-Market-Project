@@ -138,15 +138,23 @@ export async function formSubmit() {
 
   const phoneNumbers = document.querySelectorAll(".field-phone input");
 
+  let isIdValid = false;
+  let isPwValid = false;
+  let isPwCheckValid = false;
+  let isNameValid = false;
+  let isPhoneValid = false;
+  let isBusinessValid = false;
+  let isBusinessNameValid = false;
+
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
       buttons.forEach((button) => button.classList.remove("active"));
       button.classList.add("active");
       if (button.classList.contains("buyer")) {
-        joinType = "seller";
+        joinType = "buyer";
         buyersOnly.classList.remove("active");
       } else {
-        joinType = "buyer";
+        joinType = "seller";
         buyersOnly.classList.add("active");
       }
     });
@@ -215,9 +223,14 @@ export async function formSubmit() {
     }
   };
 
+  id.addEventListener("input", () => {
+    isIdValid = false;
+    idMsg.classList.remove("active");
+  });
+
   id.addEventListener("blur", () => {
     const idValidationResult = idValidation();
-    if (idValidationResult === "correct") {
+    if (idValidationResult === "correct" && !isIdValid) {
       idMsg.classList.remove("active");
     }
   });
@@ -248,6 +261,8 @@ export async function formSubmit() {
         const data = await res.json();
 
         if (data.message === "사용 가능한 아이디입니다.") {
+          isIdValid = true;
+          checkForm();
           id.classList.remove("error");
           idMsg.classList.add("active");
           idMsg.classList.add("correct");
@@ -257,6 +272,7 @@ export async function formSubmit() {
         throw new Error("Network response was not ok");
       }
     } catch (err) {
+      isIdValid = false;
       idMsg.classList.remove("correct");
       id.classList.add("error");
       idMsg.classList.add("active");
@@ -281,6 +297,7 @@ export async function formSubmit() {
     msgs[index + 1].classList.add("active");
     msgs[index + 1].textContent =
       "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
+    isPwValid = false;
   }
 
   function passwordSafe(index) {
@@ -292,6 +309,7 @@ export async function formSubmit() {
     fieldSecurities[index].classList.remove("error");
     msgs[index + 1].classList.remove("active");
     msgs[index + 1].textContent = "";
+    isPwValid = true;
   }
 
   function passwordNotSame(index) {
@@ -303,6 +321,7 @@ export async function formSubmit() {
     fieldSecurities[index].classList.add("error");
     msgs[index + 1].classList.add("active");
     msgs[index + 1].textContent = "비밀번호가 일치하지 않습니다.";
+    isPwCheckValid = false;
   }
 
   function passwordSame(index) {
@@ -314,6 +333,7 @@ export async function formSubmit() {
     fieldSecurities[index].classList.remove("error");
     msgs[index + 1].classList.remove("active");
     msgs[index + 1].textContent = "";
+    isPwCheckValid = true;
   }
 
   passwords[0].addEventListener("blur", () => {
@@ -369,6 +389,7 @@ export async function formSubmit() {
       username.classList.remove("error");
       usernameMsg.classList.remove("active");
       usernameMsg.textContent = "";
+      isNameValid = true;
     }
   });
 
@@ -384,10 +405,12 @@ export async function formSubmit() {
         phoneInputs[index].classList.add("error");
         phoneMsg.classList.add("active");
         phoneMsg.textContent = "필수 정보입니다.";
+        isPhoneValid = false;
       } else {
         phone.classList.remove("error");
         phoneMsg.classList.remove("active");
         phoneMsg.textContent = "";
+        isPhoneValid = true;
       }
     });
   });
@@ -411,6 +434,7 @@ export async function formSubmit() {
     if (e.target.value.length > 10) {
       e.target.value = e.target.value.slice(0, 10);
     }
+    isBusinessValid = false;
   });
 
   businessCheck.addEventListener("click", async (e) => {
@@ -439,12 +463,15 @@ export async function formSubmit() {
           businessMsg.classList.add("active");
           businessMsg.classList.add("correct");
           businessMsg.textContent = "인증되었습니다.";
+          isBusinessValid = true;
+          checkForm();
         }
       } else {
         const result = await res.json();
         throw new Error(result.error);
       }
     } catch (err) {
+      isBusinessValid = false;
       if (
         err.toString() ===
         "Error: company_registration_number 필드를 추가해주세요."
@@ -471,13 +498,24 @@ export async function formSubmit() {
     }
   });
 
+  // 스토어 이름 유효성 검사
+  const storeName = document.querySelector("input#store-name");
+  storeName.addEventListener("input", () => {
+    if (storeName.value === "") {
+      isBusinessNameValid = false;
+    } else {
+      isBusinessNameValid = true;
+    }
+  });
+
   const agreeLabel = document.querySelector(".agree label");
   const agreeInput = document.querySelector(".agree input");
 
-  agreeLabel.addEventListener("keypress", (e) => {
+  agreeLabel.addEventListener("keyup", (e) => {
+    e.preventDefault();
     if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
       agreeInput.checked = !agreeInput.checked;
+      checkForm();
     }
   });
 
@@ -486,34 +524,38 @@ export async function formSubmit() {
   const form = document.querySelector("form");
 
   function checkForm() {
-    const buyerInputs = document.querySelectorAll(
-      "fieldset input:not(.business-only input)"
-    );
-    const sellerInputs = document.querySelectorAll("fieldset input");
-
-    const inputs = joinType === "buyer" ? buyerInputs : sellerInputs;
-
-    // text나 password, number 타입의 input 중에 값이 없는 경우와 체크박스가 체크되지 않은 경우
-    const check = Array.from(inputs).every((input) => {
-      if (input.type === "checkbox") {
-        return input.checked;
-      } else {
-        return input.value !== "";
-      }
-    });
-    if (check && agreeInput.checked) {
+    if (
+      isIdValid &&
+      isPwValid &&
+      isPwCheckValid &&
+      isNameValid &&
+      isPhoneValid &&
+      (joinType === "buyer" || isBusinessValid) &&
+      (joinType === "buyer" || isBusinessNameValid) &&
+      agreeInput.checked
+    ) {
       submitBtn.disabled = false;
     } else {
       submitBtn.disabled = true;
     }
+    console.log(submitBtn.disabled);
   }
 
+  form.addEventListener("change", () => {
+    checkForm();
+  });
   form.addEventListener("input", () => {
     checkForm();
   });
 
-  form.addEventListener("keypress", () => {
+  businessCheck.addEventListener("click", () => {
     checkForm();
+  });
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      checkForm();
+    });
   });
 
   // 폼 제출 로직
