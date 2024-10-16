@@ -1,4 +1,4 @@
-body.route-details {
+body[class^="route-items"] {
   article {
     @extend .padding;
   }
@@ -9,7 +9,7 @@ body.route-details {
     justify-content: center;
     column-gap: 5rem;
     row-gap: 5rem;
-
+    height: fit-content;
     img {
       width: 60rem;
       height: 60rem;
