@@ -44,6 +44,11 @@ function sellerBtn() {
       <img src="/images/icon-user.svg" alt="" />
       마이페이지
     </button>
+    <ul class="dropdown">
+      <img src="/images/Union.svg" alt="" />
+      <li><a href="/mypage">마이페이지</a></li>
+      <li><a href="/logout">로그아웃</a></li>
+    </ul>
   </li>
   <li class="seller-right">
     <a class="seller-btn" href="/seller">
@@ -95,7 +100,7 @@ export function headerBtns() {
   if (
     (document.body.classList.toString().includes("route-items") ||
       document.body.classList.toString().includes("route-home")) &&
-    localStorage.getItem("user_type") === "BUYER"
+    !!localStorage.getItem("encryptedRefresh")
   ) {
     const myPageBtn = document.querySelector("button.my-page-btn");
     const myPageImg = document.querySelector("button.my-page-btn img");
