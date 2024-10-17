@@ -88,7 +88,7 @@ export default async function Details({ API_URL, params }) {
             <button>
               <img src="/images/icon-minus-line.svg" alt="빼기" />
             </button>
-            <input type="number" value="1" step="1" />
+            <input type="number" value="1" step="1" disabled />
             <button>
               <img src="/images/icon-plus-line.svg" alt="더하기" />
             </button>
