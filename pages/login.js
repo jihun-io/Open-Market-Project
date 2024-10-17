@@ -120,19 +120,26 @@ export async function loginSubmit() {
         const res = await fetch(`${defaultApiUrl}/accounts/login/`, req);
         if (res.ok) {
           const result = await res.json();
-          console.log(result);
-          // 로그인 성공 시 localStorage에 사용자 이름 아이디, user_type을 저장
-          localStorage.setItem("username", result.user.username);
-          localStorage.setItem("name", result.user.name);
-          localStorage.setItem("user_type", result.user.user_type);
 
-          // 로그인 성공 시 refresh token을 localStorage에 CryptoJS로 암호화하여 저장
-          const encryptedRefreshToken = CryptoJS.AES.encrypt(
-            result.refresh,
-            fpKey
-          ).toString();
-          localStorage.setItem("encryptedRefresh", encryptedRefreshToken);
-          location.href = "/";
+          if (result.user.user_type.toLowerCase() !== joinType) {
+            console.log(result.user.user_type.toLowerCase(), joinType);
+            msg.classList.add("active");
+            msg.textContent = "잘못된 회원 유형입니다.";
+            throw new Error("잘못된 회원 유형입니다.");
+          } else {
+            // 로그인 성공 시 localStorage에 사용자 이름 아이디, user_type을 저장
+            localStorage.setItem("username", result.user.username);
+            localStorage.setItem("name", result.user.name);
+            localStorage.setItem("user_type", result.user.user_type);
+
+            // 로그인 성공 시 refresh token을 localStorage에 CryptoJS로 암호화하여 저장
+            const encryptedRefreshToken = CryptoJS.AES.encrypt(
+              result.refresh,
+              fpKey
+            ).toString();
+            localStorage.setItem("encryptedRefresh", encryptedRefreshToken);
+            history.back();
+          }
         } else {
           const result = await res.json();
           msg.classList.add("active");
