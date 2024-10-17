@@ -5,6 +5,10 @@ let defaultApiUrl;
 export default function Join({ API_URL }) {
   defaultApiUrl = `${API_URL}/accounts`;
 
+  if (localStorage.getItem("username")) {
+    location.href = "/";
+  }
+
   return {
     title: "회원가입 - HODU",
     content: /*html*/ `

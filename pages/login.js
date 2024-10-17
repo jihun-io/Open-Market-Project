@@ -5,6 +5,13 @@ let defaultApiUrl;
 export default function Login({ API_URL }) {
   defaultApiUrl = API_URL;
 
+  if (localStorage.getItem("username")) {
+    localStorage.removeItem("username");
+    localStorage.removeItem("name");
+    localStorage.removeItem("user_type");
+    localStorage.removeItem("encryptedRefresh");
+  }
+
   return {
     title: "로그인 - HODU",
     content: /*html*/ `
