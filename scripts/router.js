@@ -1,6 +1,7 @@
 import Home from "../pages/home.js";
 import NotFound from "../pages/not-found.js";
 import Login, { loginSubmit } from "../pages/login.js";
+import Logout from "../pages/logout.js";
 import Join, { formSubmit } from "../pages/join.js";
 import Details, { detailsScript } from "../pages/details.js";
 
@@ -11,12 +12,14 @@ const routes = [
   { path: "/login", component: Login },
   { path: "/join", component: Join },
   { path: "/items/:id", component: Details },
+  { path: "/logout", component: Logout },
 ];
 
 const routeScripts = {
   "/items/:id": detailsScript,
   "/join": formSubmit,
   "/login": loginSubmit,
+  // "/logout": logoutSubmit,
 };
 
 function matchRoute(path) {
