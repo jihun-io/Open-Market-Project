@@ -94,6 +94,7 @@ export default function Join({ API_URL }) {
               <p class="msg msg-business"></p>
               <label for="store-name">스토어 이름</label>
               <input type="text" name="store-name" id="store-name" />
+              <p class="msg msg-store-name"></p>
             </div>
           </fieldset>
           <div class="agree">
@@ -389,7 +390,18 @@ export async function formSubmit() {
       username.classList.remove("error");
       usernameMsg.classList.remove("active");
       usernameMsg.textContent = "";
+    }
+  });
+
+  username.addEventListener("input", () => {
+    if (username.value === "") {
+      isNameValid = false;
+    } else {
       isNameValid = true;
+    }
+
+    if (username.value.length > 15) {
+      username.value = username.value.slice(0, 15);
     }
   });
 
@@ -421,6 +433,17 @@ export async function formSubmit() {
       if (e.target.value.length >= e.target.maxLength) {
         if (index === 1) phoneNumbers[index + 1].focus();
         e.target.value = e.target.value.slice(0, e.target.maxLength);
+      }
+    });
+
+    // phone-mid가 3자리 미만, phone-end가 4자리 미만일 때 에러 메시지 출력
+    phone.addEventListener("blur", (e) => {
+      if (e.target.value.length < index + 2) {
+        console.log(index);
+        e.target.classList.add("error");
+        phoneMsg.classList.add("active");
+        phoneMsg.textContent = "필수 정보입니다.";
+        isPhoneValid = false;
       }
     });
   });
@@ -500,6 +523,7 @@ export async function formSubmit() {
 
   // 스토어 이름 유효성 검사
   const storeName = document.querySelector("input#store-name");
+  const storeNameMsg = document.querySelector(".msg-store-name");
   storeName.addEventListener("input", () => {
     if (storeName.value === "") {
       isBusinessNameValid = false;
@@ -538,7 +562,6 @@ export async function formSubmit() {
     } else {
       submitBtn.disabled = true;
     }
-    console.log(submitBtn.disabled);
   }
 
   form.addEventListener("change", () => {
@@ -560,8 +583,126 @@ export async function formSubmit() {
 
   // 폼 제출 로직
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("submit");
+    const url = apiUrl() + "signup/";
+
+    const phoneStr = () => {
+      const phones = document.querySelectorAll(".field-phone input");
+      return `${phones[0].value}${phones[1].value}${phones[2].value}`;
+    };
+
+    let data;
+    if (joinType === "buyer") {
+      data = {
+        username: id.value,
+        password: passwords[0].value,
+        name: username.value,
+        phone_number: phoneStr(),
+      };
+    } else {
+      data = {
+        username: id.value,
+        password: passwords[0].value,
+        name: username.value,
+        phone_number: phoneStr(),
+        company_registration_number: business.value,
+        store_name: storeName.value,
+      };
+    }
+
+    const req = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+
+    function parseApiErrors(response) {
+      const errors = {};
+
+      // response 객체의 각 필드를 순회
+      for (const [field, errorMsg] of Object.entries(response)) {
+        if (typeof errorMsg === "string") {
+          // 단일 오류 메시지 처리
+          errors[field] = errorMsg;
+        } else if (Array.isArray(errorMsg)) {
+          // 여러 오류 메시지 처리
+          errors[field] = errorMsg.map((msg) => msg);
+        }
+      }
+
+      return errors;
+    }
+
+    function displayErrors(errors) {
+      let errorList = [];
+
+      // 오류 표시 헬퍼 함수
+      function showError(element, msgElement, message) {
+        element.classList.add("error");
+        msgElement.classList.remove("correct");
+        msgElement.classList.add("active");
+        msgElement.textContent = message;
+      }
+
+      for (const [field, messages] of Object.entries(errors)) {
+        console.log(field, messages.toString());
+
+        switch (field) {
+          case "username":
+            showError(id, idMsg, messages.toString());
+            errorList.push({ field: "id", element: id });
+            break;
+          case "password":
+            showError(passwords[0], msgs[1], messages.toString());
+            errorList.push({ field: "pw", element: passwords[0] });
+            break;
+          case "name":
+            showError(username, usernameMsg, messages.toString());
+            errorList.push({ field: "name", element: username });
+            break;
+          case "phone_number":
+            phoneInputs.forEach((phone) => phone.classList.add("error"));
+            showError(phoneNumbers[1], phoneMsg, messages.toString());
+            errorList.push({ field: "phone", element: phoneNumbers[1] });
+            break;
+          case "company_registration_number":
+            showError(business, businessMsg, messages.toString());
+            errorList.push({ field: "business", element: business });
+            break;
+          case "store_name":
+            showError(storeName, storeNameMsg, messages.toString());
+            errorList.push({ field: "storeName", element: storeName });
+            break;
+        }
+      }
+
+      // 첫 번째 오류 필드에 포커스
+      if (errorList.length > 0) {
+        errorList[0].element.focus();
+      }
+
+      console.log(errorList);
+    }
+
+    try {
+      const res = await fetch(url, req);
+      if (res.ok) {
+        const result = await res.json();
+        console.log(result);
+      } else {
+        const result = await res.json();
+        let errors;
+        if (res.status === 400) {
+          errors = parseApiErrors(result);
+          displayErrors(errors);
+        }
+        throw new Error(errors);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   });
 }
