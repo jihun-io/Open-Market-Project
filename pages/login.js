@@ -1,4 +1,10 @@
-export default function Login() {
+let joinType = "buyer";
+
+let defaultApiUrl;
+
+export default function Login({ API_URL }) {
+  defaultApiUrl = API_URL;
+
   return {
     title: "로그인 - HODU",
     content: /*html*/ `
@@ -35,14 +41,25 @@ export default function Login() {
         </ul>
       </section>
     </main>
-    <script>
-      
-    </script>
     `,
   };
 }
 
-export function loginSubmit() {
+// function generateKeyFromFingerprint() {
+//   const fingerprint =
+//     navigator.userAgent + screen.width + screen.height + navigator.language;
+//   return CryptoJS.SHA256(fingerprint).toString();
+// }
+
+export async function loginSubmit() {
+  // Initialize the agent at application startup.
+  const fpPromise = FingerprintJS.load();
+  const fingerPrints =
+    // Analyze the visitor when necessary.
+    fpPromise.then((fp) => fp.get()).then((result) => result.visitorId);
+
+  const fpKey = await fingerPrints;
+
   const buttons = document.querySelectorAll(".button-row button");
   const form = document.querySelector("form");
   const id = form.querySelector("#id");
@@ -51,16 +68,19 @@ export function loginSubmit() {
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
-      buttons.forEach((button) => button.classList.remove("active"));
-      button.classList.add("active");
       id.value = "";
       password.value = "";
-      msg.textContent = "";
-      msg.classList.remove("active");
+      buttons.forEach((button) => button.classList.remove("active"));
+      button.classList.add("active");
+      if (button.classList.contains("buyer")) {
+        joinType = "buyer";
+      } else {
+        joinType = "seller";
+      }
     });
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (id.value === "") {
       id.focus();
@@ -74,7 +94,47 @@ export function loginSubmit() {
       return;
     } else {
       msg.textContent = "";
-      form.submit();
+      msg.classList.remove("active");
+
+      let data = {
+        username: id.value,
+        password: password.value,
+      };
+
+      const req = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
+
+      try {
+        const res = await fetch(`${defaultApiUrl}/accounts/login/`, req);
+        if (res.ok) {
+          const result = await res.json();
+          console.log(result);
+          // 로그인 성공 시 localStorage에 사용자 이름 아이디, user_type을 저장
+          localStorage.setItem("username", result.user.username);
+          localStorage.setItem("name", result.user.name);
+          localStorage.setItem("user_type", result.user.user_type);
+
+          // 로그인 성공 시 refresh token을 localStorage에 CryptoJS로 암호화하여 저장
+          const encryptedRefreshToken = CryptoJS.AES.encrypt(
+            result.refresh,
+            fpKey
+          ).toString();
+          localStorage.setItem("encryptedRefresh", encryptedRefreshToken);
+          location.href = "/";
+        } else {
+          const result = await res.json();
+          msg.classList.add("active");
+          msg.textContent = result.error;
+          throw new Error(result.error);
+        }
+      } catch (err) {
+        console.error(err);
+      }
     }
   });
 }
