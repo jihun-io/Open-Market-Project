@@ -434,8 +434,7 @@ body.route-join main section form fieldset div.field-phone div.phone-area-contai
   cursor: pointer;
 }
 body.route-join main section form fieldset div.field-phone div.phone-area-container .optionList li:hover {
-  background-color: var(--highlight);
-  color: #fff;
+  background-color: #e0e0e0;
 }
 body.route-join main section form fieldset div.field-phone input {
   width: auto;
@@ -815,7 +814,8 @@ body.route-not-found main article div.msg ul li a {
 }
 
 .route-home header,
-[class^=route-items] header {
+[class^=route-items] header,
+.route-logout header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -824,17 +824,20 @@ body.route-not-found main article div.msg ul li a {
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .route-home header div.header-left,
-[class^=route-items] header div.header-left {
+[class^=route-items] header div.header-left,
+.route-logout header div.header-left {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
 }
 .route-home header div.header-left h1 img,
-[class^=route-items] header div.header-left h1 img {
+[class^=route-items] header div.header-left h1 img,
+.route-logout header div.header-left h1 img {
   width: 12.4rem;
   height: 3.8rem;
 }
 .route-home header div.header-left form,
-[class^=route-items] header div.header-left form {
+[class^=route-items] header div.header-left form,
+.route-logout header div.header-left form {
   width: 20.8333333333vw;
   min-width: 33.3333333333vw;
   justify-content: space-between;
@@ -845,44 +848,172 @@ body.route-not-found main article div.msg ul li a {
   padding: 0 2.2rem;
 }
 .route-home header div.header-left form input,
-[class^=route-items] header div.header-left form input {
+[class^=route-items] header div.header-left form input,
+.route-logout header div.header-left form input {
   width: 100%;
   height: 2rem;
 }
 .route-home header div.header-left form button,
-[class^=route-items] header div.header-left form button {
+[class^=route-items] header div.header-left form button,
+.route-logout header div.header-left form button {
   margin-left: 2.2rem;
 }
 .route-home header div.header-left form button img,
-[class^=route-items] header div.header-left form button img {
+[class^=route-items] header div.header-left form button img,
+.route-logout header div.header-left form button img {
   width: 2.8rem;
   height: 2.8rem;
 }
 .route-home header ul,
-[class^=route-items] header ul {
+[class^=route-items] header ul,
+.route-logout header ul {
+  align-items: center;
   -moz-column-gap: 2.6rem;
        column-gap: 2.6rem;
 }
+.route-home header ul li,
+[class^=route-items] header ul li,
+.route-logout header ul li {
+  position: relative;
+}
 .route-home header ul li:first-child,
-[class^=route-items] header ul li:first-child {
+[class^=route-items] header ul li:first-child,
+.route-logout header ul li:first-child {
   width: 4.6rem;
 }
 .route-home header ul li:last-child,
-[class^=route-items] header ul li:last-child {
+[class^=route-items] header ul li:last-child,
+.route-logout header ul li:last-child {
   width: 5.6rem;
 }
 .route-home header ul li a,
-[class^=route-items] header ul li a {
+.route-home header ul li button,
+[class^=route-items] header ul li a,
+[class^=route-items] header ul li button,
+.route-logout header ul li a,
+.route-logout header ul li button {
   padding: 0.1rem 0;
   align-items: center;
   font-size: 1.2rem;
   row-gap: 0.4rem;
   color: var(--gray);
 }
-.route-home header ul li a img,
-[class^=route-items] header ul li a img {
+.route-home header ul li a.active,
+.route-home header ul li button.active,
+[class^=route-items] header ul li a.active,
+[class^=route-items] header ul li button.active,
+.route-logout header ul li a.active,
+.route-logout header ul li button.active {
+  color: var(--highlight);
+}
+.route-home header ul li a.seller-btn,
+.route-home header ul li button.seller-btn,
+[class^=route-items] header ul li a.seller-btn,
+[class^=route-items] header ul li button.seller-btn,
+.route-logout header ul li a.seller-btn,
+.route-logout header ul li button.seller-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--highlight);
+  padding: 1.1rem 2rem;
+  white-space: nowrap;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+  font-style: normal;
+  line-height: normal;
+}
+.route-home header ul li a.seller-btn img,
+.route-home header ul li button.seller-btn img,
+[class^=route-items] header ul li a.seller-btn img,
+[class^=route-items] header ul li button.seller-btn img,
+.route-logout header ul li a.seller-btn img,
+.route-logout header ul li button.seller-btn img {
   width: 3.2rem;
   height: 3.2rem;
+  margin-right: 0.8rem;
+}
+.route-home header ul li a.seller-btn span,
+.route-home header ul li button.seller-btn span,
+[class^=route-items] header ul li a.seller-btn span,
+[class^=route-items] header ul li button.seller-btn span,
+.route-logout header ul li a.seller-btn span,
+.route-logout header ul li button.seller-btn span {
+  width: 8.8rem;
+  text-align: center;
+}
+.route-home header ul li a img,
+.route-home header ul li button img,
+[class^=route-items] header ul li a img,
+[class^=route-items] header ul li button img,
+.route-logout header ul li a img,
+.route-logout header ul li button img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.route-home header ul li.seller-left,
+[class^=route-items] header ul li.seller-left,
+.route-logout header ul li.seller-left {
+  width: 5.6rem;
+}
+.route-home header ul li.seller-right,
+[class^=route-items] header ul li.seller-right,
+.route-logout header ul li.seller-right {
+  width: 16.8rem;
+}
+.route-home header ul li ul.dropdown,
+[class^=route-items] header ul li ul.dropdown,
+.route-logout header ul li ul.dropdown {
+  position: absolute;
+  display: none;
+  width: 13rem;
+  height: 11.8rem;
+  z-index: 100;
+  padding: 2rem 1rem 1rem 1rem;
+  grid-template-rows: 1fr 1fr;
+  transform: translateX(-29%);
+  row-gap: 0.8rem;
+}
+.route-home header ul li ul.dropdown.active,
+[class^=route-items] header ul li ul.dropdown.active,
+.route-logout header ul li ul.dropdown.active {
+  display: grid;
+}
+.route-home header ul li ul.dropdown img,
+[class^=route-items] header ul li ul.dropdown img,
+.route-logout header ul li ul.dropdown img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+}
+.route-home header ul li ul.dropdown li,
+[class^=route-items] header ul li ul.dropdown li,
+.route-logout header ul li ul.dropdown li {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.route-home header ul li ul.dropdown li:hover,
+[class^=route-items] header ul li ul.dropdown li:hover,
+.route-logout header ul li ul.dropdown li:hover {
+  border: 1px solid var(--gray);
+  color: #000;
+}
+.route-home header ul li ul.dropdown li:hover a,
+[class^=route-items] header ul li ul.dropdown li:hover a,
+.route-logout header ul li ul.dropdown li:hover a {
+  color: #000;
+}
+.route-home header ul li ul.dropdown li a,
+[class^=route-items] header ul li ul.dropdown li a,
+.route-logout header ul li ul.dropdown li a {
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 
 footer {
@@ -953,28 +1084,47 @@ footer ul.shop-info li {
 }
 
 .padding, body.route-home main section.product-lists, body[class^=route-items] article, .route-home header,
-[class^=route-items] header, footer {
+[class^=route-items] header,
+.route-logout header, footer {
   padding-left: max(20px, min(22.73vw - 116.36px, 320px));
   padding-right: max(20px, min(22.73vw - 116.36px, 320px));
 }
 
 .flex-row, body.route-home main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-not-found main article, .route-home header div.header-left,
-[class^=route-items] header div.header-left, .route-home header div.header-left form,
-[class^=route-items] header div.header-left form, .route-home header ul,
-[class^=route-items] header ul, footer nav, footer nav ul.legal, footer nav ul.social {
+[class^=route-items] header div.header-left,
+.route-logout header div.header-left, .route-home header div.header-left form,
+[class^=route-items] header div.header-left form,
+.route-logout header div.header-left form, .route-home header ul,
+[class^=route-items] header ul,
+.route-logout header ul, .route-home header ul li a.seller-btn,
+.route-home header ul li button.seller-btn,
+[class^=route-items] header ul li a.seller-btn,
+[class^=route-items] header ul li button.seller-btn,
+.route-logout header ul li a.seller-btn,
+.route-logout header ul li button.seller-btn, footer nav, footer nav ul.legal, footer nav ul.social {
   display: flex;
   flex-direction: row;
 }
 
-.flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-not-found main, .route-home header ul li a,
-[class^=route-items] header ul li a {
+.flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-not-found main, .route-home header ul li a,
+.route-home header ul li button,
+[class^=route-items] header ul li a,
+[class^=route-items] header ul li button,
+.route-logout header ul li a,
+.route-logout header ul li button {
   display: flex;
   flex-direction: column;
 }
 
-.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
-[class^=route-items] header div.header-left h1, .route-home header div.header-left form button,
-[class^=route-items] header div.header-left form button {
+.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-logout main, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
+[class^=route-items] header div.header-left h1,
+.route-logout header div.header-left h1, .route-home header div.header-left form button,
+[class^=route-items] header div.header-left form button,
+.route-logout header div.header-left form button, .route-home header ul li ul.dropdown li,
+[class^=route-items] header ul li ul.dropdown li,
+.route-logout header ul li ul.dropdown li, .route-home header ul li ul.dropdown li a,
+[class^=route-items] header ul li ul.dropdown li a,
+.route-logout header ul li ul.dropdown li a {
   display: flex;
   justify-content: center;
   align-items: center;

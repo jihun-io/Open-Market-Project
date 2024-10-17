@@ -5,6 +5,8 @@ import Logout from "../pages/logout.js";
 import Join, { formSubmit } from "../pages/join.js";
 import Details, { detailsScript } from "../pages/details.js";
 
+import { headerBtns } from "../components/header.js";
+
 const API_URL = "https://estapi.openmarket.weniv.co.kr";
 
 const routes = [
@@ -82,6 +84,7 @@ async function router() {
 
   // 현재 route에 해당하는 클래스를 body에 추가
   document.body.classList.add(routeClass);
+  headerBtns();
 
   const scriptPath = Object.keys(routeScripts).find((scriptPath) => {
     if (scriptPath === path) return true;
