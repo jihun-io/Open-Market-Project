@@ -115,6 +115,17 @@ export default function Join({ API_URL }) {
   };
 }
 
+function joinSuccess() {
+  return /*html*/ `
+    <article class="join-success">
+      <h2>회원가입 완료!</h2>
+      <p>회원가입이 완료되었습니다.</p>
+      <p>로그인 페이지로 이동하여 로그인해주세요.</p>
+      <a href="/login">로그인하러 가기</a>
+    </article>
+  `;
+}
+
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -439,7 +450,6 @@ export async function formSubmit() {
     // phone-mid가 3자리 미만, phone-end가 4자리 미만일 때 에러 메시지 출력
     phone.addEventListener("blur", (e) => {
       if (e.target.value.length < index + 2) {
-        console.log(index);
         e.target.classList.add("error");
         phoneMsg.classList.add("active");
         phoneMsg.textContent = "필수 정보입니다.";
@@ -648,8 +658,6 @@ export async function formSubmit() {
       }
 
       for (const [field, messages] of Object.entries(errors)) {
-        console.log(field, messages.toString());
-
         switch (field) {
           case "username":
             showError(id, idMsg, messages.toString());
@@ -683,15 +691,13 @@ export async function formSubmit() {
       if (errorList.length > 0) {
         errorList[0].element.focus();
       }
-
-      console.log(errorList);
     }
 
     try {
       const res = await fetch(url, req);
       if (res.ok) {
-        const result = await res.json();
-        console.log(result);
+        // const result = await res.json();
+        document.querySelector("main").innerHTML = joinSuccess();
       } else {
         const result = await res.json();
         let errors;

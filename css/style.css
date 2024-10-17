@@ -502,6 +502,27 @@ body.route-join main section form button[type=submit][disabled] {
   background-color: var(--gray-border);
   cursor: not-allowed;
 }
+body.route-join main article.join-success {
+  row-gap: 2rem;
+}
+body.route-join main article.join-success h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+body.route-join main article.join-success a {
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+  color: var(--gray-text);
+  padding: 1.9rem 3.8rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  text-align: center;
+  background-color: var(--highlight);
+  color: #fff;
+}
 body.route-join main ul.joins {
   margin-top: 3rem;
   justify-content: center;
@@ -945,13 +966,13 @@ footer ul.shop-info li {
   flex-direction: row;
 }
 
-.flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body[class^=route-items] main.no-product, body.route-not-found main, .route-home header ul li a,
+.flex-col, body.route-home main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-not-found main, .route-home header ul li a,
 [class^=route-items] header ul li a {
   display: flex;
   flex-direction: column;
 }
 
-.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-join, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
+.flex-center, body.route-home main section.carousel div.event-banner, body.route-login, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
 [class^=route-items] header div.header-left h1, .route-home header div.header-left form button,
 [class^=route-items] header div.header-left form button {
   display: flex;
