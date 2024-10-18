@@ -1,7 +1,4 @@
-.route-home header,
-[class^="route-search"] header,
-[class^="route-items"] header,
-.route-logout header {
+body:not(.route-join):not(.route-login) header {
   display: flex;
   justify-content: space-between;
   align-items: center;

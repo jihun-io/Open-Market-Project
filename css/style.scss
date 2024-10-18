@@ -5,6 +5,7 @@
 @import "pages/logout";
 @import "pages/join";
 @import "pages/details";
+@import "pages/cart";
 @import "pages/404";
 @import "modules/header";
 @import "modules/footer";
@@ -57,6 +58,78 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+%amount-controller {
+  display: grid;
+  grid-template-columns: 5rem 5rem 5rem;
+  grid-template-rows: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  button {
+    @extend .flex-center;
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+    border: 1px solid var(--gray-border);
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+      border-right: 0;
+    }
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+      border-left: 0;
+    }
+
+    &:disabled {
+      background-color: #e0e0e0;
+      cursor: not-allowed;
+      path {
+        stroke: #f2f2f2;
+      }
+    }
+  }
+  input[type="number"] {
+    font-size: 1.8rem;
+    border: 1px solid var(--gray-border);
+    text-align: center;
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+    }
+  }
+}
+
+%btn {
+  font-size: 1.6rem;
+  padding: 1rem 3.55rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+%btn-highlight {
+  @extend %btn;
+  background-color: var(--highlight);
+  border: 1px solid var(--highlight);
+  color: #fff;
+}
+
+%btn-gray {
+  @extend %btn;
+  background-color: var(--gray);
+  border: 1px solid var(--gray);
+}
+
+%btn-purchase {
+  @extend %btn-highlight;
+  font-size: 2.4rem;
+  padding: 1.9rem 6.6rem;
+  border: 0px;
+  line-height: 3rem;
 }
 
 * {

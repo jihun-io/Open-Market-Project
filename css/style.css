@@ -793,6 +793,186 @@ body[class^=route-items] main.no-product ul a {
   color: #fff;
 }
 
+body.route-cart main {
+  align-items: center;
+}
+body.route-cart main section {
+  align-items: center;
+  width: 100%;
+}
+body.route-cart main section h2 {
+  font-weight: 700;
+  font-size: 3.6rem;
+  text-align: center;
+  margin-top: 5.4rem;
+  margin-bottom: 5.2rem;
+}
+body.route-cart main section input[type=checkbox] {
+  display: none;
+}
+body.route-cart main section input[type=checkbox] + label::before {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-image: url("/images/icon-circle-off.svg");
+  background-size: cover;
+  margin: 0 3rem;
+}
+body.route-cart main section input[type=checkbox]:checked + label::before {
+  background-image: url("/images/icon-circle-on.svg");
+}
+body.route-cart main section table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+body.route-cart main section table thead {
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+}
+body.route-cart main section table thead tr th {
+  padding-top: 1.9rem;
+  padding-bottom: 1.8rem;
+  text-align: center;
+  vertical-align: middle;
+}
+body.route-cart main section table thead tr th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+body.route-cart main section table thead tr th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+body.route-cart main section table thead tr th button {
+  margin: 0 3rem;
+}
+body.route-cart main section table thead tr th button svg,
+body.route-cart main section table thead tr th button img {
+  width: 2rem;
+  height: 2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body.route-cart main section table thead tr {
+  border-radius: 10px;
+}
+body.route-cart main section table thead tr th {
+  background-color: var(--gray-bg);
+}
+body.route-cart main section table tbody {
+  border-spacing: 10px 10px;
+}
+body.route-cart main section table tbody:before {
+  content: "";
+  display: block;
+  height: 1.5rem;
+}
+body.route-cart main section table tbody tr {
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 2px #e0e0e0;
+  margin-bottom: 1rem;
+}
+body.route-cart main section table tbody tr td {
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+body.route-cart main section table tbody tr td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+body.route-cart main section table tbody tr td:last-child {
+  border-radius: 0 10px 10px 0;
+}
+body.route-cart main section table tbody tr td:nth-child(2) {
+  display: flex;
+}
+body.route-cart main section table tbody tr td:nth-child(2) div {
+  margin-top: 0.6rem;
+  margin-left: 3.6rem;
+}
+body.route-cart main section table tbody tr td:nth-child(2) div p {
+  display: inline-flex;
+  align-items: center;
+}
+body.route-cart main section table tbody tr td:nth-child(2) div p.seller {
+  font-size: 1.4rem;
+  color: var(--gray);
+}
+body.route-cart main section table tbody tr td:nth-child(2) div p.product-name {
+  font-size: 1.8rem;
+}
+body.route-cart main section table tbody tr td:nth-child(2) div p.price {
+  font-weight: 700;
+}
+body.route-cart main section table tbody tr td:nth-child(2) div p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+body.route-cart main section table tbody tr td:nth-child(2) div p.shipping-method {
+  margin-top: 3rem;
+}
+body.route-cart main section table tbody tr td img {
+  width: 16rem;
+  height: 16rem;
+  margin-left: 1rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+body.route-cart main section table tbody tr td .amount-controller {
+  justify-content: center;
+}
+body.route-cart main section table tbody tr td p.total-price {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--red-text);
+}
+body.route-cart main section table tbody tr td > button {
+  margin-top: 2.6rem;
+}
+body.route-cart main section summary {
+  position: relative;
+  width: 100%;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: var(--gray-bg);
+  padding-top: 4.6rem;
+  padding-bottom: 4.2rem;
+  margin-top: 8rem;
+}
+body.route-cart main section summary img {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 0.756rem;
+}
+body.route-cart main section summary img.minus {
+  left: 25%;
+}
+body.route-cart main section summary img.plus {
+  left: 50%;
+}
+body.route-cart main section summary div {
+  width: 25%;
+  text-align: center;
+}
+body.route-cart main section summary div p:first-child {
+  margin-bottom: 1.2rem;
+}
+body.route-cart main section summary div p:last-child span.amount {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0 0.2rem;
+}
+body.route-cart main section button.purchase {
+  margin-top: 4rem;
+  margin-bottom: 16rem;
+}
+
 body.route-not-found main {
   min-height: 100dvh;
 }
@@ -841,10 +1021,7 @@ body.route-not-found main article div.msg ul li a {
   color: #fff;
 }
 
-.route-home header,
-[class^=route-search] header,
-[class^=route-items] header,
-.route-logout header {
+body:not(.route-join):not(.route-login) header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -852,24 +1029,15 @@ body.route-not-found main article div.msg ul li a {
   padding-bottom: 2rem;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
 }
-.route-home header div.header-left,
-[class^=route-search] header div.header-left,
-[class^=route-items] header div.header-left,
-.route-logout header div.header-left {
+body:not(.route-join):not(.route-login) header div.header-left {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
 }
-.route-home header div.header-left h1 img,
-[class^=route-search] header div.header-left h1 img,
-[class^=route-items] header div.header-left h1 img,
-.route-logout header div.header-left h1 img {
+body:not(.route-join):not(.route-login) header div.header-left h1 img {
   width: 12.4rem;
   height: 3.8rem;
 }
-.route-home header div.header-left form,
-[class^=route-search] header div.header-left form,
-[class^=route-items] header div.header-left form,
-.route-logout header div.header-left form {
+body:not(.route-join):not(.route-login) header div.header-left form {
   width: 20.8333333333vw;
   min-width: 33.3333333333vw;
   -moz-column-gap: 2.2rem;
@@ -880,108 +1048,57 @@ body.route-not-found main article div.msg ul li a {
   border-radius: 5rem;
   height: 4.6rem;
 }
-.route-home header div.header-left form.hide,
-[class^=route-search] header div.header-left form.hide,
-[class^=route-items] header div.header-left form.hide,
-.route-logout header div.header-left form.hide {
+body:not(.route-join):not(.route-login) header div.header-left form.hide {
   display: none;
 }
-.route-home header div.header-left form.mobile,
-[class^=route-search] header div.header-left form.mobile,
-[class^=route-items] header div.header-left form.mobile,
-.route-logout header div.header-left form.mobile {
+body:not(.route-join):not(.route-login) header div.header-left form.mobile {
   display: none;
 }
-.route-home header div.header-left form input,
-[class^=route-search] header div.header-left form input,
-[class^=route-items] header div.header-left form input,
-.route-logout header div.header-left form input {
+body:not(.route-join):not(.route-login) header div.header-left form input {
   width: 100%;
   height: 100%;
   padding-left: 2.2rem;
   border-radius: 5rem 0 0 5rem;
 }
-.route-home header div.header-left form button,
-[class^=route-search] header div.header-left form button,
-[class^=route-items] header div.header-left form button,
-.route-logout header div.header-left form button {
+body:not(.route-join):not(.route-login) header div.header-left form button {
   margin-right: 2.2rem;
 }
-.route-home header div.header-left form button img,
-[class^=route-search] header div.header-left form button img,
-[class^=route-items] header div.header-left form button img,
-.route-logout header div.header-left form button img {
+body:not(.route-join):not(.route-login) header div.header-left form button img {
   width: 2.8rem;
   height: 2.8rem;
 }
-.route-home header ul,
-[class^=route-search] header ul,
-[class^=route-items] header ul,
-.route-logout header ul {
+body:not(.route-join):not(.route-login) header ul {
   align-items: center;
   -moz-column-gap: 2.6rem;
        column-gap: 2.6rem;
 }
-.route-home header ul li,
-[class^=route-search] header ul li,
-[class^=route-items] header ul li,
-.route-logout header ul li {
+body:not(.route-join):not(.route-login) header ul li {
   z-index: 100;
 }
-.route-home header ul li:first-child,
-[class^=route-search] header ul li:first-child,
-[class^=route-items] header ul li:first-child,
-.route-logout header ul li:first-child {
+body:not(.route-join):not(.route-login) header ul li:first-child {
   width: 4.6rem;
 }
-.route-home header ul li:last-child,
-[class^=route-search] header ul li:last-child,
-[class^=route-items] header ul li:last-child,
-.route-logout header ul li:last-child {
+body:not(.route-join):not(.route-login) header ul li:last-child {
   width: 5.6rem;
 }
-.route-home header ul li a,
-.route-home header ul li button,
-[class^=route-search] header ul li a,
-[class^=route-search] header ul li button,
-[class^=route-items] header ul li a,
-[class^=route-items] header ul li button,
-.route-logout header ul li a,
-.route-logout header ul li button {
+body:not(.route-join):not(.route-login) header ul li a,
+body:not(.route-join):not(.route-login) header ul li button {
   padding: 0.1rem 0;
   align-items: center;
   font-size: 1.2rem;
   row-gap: 0.4rem;
   color: var(--gray);
 }
-.route-home header ul li a.active,
-.route-home header ul li button.active,
-[class^=route-search] header ul li a.active,
-[class^=route-search] header ul li button.active,
-[class^=route-items] header ul li a.active,
-[class^=route-items] header ul li button.active,
-.route-logout header ul li a.active,
-.route-logout header ul li button.active {
+body:not(.route-join):not(.route-login) header ul li a.active,
+body:not(.route-join):not(.route-login) header ul li button.active {
   color: var(--highlight);
 }
-.route-home header ul li a.active svg,
-.route-home header ul li button.active svg,
-[class^=route-search] header ul li a.active svg,
-[class^=route-search] header ul li button.active svg,
-[class^=route-items] header ul li a.active svg,
-[class^=route-items] header ul li button.active svg,
-.route-logout header ul li a.active svg,
-.route-logout header ul li button.active svg {
+body:not(.route-join):not(.route-login) header ul li a.active svg,
+body:not(.route-join):not(.route-login) header ul li button.active svg {
   stroke: var(--highlight);
 }
-.route-home header ul li a.seller-btn,
-.route-home header ul li button.seller-btn,
-[class^=route-search] header ul li a.seller-btn,
-[class^=route-search] header ul li button.seller-btn,
-[class^=route-items] header ul li a.seller-btn,
-[class^=route-items] header ul li button.seller-btn,
-.route-logout header ul li a.seller-btn,
-.route-logout header ul li button.seller-btn {
+body:not(.route-join):not(.route-login) header ul li a.seller-btn,
+body:not(.route-join):not(.route-login) header ul li button.seller-btn {
   width: -moz-fit-content;
   width: fit-content;
   background-color: var(--highlight);
@@ -995,65 +1112,32 @@ body.route-not-found main article div.msg ul li a {
   font-style: normal;
   line-height: normal;
 }
-.route-home header ul li a.seller-btn img,
-.route-home header ul li button.seller-btn img,
-[class^=route-search] header ul li a.seller-btn img,
-[class^=route-search] header ul li button.seller-btn img,
-[class^=route-items] header ul li a.seller-btn img,
-[class^=route-items] header ul li button.seller-btn img,
-.route-logout header ul li a.seller-btn img,
-.route-logout header ul li button.seller-btn img {
+body:not(.route-join):not(.route-login) header ul li a.seller-btn img,
+body:not(.route-join):not(.route-login) header ul li button.seller-btn img {
   width: 3.2rem;
   height: 3.2rem;
   margin-right: 0.8rem;
 }
-.route-home header ul li a.seller-btn span,
-.route-home header ul li button.seller-btn span,
-[class^=route-search] header ul li a.seller-btn span,
-[class^=route-search] header ul li button.seller-btn span,
-[class^=route-items] header ul li a.seller-btn span,
-[class^=route-items] header ul li button.seller-btn span,
-.route-logout header ul li a.seller-btn span,
-.route-logout header ul li button.seller-btn span {
+body:not(.route-join):not(.route-login) header ul li a.seller-btn span,
+body:not(.route-join):not(.route-login) header ul li button.seller-btn span {
   width: 8.8rem;
   text-align: center;
 }
-.route-home header ul li a svg,
-.route-home header ul li a img,
-.route-home header ul li button svg,
-.route-home header ul li button img,
-[class^=route-search] header ul li a svg,
-[class^=route-search] header ul li a img,
-[class^=route-search] header ul li button svg,
-[class^=route-search] header ul li button img,
-[class^=route-items] header ul li a svg,
-[class^=route-items] header ul li a img,
-[class^=route-items] header ul li button svg,
-[class^=route-items] header ul li button img,
-.route-logout header ul li a svg,
-.route-logout header ul li a img,
-.route-logout header ul li button svg,
-.route-logout header ul li button img {
+body:not(.route-join):not(.route-login) header ul li a svg,
+body:not(.route-join):not(.route-login) header ul li a img,
+body:not(.route-join):not(.route-login) header ul li button svg,
+body:not(.route-join):not(.route-login) header ul li button img {
   width: 3.2rem;
   height: 3.2rem;
   stroke: black;
 }
-.route-home header ul li.seller-left,
-[class^=route-search] header ul li.seller-left,
-[class^=route-items] header ul li.seller-left,
-.route-logout header ul li.seller-left {
+body:not(.route-join):not(.route-login) header ul li.seller-left {
   width: 5.6rem;
 }
-.route-home header ul li.seller-right,
-[class^=route-search] header ul li.seller-right,
-[class^=route-items] header ul li.seller-right,
-.route-logout header ul li.seller-right {
+body:not(.route-join):not(.route-login) header ul li.seller-right {
   width: 16.8rem;
 }
-.route-home header ul li ul.dropdown,
-[class^=route-search] header ul li ul.dropdown,
-[class^=route-items] header ul li ul.dropdown,
-.route-logout header ul li ul.dropdown {
+body:not(.route-join):not(.route-login) header ul li ul.dropdown {
   position: absolute;
   display: none;
   width: 13rem;
@@ -1064,46 +1148,28 @@ body.route-not-found main article div.msg ul li a {
   transform: translateX(-29%);
   row-gap: 0.8rem;
 }
-.route-home header ul li ul.dropdown.active,
-[class^=route-search] header ul li ul.dropdown.active,
-[class^=route-items] header ul li ul.dropdown.active,
-.route-logout header ul li ul.dropdown.active {
+body:not(.route-join):not(.route-login) header ul li ul.dropdown.active {
   display: grid;
 }
-.route-home header ul li ul.dropdown img,
-[class^=route-search] header ul li ul.dropdown img,
-[class^=route-items] header ul li ul.dropdown img,
-.route-logout header ul li ul.dropdown img {
+body:not(.route-join):not(.route-login) header ul li ul.dropdown img {
   width: 100%;
   height: 100%;
   position: absolute;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
 }
-.route-home header ul li ul.dropdown li,
-[class^=route-search] header ul li ul.dropdown li,
-[class^=route-items] header ul li ul.dropdown li,
-.route-logout header ul li ul.dropdown li {
+body:not(.route-join):not(.route-login) header ul li ul.dropdown li {
   width: 100%;
   height: 100%;
   border-radius: 5px;
 }
-.route-home header ul li ul.dropdown li:hover,
-[class^=route-search] header ul li ul.dropdown li:hover,
-[class^=route-items] header ul li ul.dropdown li:hover,
-.route-logout header ul li ul.dropdown li:hover {
+body:not(.route-join):not(.route-login) header ul li ul.dropdown li:hover {
   border: 1px solid var(--gray);
   color: #000;
 }
-.route-home header ul li ul.dropdown li:hover a,
-[class^=route-search] header ul li ul.dropdown li:hover a,
-[class^=route-items] header ul li ul.dropdown li:hover a,
-.route-logout header ul li ul.dropdown li:hover a {
+body:not(.route-join):not(.route-login) header ul li ul.dropdown li:hover a {
   color: #000;
 }
-.route-home header ul li ul.dropdown li a,
-[class^=route-search] header ul li ul.dropdown li a,
-[class^=route-items] header ul li ul.dropdown li a,
-.route-logout header ul li ul.dropdown li a {
+body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
   width: 100%;
   height: 100%;
   font-size: 1.6rem;
@@ -1252,66 +1318,92 @@ footer ul.shop-info li {
 }
 
 .padding, body.route-home main section.product-lists,
-body[class^=route-search] main section.product-lists, body[class^=route-items] article, .route-home header,
-[class^=route-search] header,
-[class^=route-items] header,
-.route-logout header, footer {
+body[class^=route-search] main section.product-lists, body[class^=route-items] article, body.route-cart main, body:not(.route-join):not(.route-login) header, footer {
   padding-left: max(4rem, min(22.73vw - 116.36px, 320px));
   padding-right: max(4rem, min(22.73vw - 116.36px, 320px));
 }
 
 .flex-row, body.route-home main section.carousel div.controller,
-body[class^=route-search] main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-not-found main article, .route-home header div.header-left,
-[class^=route-search] header div.header-left,
-[class^=route-items] header div.header-left,
-.route-logout header div.header-left, .route-home header div.header-left form,
-[class^=route-search] header div.header-left form,
-[class^=route-items] header div.header-left form,
-.route-logout header div.header-left form, .route-home header ul,
-[class^=route-search] header ul,
-[class^=route-items] header ul,
-.route-logout header ul, .route-home header ul li a.seller-btn,
-.route-home header ul li button.seller-btn,
-[class^=route-search] header ul li a.seller-btn,
-[class^=route-search] header ul li button.seller-btn,
-[class^=route-items] header ul li a.seller-btn,
-[class^=route-items] header ul li button.seller-btn,
-.route-logout header ul li a.seller-btn,
-.route-logout header ul li button.seller-btn, footer nav, footer nav ul.legal, footer nav ul.social {
+body[class^=route-search] main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-cart main section summary, body.route-not-found main article, body:not(.route-join):not(.route-login) header div.header-left, body:not(.route-join):not(.route-login) header div.header-left form, body:not(.route-join):not(.route-login) header ul, body:not(.route-join):not(.route-login) header ul li a.seller-btn,
+body:not(.route-join):not(.route-login) header ul li button.seller-btn, footer nav, footer nav ul.legal, footer nav ul.social {
   display: flex;
   flex-direction: row;
 }
 
 .flex-col, body.route-home main section.product-lists > a article.item,
-body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-not-found main, .route-home header ul li a,
-.route-home header ul li button,
-[class^=route-search] header ul li a,
-[class^=route-search] header ul li button,
-[class^=route-items] header ul li a,
-[class^=route-items] header ul li button,
-.route-logout header ul li a,
-.route-logout header ul li button {
+body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-cart main, body.route-cart main section, body.route-cart main section table tbody tr td:nth-child(2) div, body.route-not-found main, body:not(.route-join):not(.route-login) header ul li a,
+body:not(.route-join):not(.route-login) header ul li button {
   display: flex;
   flex-direction: column;
 }
 
-.flex-center, body.route-home main section.carousel div.event-banner,
-body[class^=route-search] main section.carousel div.event-banner, body.route-login, body.route-logout main, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-not-found main, body.route-not-found main article div.msg ul li, .route-home header div.header-left h1,
-[class^=route-search] header div.header-left h1,
-[class^=route-items] header div.header-left h1,
-.route-logout header div.header-left h1, .route-home header div.header-left form button,
-[class^=route-search] header div.header-left form button,
-[class^=route-items] header div.header-left form button,
-.route-logout header div.header-left form button, .route-home header ul li ul.dropdown li,
-[class^=route-search] header ul li ul.dropdown li,
-[class^=route-items] header ul li ul.dropdown li,
-.route-logout header ul li ul.dropdown li, .route-home header ul li ul.dropdown li a,
-[class^=route-search] header ul li ul.dropdown li a,
-[class^=route-items] header ul li ul.dropdown li a,
-.route-logout header ul li ul.dropdown li a {
+.flex-center, body.route-cart main section table tbody tr td .amount-controller button, body.route-home main section.carousel div.event-banner,
+body[class^=route-search] main section.carousel div.event-banner, body.route-login, body.route-logout main, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-cart main section input[type=checkbox] + label, body.route-cart main section table thead tr th button, body.route-not-found main, body.route-not-found main article div.msg ul li, body:not(.route-join):not(.route-login) header div.header-left h1, body:not(.route-join):not(.route-login) header div.header-left form button, body:not(.route-join):not(.route-login) header ul li ul.dropdown li, body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+body.route-cart main section table tbody tr td .amount-controller {
+  display: grid;
+  grid-template-columns: 5rem 5rem 5rem;
+  grid-template-rows: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+body.route-cart main section table tbody tr td .amount-controller button {
+  border: 1px solid var(--gray-border);
+}
+body.route-cart main section table tbody tr td .amount-controller button svg {
+  width: 2rem;
+  height: 2rem;
+}
+body.route-cart main section table tbody tr td .amount-controller button:first-child {
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+}
+body.route-cart main section table tbody tr td .amount-controller button:last-child {
+  border-radius: 0 5px 5px 0;
+  border-left: 0;
+}
+body.route-cart main section table tbody tr td .amount-controller button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+body.route-cart main section table tbody tr td .amount-controller button:disabled path {
+  stroke: #f2f2f2;
+}
+body.route-cart main section table tbody tr td .amount-controller input[type=number] {
+  font-size: 1.8rem;
+  border: 1px solid var(--gray-border);
+  text-align: center;
+}
+body.route-cart main section table tbody tr td .amount-controller input[type=number]::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button {
+  font-size: 1.6rem;
+  padding: 1rem 3.55rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  font-weight: 500;
+  color: var(--gray);
+}
+
+body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button {
+  background-color: var(--highlight);
+  border: 1px solid var(--highlight);
+  color: #fff;
+}
+
+body.route-cart main section button.purchase {
+  font-size: 2.4rem;
+  padding: 1.9rem 6.6rem;
+  border: 0px;
+  line-height: 3rem;
 }
 
 * {
