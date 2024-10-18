@@ -1067,8 +1067,23 @@ body.route-not-found main {
   min-height: 100dvh;
 }
 body.route-not-found main article {
+  display: flex;
+  flex-direction: row;
   -moz-column-gap: 5rem;
        column-gap: 5rem;
+}
+@media (max-width: 600px) {
+  body.route-not-found main article {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
+  body.route-not-found main article img {
+    width: 100%;
+    height: 100%;
+  }
 }
 body.route-not-found main article img {
   width: 27rem;
@@ -1392,7 +1407,7 @@ body[class^=route-search] main section.product-lists, body[class^=route-items] a
 }
 
 .flex-row, body.route-home main section.carousel div.controller,
-body[class^=route-search] main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-cart main section summary, body.route-not-found main article, body:not(.route-join):not(.route-login) header div.header-left, body:not(.route-join):not(.route-login) header div.header-left form, body:not(.route-join):not(.route-login) header ul, body:not(.route-join):not(.route-login) header ul li a.seller-btn,
+body[class^=route-search] main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-cart main section summary, body:not(.route-join):not(.route-login) header div.header-left, body:not(.route-join):not(.route-login) header div.header-left form, body:not(.route-join):not(.route-login) header ul, body:not(.route-join):not(.route-login) header ul li a.seller-btn,
 body:not(.route-join):not(.route-login) header ul li button.seller-btn, footer nav, footer nav ul.legal, footer nav ul.social {
   display: flex;
   flex-direction: row;

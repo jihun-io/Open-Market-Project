@@ -4,7 +4,18 @@ body.route-not-found {
     @extend .flex-col;
     @extend .flex-center;
     article {
-      @extend .flex-row;
+      display: flex;
+      flex-direction: row;
+      @media (max-width: 600px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 0;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
       column-gap: 5rem;
       img {
         width: 27rem;
