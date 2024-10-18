@@ -165,9 +165,7 @@ body:not(.route-join):not(.route-login) header {
 
 // 600px 이하일 때 헤더의 폼 숨김
 @media (max-width: 600px) {
-  body.route-home header,
-  body[class^="route-items"] header,
-  body[class^="route-search"] header {
+  html body:not(.route-join):not(.route-login) header {
     overflow-x: hidden;
     div.header-left form {
       display: none;
