@@ -60,7 +60,6 @@ export async function loginSubmit() {
   const { screenResolution, ...components } = result.components;
 
   const visitorId = FingerprintJS.hashComponents(components);
-  console.log(visitorId);
 
   const buttons = document.querySelectorAll(".button-row button");
   const form = document.querySelector("form");

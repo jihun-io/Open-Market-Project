@@ -243,7 +243,6 @@ export function detailsScript() {
     const { screenResolution, ...components } = result.components;
 
     const visitorId = FingerprintJS.hashComponents(components);
-    console.log(visitorId);
 
     const decryptedAccess = CryptoJS.AES.decrypt(
       sessionStorage.getItem("encryptedAccess"),

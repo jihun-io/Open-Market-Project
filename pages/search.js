@@ -5,7 +5,6 @@ async function getProducts(API_URL) {
   const search = new URLSearchParams(location.search).get("query");
 
   const url = `${API_URL}/products/?search=${search}`;
-  console.log(url);
   const res = await fetch(url, {
     method: "GET",
   });
