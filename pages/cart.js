@@ -56,6 +56,12 @@ async function getCartItems(API_URL) {
     return;
   }
 
+  if (localStorage.getItem("user_type") === "SELLER") {
+    alert("비정상적인 접근입니다.");
+    location.href = "/";
+    return;
+  }
+
   const decryptedAccess = await decryptingAccess();
 
   try {
@@ -66,9 +72,12 @@ async function getCartItems(API_URL) {
       },
     });
     const data = await res.json();
-    console.log(data);
     if (data.detail === "Given token not valid for any token type") {
       location.href = "/logout";
+      return;
+    } else if (data.detail === "구매자만 접근이 가능합니다.") {
+      alert("비정상적인 접근입니다.");
+      location.href = "/";
       return;
     }
 
