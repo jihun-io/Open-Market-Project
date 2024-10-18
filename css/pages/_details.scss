@@ -13,6 +13,8 @@ body[class^="route-items"] {
     img {
       width: 60rem;
       height: 60rem;
+      max-width: 80vw;
+      max-height: 80vw;
     }
 
     div.purchase {
