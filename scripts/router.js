@@ -5,7 +5,7 @@ import Login, { loginSubmit } from "../pages/login.js";
 import Logout from "../pages/logout.js";
 import Join, { formSubmit } from "../pages/join.js";
 import Details, { detailsScript } from "../pages/details.js";
-import Cart from "../pages/cart.js";
+import Cart, { cartScripts } from "../pages/cart.js";
 
 import { headerBtns } from "../components/header.js";
 
@@ -25,6 +25,7 @@ const routeScripts = {
   "/items/:id": detailsScript,
   "/join": formSubmit,
   "/login": loginSubmit,
+  "/cart": cartScripts,
 };
 
 function matchRoute(path) {
