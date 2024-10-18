@@ -74,6 +74,7 @@ export default async function Details({ API_URL, params }) {
       title: `${result.name} - HODU`,
       content: /*html*/ `
       ${Header()}
+      <main>
       <h2 class="sr-only">상품 정보</h2>
       <article class="product-info">
       <img
