@@ -79,6 +79,17 @@ export default function Header() {
             <img src="/images/icon-search.svg " alt="검색" />
           </button>
         </form>
+        <form class="mobile" action="/search">
+          <input
+            type="text"
+            name="query"
+            id="query"
+            disabled
+          />
+          <button class="search-btn">
+            <img src="/images/icon-search.svg " alt="검색" />
+          </button>
+        </form>
       </div>
       <nav class="header-right">
         <ul>
@@ -101,26 +112,30 @@ export function headerBtns() {
     !window.location.pathname.includes("login") &&
     !window.location.pathname.includes("join")
   ) {
-    const myPageBtn = document.querySelector("button.my-page-btn");
-    const myPageImg = document.querySelector("button.my-page-btn img");
+    const mobileSearchForm = document.querySelector("form.mobile");
+    const mobileSearchInput = document.querySelector("form.mobile input");
+    const mobileSearchBtn = document.querySelector(".mobile button.search-btn");
 
-    myPageBtn.addEventListener("click", () => {
-      const dropdown = document.querySelector("ul.dropdown");
-      dropdown.classList.toggle("active");
-      myPageBtn.classList.toggle("active");
-      if (myPageBtn.classList.contains("active")) {
-        myPageImg.src = "/images/icon-user-2.svg";
+    let isFold = false;
+    mobileSearchBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (!!isFold) {
+        mobileSearchForm.submit();
       } else {
-        myPageImg.src = "/images/icon-user.svg";
+        mobileSearchForm.classList.add("active");
+        mobileSearchInput.removeAttribute("disabled");
+        mobileSearchInput.focus();
+        isFold = true;
       }
     });
 
     document.addEventListener("click", (e) => {
-      if (!e.target.closest("button.my-page-btn")) {
-        const dropdown = document.querySelector("ul.dropdown");
-        dropdown.classList.remove("active");
-        myPageBtn.classList.remove("active");
-        myPageImg.src = "/images/icon-user.svg";
+      if (!e.target.closest("form.mobile")) {
+        if (mobileSearchInput.value === "") {
+          mobileSearchForm.classList.remove("active");
+          mobileSearchInput.setAttribute("disabled", "");
+          isFold = false;
+        }
       }
     });
 
