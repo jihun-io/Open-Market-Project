@@ -234,7 +234,7 @@ export async function cartScripts() {
             parseInt(
               item
                 .querySelector("p.price")
-                .textContent.replace(",", "")
+                .textContent.replaceAll(",", "")
                 .replace("원", "")
             ) *
             parseInt(
@@ -246,7 +246,7 @@ export async function cartScripts() {
         totalAmount += parseInt(
           item
             .querySelector("p.total-price")
-            .textContent.replace(",", "")
+            .textContent.replaceAll(",", "")
             .replace("원", "")
         );
         totalShippingFee += parseInt(
