@@ -38,7 +38,7 @@ async function getProducts(API_URL) {
 export default async function Home({ API_URL }) {
   const products = await getProducts(API_URL);
   return {
-    title: "홈 - HODU",
+    title: "검색 결과 - HODU",
     content: `
     ${Header()}
     <main>
