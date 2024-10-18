@@ -54,6 +54,55 @@ function extractParams(route, path) {
   return params;
 }
 
+async function tokenRefresh() {
+  // Initialize the agent at application startup.
+  const fpPromise = FingerprintJS.load();
+  const fingerPrints =
+    // Analyze the visitor when necessary.
+    fpPromise.then((fp) => fp.get()).then((result) => result.visitorId);
+
+  const fpKey = await fingerPrints;
+
+  // 세션 관련 코드
+  if (localStorage.getItem("encryptedRefresh")) {
+    const decryptedRefresh = CryptoJS.AES.decrypt(
+      localStorage.getItem("encryptedRefresh"),
+      fpKey
+    ).toString(CryptoJS.enc.Utf8);
+
+    // 토큰 검증
+    const data = {
+      refresh: decryptedRefresh,
+    };
+    const req = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+
+    try {
+      const res = await fetch(`${API_URL}/accounts/token/refresh/`, req);
+      if (res.ok) {
+        const result = await res.json();
+        // 세션에 저장
+        const encryptedAccessToken = CryptoJS.AES.encrypt(
+          result.access,
+          fpKey
+        ).toString();
+        sessionStorage.setItem("encryptedAccess", encryptedAccessToken);
+      } else {
+        // 에러 발생 시 로그아웃 처리
+        localStorage.removeItem("encryptedRefresh");
+        sessionStorage.removeItem("encryptedAccess");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
 async function router() {
   const path = window.location.pathname;
   const content = document.querySelector("body");
@@ -75,6 +124,8 @@ async function router() {
     routeClass = "route-not-found";
     pageTitle = "페이지를 찾을 수 없습니다 - HODU";
   }
+
+  tokenRefresh();
 
   content.innerHTML = pageContent;
   document.title = pageTitle;

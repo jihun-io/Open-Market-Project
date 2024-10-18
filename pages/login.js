@@ -138,6 +138,14 @@ export async function loginSubmit() {
               fpKey
             ).toString();
             localStorage.setItem("encryptedRefresh", encryptedRefreshToken);
+            // 로그인 성공 시 access token을 sessionStorage에 CryptoJS로 암호화하여 저장
+            const encryptedAccessToken = CryptoJS.AES.encrypt(
+              result.access,
+              fpKey
+            ).toString();
+            sessionStorage.setItem("encryptedAccess", encryptedAccessToken);
+
+            document.cookie = `test=test; path=/;`;
             history.back();
           }
         } else {
