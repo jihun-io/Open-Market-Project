@@ -5,6 +5,7 @@ import Login, { loginSubmit } from "../pages/login.js";
 import Logout from "../pages/logout.js";
 import Join, { formSubmit } from "../pages/join.js";
 import Details, { detailsScript } from "../pages/details.js";
+import Cart from "../pages/cart.js";
 
 import { headerBtns } from "../components/header.js";
 
@@ -16,6 +17,7 @@ const routes = [
   { path: "/login", component: Login },
   { path: "/join", component: Join },
   { path: "/items/:id", component: Details },
+  { path: "/cart", component: Cart },
   { path: "/logout", component: Logout },
 ];
 
@@ -56,50 +58,57 @@ function extractParams(route, path) {
 }
 
 async function tokenRefresh() {
-  // Initialize the agent at application startup.
+  // fingerprint 관련 코드
   const fpPromise = FingerprintJS.load();
-  const fingerPrints =
-    // Analyze the visitor when necessary.
-    fpPromise.then((fp) => fp.get()).then((result) => result.visitorId);
+  const result = await fpPromise.then((fp) => fp.get());
+  // Chromium 개발자 도구에서 반응형 크기로 변경 시
+  // screenResolution 값이 변경되므로
+  // 컴포넌트 중에서 화면 해상도를 제외함
+  const { screenResolution, ...components } = result.components;
 
-  const fpKey = await fingerPrints;
+  const visitorId = FingerprintJS.hashComponents(components);
 
   // 세션 관련 코드
   if (localStorage.getItem("encryptedRefresh")) {
     const decryptedRefresh = CryptoJS.AES.decrypt(
       localStorage.getItem("encryptedRefresh"),
-      fpKey
+      visitorId
     ).toString(CryptoJS.enc.Utf8);
 
-    // 토큰 검증
-    const data = {
-      refresh: decryptedRefresh,
-    };
-    const req = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
+    if (!decryptedRefresh) {
+      localStorage.clear();
+      sessionStorage.clear();
+    } else {
+      // 토큰 검증
+      const data = {
+        refresh: decryptedRefresh,
+      };
+      const req = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      };
 
-    try {
-      const res = await fetch(`${API_URL}/accounts/token/refresh/`, req);
-      if (res.ok) {
-        const result = await res.json();
-        // 세션에 저장
-        const encryptedAccessToken = CryptoJS.AES.encrypt(
-          result.access,
-          fpKey
-        ).toString();
-        sessionStorage.setItem("encryptedAccess", encryptedAccessToken);
-      } else {
-        // 에러 발생 시 로그아웃 처리
-        localStorage.removeItem("encryptedRefresh");
-        sessionStorage.removeItem("encryptedAccess");
+      try {
+        const res = await fetch(`${API_URL}/accounts/token/refresh/`, req);
+        if (res.ok) {
+          const result = await res.json();
+          // 세션에 저장
+          const encryptedAccessToken = CryptoJS.AES.encrypt(
+            result.access,
+            visitorId
+          ).toString();
+          sessionStorage.setItem("encryptedAccess", encryptedAccessToken);
+        } else {
+          // 에러 발생 시 로그아웃 처리
+          localStorage.removeItem("encryptedRefresh");
+          sessionStorage.removeItem("encryptedAccess");
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   }
 }

@@ -238,17 +238,16 @@ export function detailsScript() {
     if (!sessionStorage.getItem("encryptedAccess")) {
       return false;
     }
-    // Initialize the agent at application startup.
     const fpPromise = FingerprintJS.load();
-    const fingerPrints =
-      // Analyze the visitor when necessary.
-      fpPromise.then((fp) => fp.get()).then((result) => result.visitorId);
+    const result = await fpPromise.then((fp) => fp.get());
+    const { screenResolution, ...components } = result.components;
 
-    const fpKey = await fingerPrints;
+    const visitorId = FingerprintJS.hashComponents(components);
+    console.log(visitorId);
 
     const decryptedAccess = CryptoJS.AES.decrypt(
       sessionStorage.getItem("encryptedAccess"),
-      fpKey
+      visitorId
     ).toString(CryptoJS.enc.Utf8);
 
     if (!decryptedAccess) {

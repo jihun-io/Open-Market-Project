@@ -5,12 +5,8 @@ let defaultApiUrl;
 export default function Login({ API_URL }) {
   defaultApiUrl = API_URL;
 
-  if (localStorage.getItem("username")) {
-    localStorage.removeItem("username");
-    localStorage.removeItem("name");
-    localStorage.removeItem("user_type");
-    localStorage.removeItem("encryptedRefresh");
-  }
+  localStorage.clear();
+  sessionStorage.clear();
 
   return {
     title: "로그인 - HODU",
@@ -59,13 +55,12 @@ export default function Login({ API_URL }) {
 // }
 
 export async function loginSubmit() {
-  // Initialize the agent at application startup.
   const fpPromise = FingerprintJS.load();
-  const fingerPrints =
-    // Analyze the visitor when necessary.
-    fpPromise.then((fp) => fp.get()).then((result) => result.visitorId);
+  const result = await fpPromise.then((fp) => fp.get());
+  const { screenResolution, ...components } = result.components;
 
-  const fpKey = await fingerPrints;
+  const visitorId = FingerprintJS.hashComponents(components);
+  console.log(visitorId);
 
   const buttons = document.querySelectorAll(".button-row button");
   const form = document.querySelector("form");
@@ -135,13 +130,13 @@ export async function loginSubmit() {
             // 로그인 성공 시 refresh token을 localStorage에 CryptoJS로 암호화하여 저장
             const encryptedRefreshToken = CryptoJS.AES.encrypt(
               result.refresh,
-              fpKey
+              visitorId
             ).toString();
             localStorage.setItem("encryptedRefresh", encryptedRefreshToken);
             // 로그인 성공 시 access token을 sessionStorage에 CryptoJS로 암호화하여 저장
             const encryptedAccessToken = CryptoJS.AES.encrypt(
               result.access,
-              fpKey
+              visitorId
             ).toString();
             sessionStorage.setItem("encryptedAccess", encryptedAccessToken);
 
