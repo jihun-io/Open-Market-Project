@@ -116,7 +116,7 @@ export default async function Details({ API_URL, params }) {
             </button>
             <input type="number" value="1" step="1" max="${
               result.stock
-            }" disabled />
+            }" readonly />
             <button>
               ${plusIcon()}
               <span class="sr-only">더하기</span>
