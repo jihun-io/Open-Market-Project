@@ -1112,15 +1112,18 @@ body.route-not-found main article div.msg ul li a {
 
 @media (max-width: 600px) {
   body.route-home header,
-  body[class^=route-items] header {
+  body[class^=route-items] header,
+  body[class^=route-search] header {
     overflow-x: hidden;
   }
   body.route-home header div.header-left form,
-  body[class^=route-items] header div.header-left form {
+  body[class^=route-items] header div.header-left form,
+  body[class^=route-search] header div.header-left form {
     display: none;
   }
   body.route-home header div.header-left form.mobile,
-  body[class^=route-items] header div.header-left form.mobile {
+  body[class^=route-items] header div.header-left form.mobile,
+  body[class^=route-search] header div.header-left form.mobile {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -1130,7 +1133,8 @@ body.route-not-found main article div.msg ul li a {
     transition: width 0.3s ease, padding 0.3s ease;
   }
   body.route-home header div.header-left form.mobile button,
-  body[class^=route-items] header div.header-left form.mobile button {
+  body[class^=route-items] header div.header-left form.mobile button,
+  body[class^=route-search] header div.header-left form.mobile button {
     position: absolute;
     top: 50%;
     right: 0;
@@ -1140,36 +1144,43 @@ body.route-not-found main article div.msg ul li a {
     transition: transform 0.3s ease;
   }
   body.route-home header div.header-left form.mobile input,
-  body[class^=route-items] header div.header-left form.mobile input {
+  body[class^=route-items] header div.header-left form.mobile input,
+  body[class^=route-search] header div.header-left form.mobile input {
     pointer-events: none;
     padding: 0;
     width: 0;
   }
   body.route-home header div.header-left form.mobile.active,
-  body[class^=route-items] header div.header-left form.mobile.active {
+  body[class^=route-items] header div.header-left form.mobile.active,
+  body[class^=route-search] header div.header-left form.mobile.active {
     width: 50vw;
   }
   body.route-home header div.header-left form.mobile.active input,
-  body[class^=route-items] header div.header-left form.mobile.active input {
+  body[class^=route-items] header div.header-left form.mobile.active input,
+  body[class^=route-search] header div.header-left form.mobile.active input {
     pointer-events: auto;
     width: 100%;
     margin-right: 5.2rem;
     border-radius: 0;
   }
   body.route-home header div.header-left form.mobile.active button,
-  body[class^=route-items] header div.header-left form.mobile.active button {
+  body[class^=route-items] header div.header-left form.mobile.active button,
+  body[class^=route-search] header div.header-left form.mobile.active button {
     transform: translate(-50%, -50%);
   }
   body.route-home header ul li.seller-right,
-  body[class^=route-items] header ul li.seller-right {
+  body[class^=route-items] header ul li.seller-right,
+  body[class^=route-search] header ul li.seller-right {
     width: auto;
   }
   body.route-home header ul li.seller-right a.seller-btn img,
-  body[class^=route-items] header ul li.seller-right a.seller-btn img {
+  body[class^=route-items] header ul li.seller-right a.seller-btn img,
+  body[class^=route-search] header ul li.seller-right a.seller-btn img {
     margin-right: 0;
   }
   body.route-home header ul li.seller-right a.seller-btn span,
-  body[class^=route-items] header ul li.seller-right a.seller-btn span {
+  body[class^=route-items] header ul li.seller-right a.seller-btn span,
+  body[class^=route-search] header ul li.seller-right a.seller-btn span {
     display: none;
   }
 }
