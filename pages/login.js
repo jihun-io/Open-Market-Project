@@ -116,7 +116,6 @@ export async function loginSubmit() {
           const result = await res.json();
 
           if (result.user.user_type.toLowerCase() !== joinType) {
-            console.log(result.user.user_type.toLowerCase(), joinType);
             msg.classList.add("active");
             msg.textContent = "잘못된 회원 유형입니다.";
             throw new Error("잘못된 회원 유형입니다.");
