@@ -172,8 +172,15 @@ export function detailsScript() {
   const originalPrice = document.querySelector(".price span");
   const totalPrice = document.querySelector(".total-amount .total-price");
 
+  if (parseInt(input.value) === parseInt(input.max)) {
+    plusBtn.setAttribute("disabled", true);
+  }
+
   plusBtn.addEventListener("click", () => {
     input.value = parseInt(input.value) + 1;
+    if (parseInt(input.value) === parseInt(input.max)) {
+      plusBtn.setAttribute("disabled", true);
+    }
     totalAmount.textContent = input.value;
     totalPrice.textContent = (
       parseInt(originalPrice.textContent.replaceAll(",", "")) * input.value
@@ -182,6 +189,7 @@ export function detailsScript() {
 
   minusBtn.addEventListener("click", () => {
     if (parseInt(input.value) > 1) {
+      plusBtn.removeAttribute("disabled");
       input.value = parseInt(input.value) - 1;
       totalAmount.textContent = input.value;
       totalPrice.textContent = (

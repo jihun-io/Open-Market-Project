@@ -74,6 +74,7 @@ body[class^="route-items"] {
 
             &:disabled {
               background-color: #e0e0e0;
+              cursor: not-allowed;
               path {
                 stroke: #f2f2f2;
               }

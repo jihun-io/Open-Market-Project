@@ -623,6 +623,7 @@ body[class^=route-items] article.product-info div.purchase div.buy-info div.amou
 }
 body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:disabled {
   background-color: #e0e0e0;
+  cursor: not-allowed;
 }
 body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:disabled path {
   stroke: #f2f2f2;
