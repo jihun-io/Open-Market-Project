@@ -11,8 +11,6 @@ async function getProducts(API_URL) {
   });
   const data = await res.json();
 
-  console.log(data);
-
   let result;
 
   result = data.results
