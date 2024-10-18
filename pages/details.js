@@ -1,6 +1,9 @@
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 
+let api;
+let itemId;
+
 function plusIcon() {
   return /*html*/ `
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,6 +55,8 @@ async function fetchData(API_URL, productId) {
 
 export default async function Details({ API_URL, params }) {
   const productId = params.id;
+  api = API_URL;
+  itemId = productId;
 
   const result = await fetchData(API_URL, productId);
   if (result === false) {
@@ -148,13 +153,25 @@ export default async function Details({ API_URL, params }) {
     </article>
   </main>
   ${Footer()}
-  <dialog>
+  <dialog class="login">
     <div class="window-controller">
       <button class="modal-no">
         <img src="/images/icon-delete.svg" alt="닫기" />
       </button>
     </div>
     <p>로그인이 필요한 서비스입니다.<br />로그인 하시겠습니까?</p>
+    <ul>
+      <li><button class="modal-no">아니요</button></li>
+      <li><button class="modal-yes">예</button></li>
+    </ul>
+  </dialog>
+  <dialog class="cart">
+    <div class="window-controller">
+      <button class="modal-no">
+        <img src="/images/icon-delete.svg" alt="닫기" />
+      </button>
+    </div>
+    <p>장바구니에 상품이 담겼습니다!<br />장바구니로 이동할까요?</p>
     <ul>
       <li><button class="modal-no">아니요</button></li>
       <li><button class="modal-yes">예</button></li>
@@ -217,33 +234,104 @@ export function detailsScript() {
     }
   });
 
-  const dialog = document.querySelector("dialog");
+  const access = async () => {
+    if (!sessionStorage.getItem("encryptedAccess")) {
+      return false;
+    }
+    // Initialize the agent at application startup.
+    const fpPromise = FingerprintJS.load();
+    const fingerPrints =
+      // Analyze the visitor when necessary.
+      fpPromise.then((fp) => fp.get()).then((result) => result.visitorId);
+
+    const fpKey = await fingerPrints;
+
+    const decryptedAccess = CryptoJS.AES.decrypt(
+      sessionStorage.getItem("encryptedAccess"),
+      fpKey
+    ).toString(CryptoJS.enc.Utf8);
+
+    if (!decryptedAccess) {
+      return false;
+    } else {
+      return decryptedAccess;
+    }
+  };
+
   const purchaseBtn = document.querySelector("button.purchase");
   const cartBtn = document.querySelector("button.cart");
-  const noBtns = document.querySelectorAll(".modal-no");
-  const yesBtn = document.querySelector(".modal-yes");
 
-  function openModal() {
-    dialog.showModal();
+  const LoginDialog = document.querySelector("dialog.login");
+  const LoginNoBtns = document.querySelectorAll("dialog.login .modal-no");
+  const LoginYesBtn = document.querySelector("dialog.login .modal-yes");
+
+  function openLoginModal() {
+    LoginDialog.showModal();
     document.body.style.overflow = "hidden";
   }
 
-  purchaseBtn.addEventListener("click", () => {
-    openModal();
-  });
-
-  cartBtn.addEventListener("click", () => {
-    openModal();
-  });
-
-  noBtns.forEach((btn) => {
+  LoginNoBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      dialog.close();
+      LoginDialog.close();
       document.body.style.overflow = "auto";
     });
   });
 
-  yesBtn.addEventListener("click", () => {
+  LoginYesBtn.addEventListener("click", () => {
     location.href = "/login";
+  });
+
+  const CartDialog = document.querySelector("dialog.cart");
+  const CartNoBtns = document.querySelectorAll("dialog.cart .modal-no");
+  const CartYesBtn = document.querySelector("dialog.cart .modal-yes");
+
+  function openCartModal() {
+    CartDialog.showModal();
+    document.body.style.overflow = "hidden";
+  }
+
+  CartNoBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      CartDialog.close();
+      document.body.style.overflow = "auto";
+    });
+  });
+
+  CartYesBtn.addEventListener("click", () => {
+    location.href = "/cart";
+  });
+
+  purchaseBtn.addEventListener("click", () => {
+    openLoginModal();
+  });
+
+  cartBtn.addEventListener("click", async () => {
+    const result = await access();
+    if (result === false) {
+      openLoginModal();
+    } else {
+      try {
+        const data = {
+          product_id: itemId,
+          quantity: parseInt(input.value),
+        };
+        const req = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${result}`,
+          },
+          body: JSON.stringify(data),
+        };
+        const res = await fetch(`${api}/cart/`, req);
+        if (res.ok) {
+          openCartModal();
+        } else {
+          alert("장바구니 담기에 실패했습니다.");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   });
 }
