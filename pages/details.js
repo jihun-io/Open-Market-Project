@@ -1,6 +1,25 @@
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 
+function plusIcon() {
+  return /*html*/ `
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 9.5H20" stroke="#C4C4C4" stroke-width="2"/>
+  <path d="M10 20L10 0" stroke="#C4C4C4" stroke-width="2"/>
+  </svg>
+  
+`;
+}
+
+function minusIcon() {
+  return /*html*/ `
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 10H20" stroke="#C4C4C4" stroke-width="2"/>
+  </svg>
+  
+`;
+}
+
 async function getData(API_URL, productId) {
   const res = await fetch(`${API_URL}/products/${productId}`)
     .then((res) => {
@@ -38,7 +57,7 @@ export default async function Details({ API_URL, params }) {
   if (result === false) {
     return {
       title: "상품이 존재하지 않습니다. - HODU",
-      content: `
+      content: /*html*/ `
         ${Header()}
         <main class="no-product">
           <h2>상품이 존재하지 않습니다.</h2>
@@ -53,7 +72,7 @@ export default async function Details({ API_URL, params }) {
   } else {
     return {
       title: `${result.name} - HODU`,
-      content: `
+      content: /*html*/ `
       ${Header()}
       <h2 class="sr-only">상품 정보</h2>
       <article class="product-info">
@@ -86,11 +105,15 @@ export default async function Details({ API_URL, params }) {
           </p>
           <div class="amount">
             <button>
-              <img src="/images/icon-minus-line.svg" alt="빼기" />
+              ${minusIcon()}
+              <span class="sr-only">뺴기</span>
             </button>
-            <input type="number" value="1" step="1" disabled />
+            <input type="number" value="1" step="1" max="${
+              result.stock
+            }" disabled />
             <button>
-              <img src="/images/icon-plus-line.svg" alt="더하기" />
+              ${plusIcon()}
+              <span class="sr-only">더하기</span>
             </button>
           </div>
           <p class="total">

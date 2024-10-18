@@ -606,19 +606,26 @@ body[class^=route-items] article.product-info div.purchase div.buy-info div.amou
   border-top: 0.2rem solid var(--gray-border);
   border-bottom: 0.2rem solid var(--gray-border);
 }
-body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button img {
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button {
+  border: 1px solid var(--gray-border);
+}
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button svg {
   width: 2rem;
   height: 2rem;
 }
 body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:first-child {
-  border: 1px solid var(--gray-border);
-  border-right: 0;
   border-radius: 5px 0 0 5px;
+  border-right: 0;
 }
 body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:last-child {
-  border: 1px solid var(--gray-border);
-  border-left: 0;
   border-radius: 0 5px 5px 0;
+  border-left: 0;
+}
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:disabled {
+  background-color: #e0e0e0;
+}
+body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button:disabled path {
+  stroke: #f2f2f2;
 }
 body[class^=route-items] article.product-info div.purchase div.buy-info div.amount input[type=number] {
   font-size: 1.8rem;
