@@ -258,7 +258,7 @@ export async function formSubmit() {
     idMsg.textContent = "확인 중...";
 
     const idValidationResult = idValidation();
-    if (idValidationResult === "error") {
+    if (idValidationResult === "error" || idValidationResult === "need") {
       return;
     }
     await delay(150);
