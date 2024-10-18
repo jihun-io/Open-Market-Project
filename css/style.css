@@ -921,6 +921,14 @@ body.route-not-found main article div.msg ul li a {
 .route-logout header ul li button.active {
   color: var(--highlight);
 }
+.route-home header ul li a.active svg,
+.route-home header ul li button.active svg,
+[class^=route-items] header ul li a.active svg,
+[class^=route-items] header ul li button.active svg,
+.route-logout header ul li a.active svg,
+.route-logout header ul li button.active svg {
+  stroke: var(--highlight);
+}
 .route-home header ul li a.seller-btn,
 .route-home header ul li button.seller-btn,
 [class^=route-items] header ul li a.seller-btn,
@@ -959,14 +967,21 @@ body.route-not-found main article div.msg ul li a {
   width: 8.8rem;
   text-align: center;
 }
+.route-home header ul li a svg,
 .route-home header ul li a img,
+.route-home header ul li button svg,
 .route-home header ul li button img,
+[class^=route-items] header ul li a svg,
 [class^=route-items] header ul li a img,
+[class^=route-items] header ul li button svg,
 [class^=route-items] header ul li button img,
+.route-logout header ul li a svg,
 .route-logout header ul li a img,
+.route-logout header ul li button svg,
 .route-logout header ul li button img {
   width: 3.2rem;
   height: 3.2rem;
+  stroke: black;
 }
 .route-home header ul li.seller-left,
 [class^=route-items] header ul li.seller-left,

@@ -1,3 +1,12 @@
+function userIcon() {
+  return /*html*/ `
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M26.6663 28V25.3333C26.6663 23.9188 26.1044 22.5623 25.1042 21.5621C24.104 20.5619 22.7475 20 21.333 20H10.6663C9.25185 20 7.8953 20.5619 6.8951 21.5621C5.89491 22.5623 5.33301 23.9188 5.33301 25.3333V28" stroke="current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16.0003 14.6667C18.9458 14.6667 21.3337 12.2789 21.3337 9.33333C21.3337 6.38781 18.9458 4 16.0003 4C13.0548 4 10.667 6.38781 10.667 9.33333C10.667 12.2789 13.0548 14.6667 16.0003 14.6667Z" stroke="current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  `;
+}
+
 function loginBtn() {
   return /*html*/ `
   <li>
@@ -8,7 +17,7 @@ function loginBtn() {
   </li>
   <li>
     <a class="login-btn" href="/login">
-      <img src="/images/icon-user.svg" alt="" />
+      ${userIcon()}
       로그인
     </a>
   </li>
@@ -25,7 +34,7 @@ function myPageBtn() {
   </li>
   <li>
     <button class="my-page-btn">
-      <img src="/images/icon-user.svg" alt="" />
+      ${userIcon()}
       마이페이지
     </button>
     <ul class="dropdown">
@@ -41,7 +50,7 @@ function sellerBtn() {
   return /*html*/ `
   <li class="seller-left">
     <button class="my-page-btn">
-      <img src="/images/icon-user.svg" alt="" />
+      ${userIcon()}
       마이페이지
     </button>
     <ul class="dropdown">
@@ -148,11 +157,11 @@ export function headerBtns() {
         const dropdown = document.querySelector("ul.dropdown");
         dropdown.classList.toggle("active");
         myPageBtn.classList.toggle("active");
-        if (myPageBtn.classList.contains("active")) {
-          myPageImg.src = "/images/icon-user-2.svg";
-        } else {
-          myPageImg.src = "/images/icon-user.svg";
-        }
+        // if (myPageBtn.classList.contains("active")) {
+        //   myPageImg.src = "/images/icon-user-2.svg";
+        // } else {
+        //   myPageImg.src = "/images/icon-user.svg";
+        // }
       });
 
       document.addEventListener("click", (e) => {
@@ -160,7 +169,7 @@ export function headerBtns() {
           const dropdown = document.querySelector("ul.dropdown");
           dropdown.classList.remove("active");
           myPageBtn.classList.remove("active");
-          myPageImg.src = "/images/icon-user.svg";
+          // myPageImg.src = "/images/icon-user.svg";
         }
       });
     }

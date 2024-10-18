@@ -79,6 +79,9 @@
         color: var(--gray);
         &.active {
           color: var(--highlight);
+          svg {
+            stroke: var(--highlight);
+          }
         }
         &.seller-btn {
           @extend .flex-row;
@@ -103,9 +106,11 @@
             text-align: center;
           }
         }
+        svg,
         img {
           width: 3.2rem;
           height: 3.2rem;
+          stroke: black;
         }
       }
       &.seller-left {
