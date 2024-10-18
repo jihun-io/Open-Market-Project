@@ -1,4 +1,5 @@
 import Home from "../pages/home.js";
+import Search from "../pages/search.js";
 import NotFound from "../pages/not-found.js";
 import Login, { loginSubmit } from "../pages/login.js";
 import Logout from "../pages/logout.js";
@@ -11,6 +12,7 @@ const API_URL = "https://estapi.openmarket.weniv.co.kr";
 
 const routes = [
   { path: "/", component: Home },
+  { path: "/search", component: Search },
   { path: "/login", component: Login },
   { path: "/join", component: Join },
   { path: "/items/:id", component: Details },
@@ -21,7 +23,6 @@ const routeScripts = {
   "/items/:id": detailsScript,
   "/join": formSubmit,
   "/login": loginSubmit,
-  // "/logout": logoutSubmit,
 };
 
 function matchRoute(path) {

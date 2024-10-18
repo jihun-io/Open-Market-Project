@@ -1,4 +1,5 @@
-body.route-home {
+body.route-home,
+body[class^="route-search"] {
   main {
     section.carousel {
       height: 50rem;
