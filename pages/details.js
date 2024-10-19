@@ -344,8 +344,8 @@ export function detailsScript() {
     } else {
       quantity = parseInt(input.value);
       class OrderItem {
-        constructor(productId, quantity, discount, shippingFee, price) {
-          this.productId = productId;
+        constructor(cartItemId, quantity, discount, shippingFee, price) {
+          this.cartItemId = cartItemId;
           this.quantity = quantity;
           this.discount = discount;
           this.shippingFee = shippingFee;
