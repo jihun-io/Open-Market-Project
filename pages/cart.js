@@ -132,11 +132,11 @@ async function getCartItems(API_URL) {
             ${cartItems.results
               .map((item) => {
                 return /*html*/ `
-                <tr id="product${item.id}">
+                <tr id="product${item.product.id}">
                   <td>
-                    <input id="${item.id}" type="checkbox" />
+                    <input id="${item.product.id}" type="checkbox" />
                     <label for="${
-                      item.id
+                      item.product.id
                     }"><span class="sr-only">선택</span></label>
                   </td>
                   <td>
@@ -432,6 +432,122 @@ export async function cartScripts() {
 
       deleteBtn.addEventListener("click", async () => {
         deleteItems(productId);
+      });
+
+      purchaseEveryItemBtn.addEventListener("click", async () => {
+        class OrderItem {
+          constructor(productId, quantity, discount, shippingFee, price) {
+            this.productId = productId;
+            this.quantity = quantity;
+            this.discount = discount;
+            this.shippingFee = shippingFee;
+            this.price = price;
+          }
+        }
+
+        let orderLists = [];
+
+        const checkedItems = document.querySelectorAll(
+          "input[type='checkbox']:not(#selectAll):checked"
+        );
+        checkedItems.forEach((item) => {
+          const id = item.id;
+          const quantity = parseInt(
+            document
+              .getElementById(`product${id}`)
+              .querySelector(".amount-controller input").value
+          );
+          const discount = 0;
+          const shippingfee = parseInt(
+            document
+              .getElementById(`product${id}`)
+              .querySelector(".shipping-method")
+              .textContent.split("배송비 ")[1]
+              .replace("원", "")
+              .replace(",", "")
+          );
+          const price = parseInt(
+            document
+              .getElementById(`product${id}`)
+              .querySelector("p.total-price")
+              .textContent.replaceAll(",", "")
+              .replace("원", "")
+          );
+          const orderItem = new OrderItem(
+            id,
+            quantity,
+            discount,
+            shippingfee,
+            price
+          );
+          orderLists.push(orderItem);
+        });
+
+        const data = {
+          orderType: "cart_order",
+          products: orderLists,
+        };
+        sessionStorage.removeItem("order");
+        sessionStorage.setItem("order", JSON.stringify(data));
+        location.href = "/purchase";
+      });
+
+      const purchaseItems = document.querySelectorAll(".purchase-item");
+
+      purchaseItems.forEach((purchaseItem) => {
+        purchaseItem.addEventListener("click", async () => {
+          const id = purchaseItem.parentElement.parentElement.id.replace(
+            "product",
+            ""
+          );
+          const quantity = parseInt(
+            document
+              .getElementById(`product${id}`)
+              .querySelector(".amount-controller input").value
+          );
+          const discount = 0;
+          const shippingfee = parseInt(
+            document
+              .getElementById(`product${id}`)
+              .querySelector(".shipping-method")
+              .textContent.split("배송비 ")[1]
+              .replace("원", "")
+              .replace(",", "")
+          );
+          const price = parseInt(
+            document
+              .getElementById(`product${id}`)
+              .querySelector("p.total-price")
+              .textContent.replaceAll(",", "")
+              .replace("원", "")
+          );
+
+          class OrderItem {
+            constructor(productId, quantity, discount, shippingFee, price) {
+              this.productId = productId;
+              this.quantity = quantity;
+              this.discount = discount;
+              this.shippingFee = shippingFee;
+              this.price = price;
+            }
+          }
+
+          const orderItem = new OrderItem(
+            id,
+            quantity,
+            discount,
+            shippingfee,
+            price
+          );
+
+          const data = {
+            orderType: "direct_order",
+            products: [orderItem],
+          };
+          sessionStorage.removeItem("order");
+          sessionStorage.setItem("order", JSON.stringify(data));
+          location.href = "/purchase";
+        });
       });
     });
 
