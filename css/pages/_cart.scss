@@ -244,6 +244,19 @@ body.route-cart {
           cursor: not-allowed;
         }
       }
+      & > p.heading {
+        margin-top: 20rem;
+        margin-bottom: 1.7rem;
+        color: #000;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      & > p.nothing {
+        color: var(--gray);
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 20rem;
+      }
     }
   }
 }
@@ -310,14 +323,6 @@ body.route-cart {
 
 @media (max-width: 540px) {
   html body.route-cart main section {
-    table tbody tr td .amount-controller {
-      grid-template-columns: 3rem 3rem 3rem;
-      grid-template-rows: 3rem;
-      button svg {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
     summary {
       div {
         font-size: smaller;
