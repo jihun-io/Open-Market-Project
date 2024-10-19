@@ -161,11 +161,15 @@ export default async function Details({ API_URL, params }) {
               ">총 상품 금액</span
             ><span class="total-amount"
               ><span class="amount"
-                >총 수량 <span class="count">1</span>개</span
+                >총 수량 <span class="count">${
+                  result.stock === 0 ? "0" : "1"
+                }</span>개</span
               ><span class="value"
-                ><span class="total-price">${result.price.toLocaleString(
-                  "ko-KR"
-                )}</span>원</span
+                ><span class="total-price">${
+                  result.stock === 0
+                    ? "0"
+                    : result.price.toLocaleString("ko-KR")
+                }</span>원</span
               ></span
             >
           </p>
