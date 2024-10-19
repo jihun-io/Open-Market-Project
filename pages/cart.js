@@ -89,7 +89,23 @@ async function getCartItems(API_URL) {
     return /*html*/ `
       <section>
         <h2>장바구니</h2>
-        <p>장바구니에 담긴 상품이 없습니다.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <input id="selectAll" type="checkbox" />
+                <label for="selectAll"
+                  ><span class="sr-only">전체 선택</span></label
+                >
+              </th>
+              <th>상품정보</th>
+              <th>수량</th>
+              <th>상품금액</th>
+            </tr>
+          </thead>
+        </table>
+        <p class="heading">장바구니에 담긴 상품이 없습니다.</p>
+        <p class="nothing">원하는 상품을 장바구니에 담아보세요!</p>
       </section>
       `;
   } else {
@@ -292,6 +308,8 @@ export async function cartScripts() {
       });
       if (!selectAllBtn.checked) {
         purchaseEveryItemBtn.disabled = true;
+      } else {
+        purchaseEveryItemBtn.disabled = false;
       }
       getSummary();
     });
@@ -317,6 +335,8 @@ export async function cartScripts() {
           Array.from(checkboxes).every((checkbox) => checkbox.checked === false)
         ) {
           purchaseEveryItemBtn.disabled = true;
+        } else {
+          purchaseEveryItemBtn.disabled = false;
         }
         getSummary();
       });
