@@ -109,7 +109,7 @@ async function getCartItems(API_URL) {
             ${cartItems.results
               .map((item) => {
                 return /*html*/ `
-                <tr id="product${item.product.id}">
+                <tr id="cart-item-${item.id}">
                   <td>
                     <input id="${item.product.id}" type="checkbox" />
                     <label for="${
@@ -150,7 +150,9 @@ async function getCartItems(API_URL) {
                     <p class="total-price">${(
                       item.product.price * item.quantity
                     ).toLocaleString("ko-KR")}원</p>
-                    <button class="purchase-item">주문하기</button>
+                    <button class="purchase-item" id="product-${
+                      item.product.id
+                    }">주문하기</button>
                     <button class="delete"><img src="/images/icon-delete.svg" alt="상품 삭제" /></button>
                   </td>
                 </tr>
@@ -321,7 +323,7 @@ export async function cartScripts() {
 
     const amountControllers = document.querySelectorAll(".amount-controller");
 
-    async function updateCart(productId, value) {
+    async function updateCart(cartItemId, value) {
       const decryptedAccess = await DecryptingAccess(
         sessionStorage.getItem("encryptedAccess")
       );
@@ -329,7 +331,7 @@ export async function cartScripts() {
       let intValue = parseInt(value);
 
       try {
-        const res = await fetch(`${api}/cart/${productId}`, {
+        const res = await fetch(`${api}/cart/${cartItemId}`, {
           method: "PUT",
           headers: {
             Authorization: `Bearer ${decryptedAccess}`,
@@ -360,12 +362,12 @@ export async function cartScripts() {
       }
     }
 
-    async function deleteItems(productId) {
+    async function deleteItems(cartItemId) {
       const decryptedAccess = await DecryptingAccess(
         sessionStorage.getItem("encryptedAccess")
       );
       try {
-        const res = await fetch(`${api}/cart/${productId}`, {
+        const res = await fetch(`${api}/cart/${cartItemId}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${decryptedAccess}`,
@@ -380,10 +382,11 @@ export async function cartScripts() {
     }
 
     amountControllers.forEach((amountController) => {
-      const productId = amountController.parentElement.parentElement.id.replace(
-        "product",
-        ""
-      );
+      const cartItemId =
+        amountController.parentElement.parentElement.id.replace(
+          "cart-item-",
+          ""
+        );
       const input = amountController.querySelector("input");
       const plusBtn = amountController.querySelector("button:last-child");
       const minusBtn = amountController.querySelector("button:first-child");
@@ -394,7 +397,7 @@ export async function cartScripts() {
         );
 
       plusBtn.addEventListener("click", async () => {
-        const result = await updateCart(productId, parseInt(input.value) + 1);
+        const result = await updateCart(cartItemId, parseInt(input.value) + 1);
         if (result) {
           input.value = result;
         }
@@ -403,7 +406,10 @@ export async function cartScripts() {
 
       minusBtn.addEventListener("click", async () => {
         if (parseInt(input.value) > 1) {
-          const result = await updateCart(productId, parseInt(input.value) - 1);
+          const result = await updateCart(
+            cartItemId,
+            parseInt(input.value) - 1
+          );
           if (result) {
             input.value = result;
           }
@@ -412,13 +418,13 @@ export async function cartScripts() {
       });
 
       deleteBtn.addEventListener("click", async () => {
-        deleteItems(productId);
+        deleteItems(cartItemId);
       });
 
       purchaseEveryItemBtn.addEventListener("click", async () => {
         class OrderItem {
-          constructor(productId, quantity, discount, shippingFee, price) {
-            this.productId = productId;
+          constructor(cartItemId, quantity, discount, shippingFee, price) {
+            this.cartItemId = cartItemId;
             this.quantity = quantity;
             this.discount = discount;
             this.shippingFee = shippingFee;
@@ -432,24 +438,23 @@ export async function cartScripts() {
           "input[type='checkbox']:not(#selectAll):checked"
         );
         checkedItems.forEach((item) => {
+          console.log(item);
           const id = item.id;
           const quantity = parseInt(
-            document
-              .getElementById(`product${id}`)
-              .querySelector(".amount-controller input").value
+            item.parentElement.parentElement.querySelector(
+              ".amount-controller input"
+            ).value
           );
           const discount = 0;
           const shippingfee = parseInt(
-            document
-              .getElementById(`product${id}`)
+            item.parentElement.parentElement
               .querySelector(".shipping-method")
               .textContent.split("배송비 ")[1]
               .replace("원", "")
               .replace(",", "")
           );
           const price = parseInt(
-            document
-              .getElementById(`product${id}`)
+            item.parentElement.parentElement
               .querySelector("p.total-price")
               .textContent.replaceAll(",", "")
               .replace("원", "")
@@ -477,35 +482,30 @@ export async function cartScripts() {
 
       purchaseItems.forEach((purchaseItem) => {
         purchaseItem.addEventListener("click", async () => {
-          const id = purchaseItem.parentElement.parentElement.id.replace(
-            "product",
-            ""
-          );
+          const id = parseInt(purchaseItem.id.replace("product-", ""));
           const quantity = parseInt(
-            document
-              .getElementById(`product${id}`)
-              .querySelector(".amount-controller input").value
+            purchaseItem.parentElement.parentElement.querySelector(
+              ".amount-controller input"
+            ).value
           );
           const discount = 0;
           const shippingfee = parseInt(
-            document
-              .getElementById(`product${id}`)
+            purchaseItem.parentElement.parentElement
               .querySelector(".shipping-method")
               .textContent.split("배송비 ")[1]
               .replace("원", "")
               .replace(",", "")
           );
           const price = parseInt(
-            document
-              .getElementById(`product${id}`)
+            purchaseItem.parentElement.parentElement
               .querySelector("p.total-price")
               .textContent.replaceAll(",", "")
               .replace("원", "")
           );
 
           class OrderItem {
-            constructor(productId, quantity, discount, shippingFee, price) {
-              this.productId = productId;
+            constructor(cartItemId, quantity, discount, shippingFee, price) {
+              this.cartItemId = cartItemId;
               this.quantity = quantity;
               this.discount = discount;
               this.shippingFee = shippingFee;
@@ -525,6 +525,7 @@ export async function cartScripts() {
             orderType: "direct_order",
             products: [orderItem],
           };
+
           sessionStorage.removeItem("order");
           sessionStorage.setItem("order", JSON.stringify(data));
           location.href = "/purchase";
