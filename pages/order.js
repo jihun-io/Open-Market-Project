@@ -38,7 +38,7 @@ function getDateString(date) {
     dateObj.getMonth() + 1
   }. ${dateObj.getDate()}. ${
     (dateObj.getHours() < 9 ? "0" : "") + dateObj.getHours()
-  }:${dateObj.getMinutes()}`;
+  }:${(dateObj.getMinutes() < 9 ? "0" : "") + dateObj.getMinutes()}`;
 }
 
 function orderLists(orders) {
@@ -81,8 +81,6 @@ function orderLists(orders) {
 
 export default async function Order({ API_URL }) {
   api = API_URL;
-
-  console.log(await getOrders());
 
   if (!sessionStorage.getItem("encryptedAccess")) {
     location.href = "/login";
