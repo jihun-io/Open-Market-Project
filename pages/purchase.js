@@ -1,6 +1,8 @@
 import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 
+import DecryptingAccess from "../scripts/decryptingAccess.js";
+
 let api;
 
 let orderType;
@@ -11,33 +13,6 @@ let totalPrice = 0;
 let totalDiscount = 0;
 let totalShipping = 0;
 let totalAmount = 0;
-
-async function decryptingAccess() {
-  const fpPromise = FingerprintJS.load();
-  const result = await fpPromise.then((fp) => fp.get());
-  const { screenResolution, ...components } = result.components;
-
-  const visitorId = FingerprintJS.hashComponents(components);
-
-  let decryptedAccess;
-  try {
-    decryptedAccess = CryptoJS.AES.decrypt(
-      sessionStorage.getItem("encryptedAccess"),
-      visitorId
-    ).toString(CryptoJS.enc.Utf8);
-  } catch (error) {
-    if (error.toString() === "Error: Malformed UTF-8 data") {
-      location.href = "/logout";
-    }
-  }
-
-  if (!decryptedAccess) {
-    location.href = "/logout";
-    return;
-  }
-
-  return decryptedAccess;
-}
 
 async function getItemData(API_URL, productId) {
   const res = await fetch(`${API_URL}/products/${productId}`);
@@ -442,7 +417,9 @@ export async function purchaseScripts() {
       };
     }
 
-    const decryptedAccess = await decryptingAccess();
+    const decryptedAccess = await DecryptingAccess(
+      sessionStorage.getItem("encryptedAccess")
+    );
 
     const req = {
       method: "POST",
