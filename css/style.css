@@ -698,6 +698,10 @@ body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-r
 body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row button.purchase {
   background-color: var(--highlight);
 }
+body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
 body[class^=route-items] article.product-details {
   margin-top: 14rem;
 }

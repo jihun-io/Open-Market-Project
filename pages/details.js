@@ -28,6 +28,30 @@ function minusIcon() {
 `;
 }
 
+function purchaseBtn(stock) {
+  if (stock === 0) {
+    return /*html*/ `
+    <button class="purchase" disabled>품절되었습니다.</button>
+    `;
+  } else {
+    return /*html*/ `
+    <button class="purchase">구매하기</button>
+    `;
+  }
+}
+
+function cartBtn(stock) {
+  if (stock === 0) {
+    return /*html*/ `
+    <button class="cart" disabled>장바구니</button>
+    `;
+  } else {
+    return /*html*/ `
+    <button class="cart">장바구니</button>
+    `;
+  }
+}
+
 async function getData(API_URL, productId) {
   const res = await fetch(`${API_URL}/products/${productId}`)
     .then((res) => {
@@ -124,9 +148,9 @@ export default async function Details({ API_URL, params }) {
               ${minusIcon()}
               <span class="sr-only">뺴기</span>
             </button>
-            <input type="number" value="1" step="1" max="${
-              result.stock
-            }" readonly />
+            <input type="number" value="${
+              result.stock === 0 ? "0" : "1"
+            }" step="1" max="${result.stock}" disabled />
             <button>
               ${plusIcon()}
               <span class="sr-only">더하기</span>
@@ -146,8 +170,8 @@ export default async function Details({ API_URL, params }) {
             >
           </p>
           <ul class="btn-row">
-            <li><button class="purchase">바로 구매</button></li>
-            <li><button class="cart">장바구니</button></li>
+            <li>${purchaseBtn(result.stock)}</li>
+            <li>${cartBtn(result.stock)}</li>
           </ul>
         </div>
       </div>

@@ -148,10 +148,13 @@ body[class^="route-items"] {
             padding-top: 1.9rem;
             padding-bottom: 1.9rem;
             border-radius: 5px;
-          }
-
-          button.purchase {
-            background-color: var(--highlight);
+            &.purchase {
+              background-color: var(--highlight);
+            }
+            &:disabled {
+              background-color: #e0e0e0;
+              cursor: not-allowed;
+            }
           }
         }
       }
