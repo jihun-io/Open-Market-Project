@@ -358,7 +358,7 @@ export function detailsScript() {
         quantity,
         discount,
         shippingfee,
-        price
+        price * quantity
       );
 
       const data = {
