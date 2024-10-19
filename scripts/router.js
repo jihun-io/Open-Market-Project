@@ -9,6 +9,7 @@ import Cart, { cartScripts } from "../pages/cart.js";
 import Purchase, { purchaseScripts } from "../pages/purchase.js";
 import Mypage from "../pages/mypage.js";
 import Order from "../pages/order.js";
+import OrderDetails, { orderCancel } from "../pages/orderDetails.js";
 import { headerBtns } from "../components/header.js";
 
 const API_URL = "https://estapi.openmarket.weniv.co.kr";
@@ -23,6 +24,7 @@ const routes = [
   { path: "/purchase", component: Purchase },
   { path: "/mypage", component: Mypage },
   { path: "/mypage/order", component: Order },
+  { path: "/mypage/order/:id", component: OrderDetails },
   { path: "/logout", component: Logout },
 ];
 
@@ -32,6 +34,7 @@ const routeScripts = {
   "/login": loginSubmit,
   "/cart": cartScripts,
   "/purchase": purchaseScripts,
+  "/mypage/order/:id": orderCancel,
 };
 
 function matchRoute(path) {
@@ -135,7 +138,10 @@ async function router() {
     const result = await matchedRoute.component({ API_URL, params });
     pageContent = result.content;
     pageTitle = result.title;
-    routeClass = path.slice(1) === "" ? "route-home" : `route-${path.slice(1)}`;
+    routeClass =
+      path.slice(1) === ""
+        ? "route-home"
+        : `route-${path.slice(1).replaceAll("/", "-")}`;
   } else {
     pageContent = NotFound().content;
     routeClass = "route-not-found";

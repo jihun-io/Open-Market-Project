@@ -1627,6 +1627,432 @@ body[class$=order] main section table tbody tr td.order-price a {
   margin-top: 2.6rem;
 }
 
+body[class^=route-mypage-order-] main {
+  align-items: center;
+}
+body[class^=route-mypage-order-] main section {
+  align-items: center;
+  width: 100%;
+}
+body[class^=route-mypage-order-] main section h2 {
+  font-weight: 700;
+  font-size: 3.6rem;
+  text-align: center;
+  margin-top: 5.4rem;
+  margin-bottom: 5.2rem;
+}
+body[class^=route-mypage-order-] main section article {
+  width: 100%;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead {
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr th {
+  padding-top: 1.9rem;
+  padding-bottom: 1.8rem;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr th button {
+  margin: 0 3rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr th button svg,
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr th button img {
+  width: 2rem;
+  height: 2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr {
+  border-radius: 10px;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table thead tr th {
+  background-color: var(--gray-bg);
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody {
+  border-spacing: 10px 10px;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr {
+  margin-bottom: 1rem;
+  position: relative;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #c4c4c4;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 0.8rem 0.8rem 1.8rem;
+  white-space: nowrap;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:last-child {
+  position: relative;
+  border-radius: 0 10px 10px 0;
+  padding-left: calc(2rem + 8 * (100vw - 800px) / 1120);
+  padding-right: calc(2rem + 8 * (100vw - 800px) / 1120);
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child {
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  white-space: wrap;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child img {
+  width: 10.4rem;
+  height: 10.4rem;
+  margin-left: 0.8rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div {
+  margin-top: 1.2rem;
+  margin-left: 3.6rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div p {
+  display: inline-flex;
+  align-items: center;
+  text-align: left;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div p.seller {
+  font-size: 1.4rem;
+  color: var(--gray);
+  margin-bottom: 0.6rem;
+  line-height: 1.8rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div p.product-name {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 2.2rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div p.amount {
+  font-size: 1.4rem;
+  color: var(--gray);
+  line-height: 1.8rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div p.shipping-method {
+  margin-top: 3rem;
+  color: var(--gray);
+  word-break: keep-all;
+}
+@media (max-width: 600px) {
+  body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child {
+    flex-direction: column;
+  }
+  body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child > div {
+    margin-left: 0;
+  }
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:nth-child(2), body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:nth-child(3) {
+  color: var(--gray);
+  font-size: 1.8rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:nth-child(4) {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items summary {
+  margin-top: 3rem;
+}
+body[class^=route-mypage-order-] main section article.purchased-items summary p {
+  font-size: 1.8rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  font-weight: 500;
+}
+body[class^=route-mypage-order-] main section article.purchased-items summary p span {
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--red-text);
+  margin-left: 1rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form {
+  width: 100%;
+  margin-top: 9.6rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form h3 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 3rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 2px solid #c4c4c4;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset {
+  width: 100%;
+  margin-top: 4rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset h4 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 2.3rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #c4c4c4;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #c4c4c4;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row label {
+  width: 100%;
+  max-width: 7.8rem;
+  margin-right: 9.2rem;
+}
+@media (max-width: 400px) {
+  body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row label {
+    margin-right: 2.3rem;
+  }
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row input {
+  width: 100%;
+  max-width: 33.4rem;
+  border: 1px solid #c4c4c4;
+  padding: 0.9rem;
+  background-color: var(--gray-bg);
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row .form-phone {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  max-width: 33.4rem;
+  grid-template-columns: 27.21fr 2.38fr 34.01fr 2.38fr 34.01fr;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row .form-phone span {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row label[for=address] {
+  margin-top: 1rem;
+  margin-bottom: auto;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row .form-address {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 80rem;
+  row-gap: 0.8rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row .form-address .form-address-row {
+  display: flex;
+  width: 100%;
+  max-width: 33.4rem;
+  gap: 1rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row .form-address .form-address-row button {
+  border-radius: 5px;
+  color: var(--gray);
+  background-color: var(--highlight);
+  color: #fff;
+  width: -moz-fit-content;
+  width: fit-content;
+  white-space: nowrap;
+  line-height: 2rem;
+  padding: 1rem 3rem;
+  font-weight: 500;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row .form-address #address1,
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row .form-address #address2 {
+  max-width: 100%;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form fieldset div.form-row input#message {
+  width: 100%;
+  max-width: 80rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout {
+  display: grid;
+  grid-template-columns: 1fr 48rem;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+  margin-bottom: 35.8rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout h4 {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 3rem;
+  border-bottom: 0;
+  padding: 0;
+  margin-bottom: 1.8rem;
+}
+@media (max-width: 600px) {
+  body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout {
+    display: flex;
+    flex-direction: column;
+  }
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-method ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  padding: 1.8rem 1.2rem 2rem;
+  border-top: 2px solid #c4c4c4;
+  border-bottom: 2px solid #c4c4c4;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  row-gap: 0.5rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-method ul li input[type=radio] {
+  display: none;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-method ul li input[type=radio] + label {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-method ul li input[type=radio] + label::before {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-image: url("/images/icon-radio.svg");
+  background-size: cover;
+  margin-right: 1rem;
+  background-color: var(--gray-bg);
+  border-radius: 50%;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-method ul li input[type=radio]:checked + label::before {
+  background-image: url("/images/icon-radio-on.svg");
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info {
+  width: 100%;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment {
+  border: 2px solid var(--highlight);
+  border-radius: 10px;
+  padding: 3.2rem 2.4rem 3.4rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: disc;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  line-height: 2rem;
+  margin-bottom: 1.2rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li::before {
+  content: "-";
+  margin-right: 0.5rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li p {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline-block;
+  margin-right: auto;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li p:last-child {
+  margin-left: auto;
+  margin-right: 0;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li p span {
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  font-weight: 700;
+  margin-right: 0.4rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li:nth-child(3) {
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 1.8rem;
+  margin-bottom: 2.4rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li:last-child {
+  margin-bottom: 2rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li:last-child p:last-child, body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment ul li:last-child span {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--red-text);
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment div.purchase-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 -2.4rem -3.4rem;
+  padding: 3rem 2.4rem 3.4rem;
+  background-color: var(--gray-bg);
+  border-radius: 0 0 10px 10px;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment div.purchase-btn-wrapper input[type=checkbox] {
+  display: none;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment div.purchase-btn-wrapper input[type=checkbox] + label {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 2rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment div.purchase-btn-wrapper input[type=checkbox] + label::before {
+  content: "";
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url("/images/check-box.svg");
+  background-size: cover;
+  margin-right: 1rem;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment div.purchase-btn-wrapper input[type=checkbox]:checked + label::before {
+  background-image: url("/images/check-fill-box.svg");
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment div.purchase-btn-wrapper button {
+  margin-top: 3rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  padding: 1.9rem 6.55rem;
+  background-color: var(--highlight);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  color: #fff;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment div.purchase-btn-wrapper button:disabled {
+  background-color: #c4c4c4;
+  cursor: not-allowed;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout button.purchase-cancel {
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 1.9rem 6.55rem;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout button.purchase-cancel:disabled {
+  border: none;
+  background-color: #c4c4c4;
+  cursor: not-allowed;
+}
+body[class^=route-mypage-order-] dialog {
+  width: 90vw;
+  height: 50vh;
+  padding: 0;
+}
+
 body.route-not-found main {
   min-height: 100dvh;
 }
@@ -1965,7 +2391,7 @@ footer ul.shop-info li {
 }
 
 .padding, body.route-home main section.product-lists,
-body[class^=route-search] main section.product-lists, body[class^=route-items] article, body.route-cart main, body.route-purchase main, body:not(.route-join):not(.route-login) header, footer {
+body[class^=route-search] main section.product-lists, body[class^=route-items] article, body.route-cart main, body.route-purchase main, body[class^=route-mypage-order-] main, body:not(.route-join):not(.route-login) header, footer {
   padding-left: max(2rem, min(22.73vw - 116.36px, 320px));
   padding-right: max(2rem, min(22.73vw - 116.36px, 320px));
 }
@@ -1978,14 +2404,14 @@ body:not(.route-join):not(.route-login) header ul li button.seller-btn, footer n
 }
 
 .flex-col, body.route-home main section.product-lists > a article.item,
-body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-cart main, body.route-cart main section, body.route-cart main section table tbody tr td:nth-child(2) div, body.route-purchase main, body.route-purchase main section, body.route-purchase main section article.purchase-items table tbody tr td:first-child div, body.route-mypage main article, body[class$=order] main section, body.route-not-found main, body:not(.route-join):not(.route-login) header ul li a,
+body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-cart main, body.route-cart main section, body.route-cart main section table tbody tr td:nth-child(2) div, body.route-purchase main, body.route-purchase main section, body.route-purchase main section article.purchase-items table tbody tr td:first-child div, body.route-mypage main article, body[class$=order] main section, body[class^=route-mypage-order-] main, body[class^=route-mypage-order-] main section, body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div, body.route-not-found main, body:not(.route-join):not(.route-login) header ul li a,
 body:not(.route-join):not(.route-login) header ul li button {
   display: flex;
   flex-direction: column;
 }
 
 .flex-center, body.route-cart main section table tbody tr td .amount-controller button, body.route-home main section.carousel div.event-banner,
-body[class^=route-search] main section.carousel div.event-banner, body.route-login, body.route-logout main, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-cart main section input[type=checkbox] + label, body.route-cart main section table thead tr th button, body.route-purchase main section article.purchase-items table thead tr th button, body.route-not-found main, body.route-not-found main article div.msg ul li, body:not(.route-join):not(.route-login) header div.header-left h1, body:not(.route-join):not(.route-login) header div.header-left form button, body:not(.route-join):not(.route-login) header ul li ul.dropdown li, body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
+body[class^=route-search] main section.carousel div.event-banner, body.route-login, body.route-logout main, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-cart main section input[type=checkbox] + label, body.route-cart main section table thead tr th button, body.route-purchase main section article.purchase-items table thead tr th button, body[class^=route-mypage-order-] main section article.purchased-items table thead tr th button, body.route-not-found main, body.route-not-found main article div.msg ul li, body:not(.route-join):not(.route-login) header div.header-left h1, body:not(.route-join):not(.route-login) header div.header-left form button, body:not(.route-join):not(.route-login) header ul li ul.dropdown li, body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2031,7 +2457,7 @@ body.route-cart main section table tbody tr td .amount-controller input[type=num
   -webkit-appearance: none;
 }
 
-body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item, body.route-mypage main article ul li a, body[class$=order] main section table tbody tr td.order-price a {
+body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item, body.route-mypage main article ul li a, body[class$=order] main section table tbody tr td.order-price a, body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout button.purchase-cancel {
   font-size: 1.6rem;
   padding: 1rem 3.55rem;
   border: 1px solid var(--gray-border);
@@ -2040,7 +2466,7 @@ body.route-cart main section button.purchase, body.route-cart main section table
   color: var(--gray);
 }
 
-body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item, body.route-mypage main article ul li a, body[class$=order] main section table tbody tr td.order-price a {
+body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item, body.route-mypage main article ul li a, body[class$=order] main section table tbody tr td.order-price a, body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout button.purchase-cancel {
   background-color: var(--highlight);
   border: 1px solid var(--highlight);
   color: #fff;
