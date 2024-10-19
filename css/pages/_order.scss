@@ -1,0 +1,142 @@
+body[class$="order"] {
+  main {
+    @extend %padding;
+    section {
+      @extend .flex-col;
+      align-items: center;
+      width: 100%;
+      h2 {
+        font-weight: 700;
+        font-size: 3.6rem;
+        text-align: center;
+        margin-top: 5.4rem;
+        margin-bottom: 5.2rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+
+        thead {
+          font-size: 1.8rem;
+          line-height: 2.3rem;
+          tr th {
+            padding-top: 1.9rem;
+            padding-bottom: 1.8rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            text-align: center;
+            vertical-align: middle;
+
+            &:first-child {
+              border-radius: 10px 0 0 10px;
+            }
+            &:last-child {
+              border-radius: 0 10px 10px 0;
+            }
+          }
+          tr {
+            border-radius: 10px;
+            th {
+              background-color: var(--gray-bg);
+              white-space: nowrap;
+            }
+          }
+        }
+        tbody {
+          &:before {
+            content: "";
+            display: block;
+            height: 1.5rem;
+          }
+          border-spacing: 10px 10px;
+          tr {
+            border-radius: 10px;
+            box-shadow: 0px 0px 0px 2px #e0e0e0;
+            margin-bottom: 1rem;
+            td {
+              vertical-align: middle;
+              text-align: center;
+              padding-top: 2rem;
+              padding-bottom: 2rem;
+              &:first-child {
+                border-radius: 10px 0 0 10px;
+              }
+              &:last-child {
+                position: relative;
+                border-radius: 0 10px 10px 0;
+                padding-left: calc(
+                  2rem + (10 - 2) * ((100vw - 800px) / (1920 - 800))
+                );
+                padding-right: calc(
+                  2rem + (10 - 2) * ((100vw - 800px) / (1920 - 800))
+                );
+              }
+
+              &.product-info {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                align-items: center;
+                padding-left: calc(2rem + 8 * (100vw - 800px) / 1120);
+                row-gap: 2rem;
+
+                img {
+                  width: 16rem;
+                  height: 16rem;
+                  object-fit: cover;
+                  border-radius: 10px;
+                  margin-right: 2rem;
+                }
+                div {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  row-gap: 1rem;
+
+                  p {
+                    &.order-number {
+                      font-size: 1.4rem;
+                      color: var(--gray);
+                      line-height: 1.8rem;
+                    }
+
+                    &.order-name {
+                      font-size: 1.8rem;
+                      line-height: 2.2rem;
+                    }
+                  }
+                }
+              }
+
+              &.order-status,
+              &.order-price {
+                white-space: nowrap;
+              }
+
+              &.order-status {
+                font-size: 1.8rem;
+                line-height: 2.2rem;
+                color: var(--gray);
+              }
+
+              &.order-price {
+                p {
+                  font-weight: 700;
+                  color: var(--red-text);
+                }
+
+                a {
+                  @extend %btn-highlight;
+                  display: inline-block;
+                  margin-top: 2.6rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

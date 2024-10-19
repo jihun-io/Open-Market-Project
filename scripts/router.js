@@ -7,7 +7,8 @@ import Join, { formSubmit } from "../pages/join.js";
 import Details, { detailsScript } from "../pages/details.js";
 import Cart, { cartScripts } from "../pages/cart.js";
 import Purchase, { purchaseScripts } from "../pages/purchase.js";
-
+import Mypage from "../pages/mypage.js";
+import Order from "../pages/order.js";
 import { headerBtns } from "../components/header.js";
 
 const API_URL = "https://estapi.openmarket.weniv.co.kr";
@@ -20,6 +21,8 @@ const routes = [
   { path: "/items/:id", component: Details },
   { path: "/cart", component: Cart },
   { path: "/purchase", component: Purchase },
+  { path: "/mypage", component: Mypage },
+  { path: "/mypage/order", component: Order },
   { path: "/logout", component: Logout },
 ];
 

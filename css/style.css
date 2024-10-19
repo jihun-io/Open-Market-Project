@@ -96,7 +96,7 @@ body[class^=route-search] main section.product-lists > a article.item h3 {
   font-size: 1.8rem;
 }
 
-body.route-join main section form fieldset, body.route-login main section form fieldset {
+body[class$=order] main, body.route-join main section form fieldset, body.route-login main section form fieldset {
   padding-left: 3.5rem;
   padding-right: 3.5rem;
   padding-top: 3.3rem;
@@ -216,7 +216,7 @@ body.route-login main ul.joins li a {
   color: var(--gray-text);
 }
 
-body.route-join main section form fieldset, body.route-login main section form fieldset {
+body[class$=order] main, body.route-join main section form fieldset, body.route-login main section form fieldset {
   padding-left: 3.5rem;
   padding-right: 3.5rem;
   padding-top: 3.3rem;
@@ -1482,6 +1482,151 @@ body.route-purchase dialog {
   padding: 0;
 }
 
+body.route-mypage main article {
+  align-items: center;
+  width: 100%;
+}
+body.route-mypage main article h2 {
+  font-weight: 700;
+  font-size: 3.6rem;
+  text-align: center;
+  margin-top: 5.4rem;
+  margin-bottom: 5.2rem;
+}
+body.route-mypage main article ul {
+  display: flex;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+  row-gap: 2.6rem;
+}
+body.route-mypage main article ul li {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+body.route-mypage main article ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body[class$=order] main section {
+  align-items: center;
+  width: 100%;
+}
+body[class$=order] main section h2 {
+  font-weight: 700;
+  font-size: 3.6rem;
+  text-align: center;
+  margin-top: 5.4rem;
+  margin-bottom: 5.2rem;
+}
+body[class$=order] main section table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+body[class$=order] main section table thead {
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+}
+body[class$=order] main section table thead tr th {
+  padding-top: 1.9rem;
+  padding-bottom: 1.8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  vertical-align: middle;
+}
+body[class$=order] main section table thead tr th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+body[class$=order] main section table thead tr th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+body[class$=order] main section table thead tr {
+  border-radius: 10px;
+}
+body[class$=order] main section table thead tr th {
+  background-color: var(--gray-bg);
+  white-space: nowrap;
+}
+body[class$=order] main section table tbody {
+  border-spacing: 10px 10px;
+}
+body[class$=order] main section table tbody:before {
+  content: "";
+  display: block;
+  height: 1.5rem;
+}
+body[class$=order] main section table tbody tr {
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 2px #e0e0e0;
+  margin-bottom: 1rem;
+}
+body[class$=order] main section table tbody tr td {
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+body[class$=order] main section table tbody tr td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+body[class$=order] main section table tbody tr td:last-child {
+  position: relative;
+  border-radius: 0 10px 10px 0;
+  padding-left: calc(2rem + 8 * (100vw - 800px) / 1120);
+  padding-right: calc(2rem + 8 * (100vw - 800px) / 1120);
+}
+body[class$=order] main section table tbody tr td.product-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  padding-left: calc(2rem + 8 * (100vw - 800px) / 1120);
+  row-gap: 2rem;
+}
+body[class$=order] main section table tbody tr td.product-info img {
+  width: 16rem;
+  height: 16rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+  margin-right: 2rem;
+}
+body[class$=order] main section table tbody tr td.product-info div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1rem;
+}
+body[class$=order] main section table tbody tr td.product-info div p.order-number {
+  font-size: 1.4rem;
+  color: var(--gray);
+  line-height: 1.8rem;
+}
+body[class$=order] main section table tbody tr td.product-info div p.order-name {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+}
+body[class$=order] main section table tbody tr td.order-status, body[class$=order] main section table tbody tr td.order-price {
+  white-space: nowrap;
+}
+body[class$=order] main section table tbody tr td.order-status {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  color: var(--gray);
+}
+body[class$=order] main section table tbody tr td.order-price p {
+  font-weight: 700;
+  color: var(--red-text);
+}
+body[class$=order] main section table tbody tr td.order-price a {
+  display: inline-block;
+  margin-top: 2.6rem;
+}
+
 body.route-not-found main {
   min-height: 100dvh;
 }
@@ -1833,7 +1978,7 @@ body:not(.route-join):not(.route-login) header ul li button.seller-btn, footer n
 }
 
 .flex-col, body.route-home main section.product-lists > a article.item,
-body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-cart main, body.route-cart main section, body.route-cart main section table tbody tr td:nth-child(2) div, body.route-purchase main, body.route-purchase main section, body.route-purchase main section article.purchase-items table tbody tr td:first-child div, body.route-not-found main, body:not(.route-join):not(.route-login) header ul li a,
+body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-cart main, body.route-cart main section, body.route-cart main section table tbody tr td:nth-child(2) div, body.route-purchase main, body.route-purchase main section, body.route-purchase main section article.purchase-items table tbody tr td:first-child div, body.route-mypage main article, body[class$=order] main section, body.route-not-found main, body:not(.route-join):not(.route-login) header ul li a,
 body:not(.route-join):not(.route-login) header ul li button {
   display: flex;
   flex-direction: column;
@@ -1886,7 +2031,7 @@ body.route-cart main section table tbody tr td .amount-controller input[type=num
   -webkit-appearance: none;
 }
 
-body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item {
+body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item, body.route-mypage main article ul li a, body[class$=order] main section table tbody tr td.order-price a {
   font-size: 1.6rem;
   padding: 1rem 3.55rem;
   border: 1px solid var(--gray-border);
@@ -1895,7 +2040,7 @@ body.route-cart main section button.purchase, body.route-cart main section table
   color: var(--gray);
 }
 
-body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item {
+body.route-cart main section button.purchase, body.route-cart main section table tbody tr td > button.purchase-item, body.route-mypage main article ul li a, body[class$=order] main section table tbody tr td.order-price a {
   background-color: var(--highlight);
   border: 1px solid var(--highlight);
   color: #fff;
