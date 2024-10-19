@@ -1,0 +1,32 @@
+body.route-mypage {
+  main {
+    article {
+      @extend .flex-col;
+      align-items: center;
+      width: 100%;
+      h2 {
+        font-weight: 700;
+        font-size: 3.6rem;
+        text-align: center;
+        margin-top: 5.4rem;
+        margin-bottom: 5.2rem;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        row-gap: 2.6rem;
+        li {
+          height: fit-content;
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @extend %btn-highlight;
+          }
+        }
+      }
+    }
+  }
+}
