@@ -2,7 +2,12 @@ import Header from "../components/header.js";
 import Footer from "../components/footer.js";
 
 let api;
+
 let itemId;
+let quantity;
+let discount;
+let shippingfee;
+let price;
 
 function plusIcon() {
   return /*html*/ `
@@ -75,6 +80,11 @@ export default async function Details({ API_URL, params }) {
       `,
     };
   } else {
+    itemId = result.id;
+    discount = 0;
+    shippingfee = result.shipping_fee;
+    price = result.price;
+
     return {
       title: `${result.name} - HODU`,
       content: /*html*/ `
@@ -299,8 +309,38 @@ export function detailsScript() {
     location.href = "/cart";
   });
 
-  purchaseBtn.addEventListener("click", () => {
-    openLoginModal();
+  purchaseBtn.addEventListener("click", async () => {
+    const result = await access();
+    if (result === false) {
+      openLoginModal();
+    } else {
+      quantity = parseInt(input.value);
+      class OrderItem {
+        constructor(productId, quantity, discount, shippingFee, price) {
+          this.productId = productId;
+          this.quantity = quantity;
+          this.discount = discount;
+          this.shippingFee = shippingFee;
+          this.price = price;
+        }
+      }
+
+      const orderItem = new OrderItem(
+        itemId,
+        quantity,
+        discount,
+        shippingfee,
+        price
+      );
+
+      const data = {
+        orderType: "direct_order",
+        products: [orderItem],
+      };
+      sessionStorage.removeItem("order");
+      sessionStorage.setItem("order", JSON.stringify(data));
+      location.href = "/purchase";
+    }
   });
 
   cartBtn.addEventListener("click", async () => {

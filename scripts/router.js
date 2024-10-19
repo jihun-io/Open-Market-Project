@@ -6,6 +6,7 @@ import Logout from "../pages/logout.js";
 import Join, { formSubmit } from "../pages/join.js";
 import Details, { detailsScript } from "../pages/details.js";
 import Cart, { cartScripts } from "../pages/cart.js";
+import Purchase, { purchaseScripts } from "../pages/purchase.js";
 
 import { headerBtns } from "../components/header.js";
 
@@ -18,6 +19,7 @@ const routes = [
   { path: "/join", component: Join },
   { path: "/items/:id", component: Details },
   { path: "/cart", component: Cart },
+  { path: "/purchase", component: Purchase },
   { path: "/logout", component: Logout },
 ];
 
@@ -26,6 +28,7 @@ const routeScripts = {
   "/join": formSubmit,
   "/login": loginSubmit,
   "/cart": cartScripts,
+  "/purchase": purchaseScripts,
 };
 
 function matchRoute(path) {
