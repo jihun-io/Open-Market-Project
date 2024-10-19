@@ -122,7 +122,7 @@ export default async function Purchase({ API_URL }) {
           ${await cartTable()}
         </article>
         <article class="shipping-info">
-          <form action="/submit" method="post">
+          <form  method="post">
             <h3>배송정보</h3>
             <fieldset>
               <h4>주문자 정보</h4>
@@ -435,8 +435,8 @@ export async function purchaseScripts() {
       if (res.ok) {
         const result = await res.json();
         if (result.order_status === "payment_complete") {
-          alert("주문이 완료되었습니다!\n홈 화면으로 이동합니다.");
-          location.href = "/";
+          alert("주문이 완료되었습니다!\n주문 목록 페이지로 이동합니다.");
+          location.href = "/mypage/order";
         }
       } else {
         console.error("주문 실패");
