@@ -14,8 +14,8 @@ let totalDiscount = 0;
 let totalShipping = 0;
 let totalAmount = 0;
 
-async function getItemData(API_URL, productId) {
-  const res = await fetch(`${API_URL}/products/${productId}`);
+async function getItemData(API_URL, cartItemId) {
+  const res = await fetch(`${API_URL}/products/${cartItemId}`);
   const data = await res.json();
   return data;
 }
@@ -33,11 +33,11 @@ async function cartTable() {
   let itemDatas = [];
 
   for (let i = 0; i < order.products.length; i++) {
-    orderItems.push(order.products[i].productId);
+    orderItems.push(order.products[i].cartItemId);
     if (order.products.length === 1) {
       quantity = order.products[i].quantity;
     }
-    const itemData = await getItemData(api, order.products[i].productId);
+    const itemData = await getItemData(api, order.products[i].cartItemId);
     itemDatas.push(itemData);
   }
 
