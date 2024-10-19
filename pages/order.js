@@ -48,7 +48,7 @@ function orderLists(orders) {
     preparing: "상품 준비 중",
     shipping: "배송 중",
     delivered: "배송 완료",
-    cancled: "취소",
+    cancelled: "주문 취소",
   };
 
   return orders
