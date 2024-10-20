@@ -14,10 +14,10 @@ async function getProducts(API_URL) {
 
   result = data.results
     .map((product) => {
-      return `
+      return /*html*/ `
       <a href="/items/${product.id}">
         <article class="item">
-          <img src="${product.image}" alt="${product.name}" />
+          <img src="${product.image}" alt="${product.name}" loading="lazy"/>
           <p class="seller">${product.seller.store_name}</p>
           <h3 class="title">${product.name}</h3>
           <p class="price">
