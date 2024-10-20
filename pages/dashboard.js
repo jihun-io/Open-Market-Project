@@ -46,9 +46,7 @@ async function deleteProduct(index) {
     if (!res.ok) {
       console.error(res);
     } else {
-      if (res.status === 204) {
-        alert("상품이 삭제되었습니다.");
-      } else {
+      if (res.status != 204) {
         alert("상품을 삭제하는 중 문제가 발생했습니다.");
       }
       location.reload();
@@ -147,6 +145,18 @@ export default async function SellerDashboard({ API_URL }) {
         </article>
       </section>
     </main>
+    <dialog>
+    <div class="window-controller">
+      <button class="modal-no">
+        <img src="/images/icon-delete.svg" alt="닫기" />
+      </button>
+    </div>
+    <p>정말로 상품을 삭제하시겠습니까?</p>
+    <ul>
+      <li><button class="modal-no">아니요</button></li>
+      <li><button class="modal-yes">예</button></li>
+    </ul>
+    </dialog>
     `,
   };
 }
@@ -164,10 +174,21 @@ export function dashboardEvents() {
     }
 
     if (target.classList.contains("delete")) {
-      const isDelete = confirm("정말 삭제하시겠습니까?");
-      if (isDelete) {
+      const modal = document.querySelector("dialog");
+      modal.showModal();
+
+      const modalYes = document.querySelector(".modal-yes");
+      const modalNo = document.querySelectorAll(".modal-no");
+
+      modalYes.addEventListener("click", () => {
         deleteProduct(index);
-      }
+      });
+
+      modalNo.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          modal.close();
+        });
+      });
     }
   });
 
