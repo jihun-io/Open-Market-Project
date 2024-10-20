@@ -340,8 +340,9 @@ export async function productEvents() {
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }
+      const data = await res.json();
       alert("성공적으로 상품이 등록되었습니다!");
-      location.href = "/seller";
+      location.href = `/items/${data.id}`;
     } catch (error) {
       console.error("Error:", error);
       alert("상품 등록 중 문제가 발생했습니다.");
