@@ -117,10 +117,10 @@ export default function Header() {
 
 export function headerBtns() {
   // route-login 혹은 route-join 페이지가 아닐 경우
-  if (
-    !window.location.pathname.includes("login") &&
-    !window.location.pathname.includes("join")
-  ) {
+
+  const excludedRoutes = ["login", "join", "seller"];
+
+  if (!excludedRoutes.includes(location.pathname.split("/")[1])) {
     const mobileSearchForm = document.querySelector("form.mobile");
     const mobileSearchInput = document.querySelector("form.mobile input");
     const mobileSearchBtn = document.querySelector(".mobile button.search-btn");
