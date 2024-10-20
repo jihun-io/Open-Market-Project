@@ -64,7 +64,7 @@ async function orderTable(orderData) {
       <td>
         <img
           src="${itemDatas[index].image}"
-          alt=""
+          alt="${itemDatas[index].name}"
         />
         <div>
           <p class="seller">${itemDatas[index].seller.store_name}</p>

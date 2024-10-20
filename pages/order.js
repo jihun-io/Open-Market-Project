@@ -58,7 +58,9 @@ function orderLists(orders) {
       return /*html*/ `
         <tr>
           <td class="product-info">
-            <img src="${order.order_items[0].product.image}" alt="" />
+            <img src="${order.order_items[0].product.image}" alt="${
+        order.order_items[0].product.name
+      }" />
             <div>
               <p class="order-number">${order.order_number}</p>
               <p class="order-name">${order.order_items[0].product.name}${
