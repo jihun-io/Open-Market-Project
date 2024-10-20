@@ -22,7 +22,6 @@ async function getItemData(API_URL, cartItemId) {
 
 async function cartTable() {
   const order = JSON.parse(sessionStorage.getItem("order"));
-  sessionStorage.removeItem("order");
 
   if (!order) {
     location.href = "/cart";
