@@ -11,6 +11,7 @@
 @import "pages/order";
 @import "pages/order-details";
 @import "pages/dashboard";
+@import "pages/add";
 @import "pages/404";
 @import "modules/header";
 @import "modules/footer";
@@ -47,6 +48,11 @@
 .padding {
   padding-left: max(2rem, min(calc(22.73vw - 116.36px), 320px));
   padding-right: max(2rem, min(calc(22.73vw - 116.36px), 320px));
+}
+
+%seller-padding {
+  padding-left: max(2rem, min(22.73vw - 116.36px, 100px));
+  padding-right: max(2rem, min(22.73vw - 116.36px, 100px));
 }
 
 .flex-row {
@@ -135,6 +141,18 @@
   padding: 1.9rem 6.6rem;
   border: 0px;
   line-height: 3rem;
+}
+
+%seller-btn {
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+  background: #fff;
+}
+%seller-btn-highlight {
+  @extend %seller-btn;
+  background: var(--highlight);
+  border: 1px solid var(--highlight);
+  color: #fff;
 }
 
 * {
