@@ -1,4 +1,4 @@
-body:not(.route-join):not(.route-login) header {
+body:not(.route-join):not(.route-login):not([class^="route-seller"]) header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -165,7 +165,9 @@ body:not(.route-join):not(.route-login) header {
 
 // 600px 이하일 때 헤더의 폼 숨김
 @media (max-width: 600px) {
-  html body:not(.route-join):not(.route-login) header {
+  html
+    body:not(.route-join):not(.route-login):not([class^="route-seller"])
+    header {
     overflow-x: hidden;
     div.header-left form {
       display: none;
