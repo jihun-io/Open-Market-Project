@@ -11,6 +11,7 @@ import Mypage from "../pages/mypage.js";
 import Order from "../pages/order.js";
 import OrderDetails, { orderCancel } from "../pages/orderDetails.js";
 import { headerBtns } from "../components/header.js";
+import SellerDashboard from "../pages/dashboard.js";
 
 const API_URL = "https://estapi.openmarket.weniv.co.kr";
 
@@ -25,6 +26,7 @@ const routes = [
   { path: "/mypage", component: Mypage },
   { path: "/mypage/order", component: Order },
   { path: "/mypage/order/:id", component: OrderDetails },
+  { path: "/seller", component: SellerDashboard },
   { path: "/logout", component: Logout },
 ];
 

@@ -2053,6 +2053,270 @@ body[class^=route-mypage-order-] dialog {
   padding: 0;
 }
 
+body.route-seller main section.content article table tbody tr td:nth-child(3) button, body.route-seller main section.content article table tbody tr td:nth-child(4) button, body.route-seller main section.content article table tbody tr td:nth-child(3) button.modify, body.route-seller main section.content article table tbody tr td:nth-child(4) button.modify, body.route-seller main section.dashboard-title button {
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+  background: #fff;
+}
+body.route-seller main section.content article table tbody tr td:nth-child(3) button.modify, body.route-seller main section.content article table tbody tr td:nth-child(4) button.modify, body.route-seller main section.dashboard-title button {
+  background: var(--highlight);
+  border: 1px solid var(--highlight);
+  color: #fff;
+}
+body.route-seller header {
+  display: flex;
+  justify-content: flex-start;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+}
+body.route-seller header h1 {
+  display: flex;
+  flex-direction: row;
+  font-size: 3rem;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  line-height: 3.8rem;
+}
+body.route-seller header h1 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.6rem;
+}
+body.route-seller header h1 a img {
+  width: 8rem;
+  height: 2.4rem;
+}
+body.route-seller main section.dashboard-title {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 3.8rem;
+  padding-bottom: 3.8rem;
+  row-gap: 1rem;
+}
+body.route-seller main section.dashboard-title h2 {
+  display: inline-flex;
+  align-items: center;
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 4.4rem;
+}
+body.route-seller main section.dashboard-title h2 span.seller-name {
+  font-weight: 500;
+  color: var(--highlight);
+  margin-left: 1.6rem;
+}
+body.route-seller main section.dashboard-title button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  -moz-column-gap: 0.9rem;
+       column-gap: 0.9rem;
+  padding: 1.1rem 2rem;
+  margin-left: auto;
+}
+body.route-seller main section.dashboard-title button img {
+  width: 3rem;
+  height: 3rem;
+}
+body.route-seller main section.content {
+  min-height: calc(100vh - 9rem - 13rem);
+  display: grid;
+  grid-template-columns: minmax(16rem, 25rem) 1fr;
+  padding-bottom: 9.6rem;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+}
+@media (max-width: 970px) {
+  body.route-seller main section.content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 3rem;
+  }
+}
+body.route-seller main section.content aside ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+@media (max-width: 970px) {
+  body.route-seller main section.content aside ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 380px) {
+  body.route-seller main section.content aside ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
+body.route-seller main section.content aside ul li button {
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 5px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  font-weight: 500;
+  position: relative;
+}
+body.route-seller main section.content aside ul li button.active {
+  background-color: var(--highlight);
+  color: #fff;
+}
+body.route-seller main section.content aside ul li button:not(.active):hover {
+  background-color: #effff3;
+}
+body.route-seller main section.content aside ul li button span.alert {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--red-text);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 970px) {
+  body.route-seller main section.content aside ul li button {
+    padding: 1.5rem 1.5rem;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: inherit;
+  }
+  body.route-seller main section.content aside ul li button span.alert {
+    position: inherit;
+    transform: none;
+    margin-left: 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  body.route-seller main section.content aside ul li button {
+    padding: 1.5rem 1rem;
+  }
+}
+@media (max-width: 420px) {
+  body.route-seller main section.content aside ul li button {
+    padding: 1.5rem 0.5rem;
+  }
+}
+@media (max-width: 380px) {
+  body.route-seller main section.content aside ul li button {
+    justify-content: flex-start;
+  }
+}
+body.route-seller main section.content article {
+  height: 100%;
+  background-color: var(--gray-bg);
+  border: 1px solid var(--gray-border);
+}
+body.route-seller main section.content article table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #fff;
+}
+body.route-seller main section.content article table thead th {
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 2.363rem;
+  padding-top: 1.8rem;
+  padding-bottom: 1.837rem;
+  border-bottom: 1px solid #c4c4c4;
+}
+body.route-seller main section.content article table thead th:nth-child(3), body.route-seller main section.content article table thead th:nth-child(4) {
+  width: 11.145rem;
+}
+body.route-seller main section.content article table tbody tr td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #c4c4c4;
+  padding-top: 1.6rem;
+  padding-bottom: 1.7rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+@media (max-width: 600px) {
+  body.route-seller main section.content article table tbody tr td {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (max-width: 420px) {
+  body.route-seller main section.content article table tbody tr td {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+body.route-seller main section.content article table tbody tr td:not([colspan="4"]):first-child {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+body.route-seller main section.content article table tbody tr td:not([colspan="4"]):first-child img {
+  float: left;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  margin-right: 3rem;
+}
+body.route-seller main section.content article table tbody tr td:not([colspan="4"]):first-child div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+}
+body.route-seller main section.content article table tbody tr td:not([colspan="4"]):first-child div p.product-title {
+  line-height: 2.2rem;
+}
+body.route-seller main section.content article table tbody tr td:not([colspan="4"]):first-child div p.product-amount {
+  color: var(--gray);
+  font-size: 1.6rem;
+  line-height: normal;
+}
+body.route-seller main section.content article table tbody tr td:nth-child(2) {
+  font-weight: 500;
+  white-space: nowrap;
+}
+body.route-seller main section.content article table tbody tr td:nth-child(3) button, body.route-seller main section.content article table tbody tr td:nth-child(4) button {
+  padding: 1rem 2.5rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap;
+}
+img {
+  width: 2rem;
+  height: 2rem;
+}
+
 body.route-not-found main {
   min-height: 100dvh;
 }
@@ -2116,7 +2380,7 @@ body.route-not-found main article div.msg ul li a {
   color: #fff;
 }
 
-body:not(.route-join):not(.route-login) header {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2124,15 +2388,15 @@ body:not(.route-join):not(.route-login) header {
   padding-bottom: 2rem;
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
 }
-body:not(.route-join):not(.route-login) header div.header-left {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
 }
-body:not(.route-join):not(.route-login) header div.header-left h1 img {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left h1 img {
   width: 12.4rem;
   height: 3.8rem;
 }
-body:not(.route-join):not(.route-login) header div.header-left form {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form {
   width: 20.8333333333vw;
   min-width: 33.3333333333vw;
   -moz-column-gap: 2.2rem;
@@ -2143,57 +2407,57 @@ body:not(.route-join):not(.route-login) header div.header-left form {
   border-radius: 5rem;
   height: 4.6rem;
 }
-body:not(.route-join):not(.route-login) header div.header-left form.hide {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.hide {
   display: none;
 }
-body:not(.route-join):not(.route-login) header div.header-left form.mobile {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.mobile {
   display: none;
 }
-body:not(.route-join):not(.route-login) header div.header-left form input {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form input {
   width: 100%;
   height: 100%;
   padding-left: 2.2rem;
   border-radius: 5rem 0 0 5rem;
 }
-body:not(.route-join):not(.route-login) header div.header-left form button {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form button {
   margin-right: 2.2rem;
 }
-body:not(.route-join):not(.route-login) header div.header-left form button img {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form button img {
   width: 2.8rem;
   height: 2.8rem;
 }
-body:not(.route-join):not(.route-login) header ul {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul {
   align-items: center;
   -moz-column-gap: 2.6rem;
        column-gap: 2.6rem;
 }
-body:not(.route-join):not(.route-login) header ul li {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li {
   z-index: 100;
 }
-body:not(.route-join):not(.route-login) header ul li:first-child {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li:first-child {
   width: 4.6rem;
 }
-body:not(.route-join):not(.route-login) header ul li:last-child {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li:last-child {
   width: 5.6rem;
 }
-body:not(.route-join):not(.route-login) header ul li a,
-body:not(.route-join):not(.route-login) header ul li button {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button {
   padding: 0.1rem 0;
   align-items: center;
   font-size: 1.2rem;
   row-gap: 0.4rem;
   color: var(--gray);
 }
-body:not(.route-join):not(.route-login) header ul li a.active,
-body:not(.route-join):not(.route-login) header ul li button.active {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.active,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button.active {
   color: var(--highlight);
 }
-body:not(.route-join):not(.route-login) header ul li a.active svg,
-body:not(.route-join):not(.route-login) header ul li button.active svg {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.active svg,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button.active svg {
   stroke: var(--highlight);
 }
-body:not(.route-join):not(.route-login) header ul li a.seller-btn,
-body:not(.route-join):not(.route-login) header ul li button.seller-btn {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.seller-btn,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button.seller-btn {
   width: -moz-fit-content;
   width: fit-content;
   background-color: var(--highlight);
@@ -2207,32 +2471,32 @@ body:not(.route-join):not(.route-login) header ul li button.seller-btn {
   font-style: normal;
   line-height: normal;
 }
-body:not(.route-join):not(.route-login) header ul li a.seller-btn img,
-body:not(.route-join):not(.route-login) header ul li button.seller-btn img {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.seller-btn img,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button.seller-btn img {
   width: 3.2rem;
   height: 3.2rem;
   margin-right: 0.8rem;
 }
-body:not(.route-join):not(.route-login) header ul li a.seller-btn span,
-body:not(.route-join):not(.route-login) header ul li button.seller-btn span {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.seller-btn span,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button.seller-btn span {
   width: 8.8rem;
   text-align: center;
 }
-body:not(.route-join):not(.route-login) header ul li a svg,
-body:not(.route-join):not(.route-login) header ul li a img,
-body:not(.route-join):not(.route-login) header ul li button svg,
-body:not(.route-join):not(.route-login) header ul li button img {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a svg,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a img,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button svg,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button img {
   width: 3.2rem;
   height: 3.2rem;
   stroke: black;
 }
-body:not(.route-join):not(.route-login) header ul li.seller-left {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li.seller-left {
   width: 5.6rem;
 }
-body:not(.route-join):not(.route-login) header ul li.seller-right {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li.seller-right {
   width: 16.8rem;
 }
-body:not(.route-join):not(.route-login) header ul li ul.dropdown {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown {
   position: absolute;
   display: none;
   width: 13rem;
@@ -2243,28 +2507,28 @@ body:not(.route-join):not(.route-login) header ul li ul.dropdown {
   transform: translateX(-29%);
   row-gap: 0.8rem;
 }
-body:not(.route-join):not(.route-login) header ul li ul.dropdown.active {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown.active {
   display: grid;
 }
-body:not(.route-join):not(.route-login) header ul li ul.dropdown img {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown img {
   width: 100%;
   height: 100%;
   position: absolute;
   filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
 }
-body:not(.route-join):not(.route-login) header ul li ul.dropdown li {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown li {
   width: 100%;
   height: 100%;
   border-radius: 5px;
 }
-body:not(.route-join):not(.route-login) header ul li ul.dropdown li:hover {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown li:hover {
   border: 1px solid var(--gray);
   color: #000;
 }
-body:not(.route-join):not(.route-login) header ul li ul.dropdown li:hover a {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown li:hover a {
   color: #000;
 }
-body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown li a {
   width: 100%;
   height: 100%;
   font-size: 1.6rem;
@@ -2272,13 +2536,13 @@ body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
 }
 
 @media (max-width: 600px) {
-  html body:not(.route-join):not(.route-login) header {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header {
     overflow-x: hidden;
   }
-  html body:not(.route-join):not(.route-login) header div.header-left form {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form {
     display: none;
   }
-  html body:not(.route-join):not(.route-login) header div.header-left form.mobile {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.mobile {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -2287,7 +2551,7 @@ body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
     padding: 0.8rem 0 0.8rem 2.2rem;
     transition: width 0.3s ease, padding 0.3s ease;
   }
-  html body:not(.route-join):not(.route-login) header div.header-left form.mobile button {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.mobile button {
     position: absolute;
     top: 50%;
     right: 0;
@@ -2296,30 +2560,30 @@ body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
     margin: 0;
     transition: transform 0.3s ease;
   }
-  html body:not(.route-join):not(.route-login) header div.header-left form.mobile input {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.mobile input {
     pointer-events: none;
     padding: 0;
     width: 0;
   }
-  html body:not(.route-join):not(.route-login) header div.header-left form.mobile.active {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.mobile.active {
     width: 50vw;
   }
-  html body:not(.route-join):not(.route-login) header div.header-left form.mobile.active input {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.mobile.active input {
     pointer-events: auto;
     width: 100%;
     margin-right: 5.2rem;
     border-radius: 0;
   }
-  html body:not(.route-join):not(.route-login) header div.header-left form.mobile.active button {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form.mobile.active button {
     transform: translate(-50%, -50%);
   }
-  html body:not(.route-join):not(.route-login) header ul li.seller-right {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li.seller-right {
     width: auto;
   }
-  html body:not(.route-join):not(.route-login) header ul li.seller-right a.seller-btn img {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li.seller-right a.seller-btn img {
     margin-right: 0;
   }
-  html body:not(.route-join):not(.route-login) header ul li.seller-right a.seller-btn span {
+  html body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li.seller-right a.seller-btn span {
     display: none;
   }
 }
@@ -2391,27 +2655,27 @@ footer ul.shop-info li {
 }
 
 .padding, body.route-home main section.product-lists,
-body[class^=route-search] main section.product-lists, body[class^=route-items] article, body.route-cart main, body.route-purchase main, body[class^=route-mypage-order-] main, body:not(.route-join):not(.route-login) header, footer {
+body[class^=route-search] main section.product-lists, body[class^=route-items] article, body.route-cart main, body.route-purchase main, body[class^=route-mypage-order-] main, body.route-seller header, body.route-seller main section.dashboard-title, body.route-seller main section.content, body:not(.route-join):not(.route-login):not([class^=route-seller]) header, footer {
   padding-left: max(2rem, min(22.73vw - 116.36px, 320px));
   padding-right: max(2rem, min(22.73vw - 116.36px, 320px));
 }
 
 .flex-row, body.route-home main section.carousel div.controller,
-body[class^=route-search] main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-cart main section summary, body:not(.route-join):not(.route-login) header div.header-left, body:not(.route-join):not(.route-login) header div.header-left form, body:not(.route-join):not(.route-login) header ul, body:not(.route-join):not(.route-login) header ul li a.seller-btn,
-body:not(.route-join):not(.route-login) header ul li button.seller-btn, footer nav, footer nav ul.legal, footer nav ul.social {
+body[class^=route-search] main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-cart main section summary, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.seller-btn,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button.seller-btn, footer nav, footer nav ul.legal, footer nav ul.social {
   display: flex;
   flex-direction: row;
 }
 
 .flex-col, body.route-home main section.product-lists > a article.item,
-body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-cart main, body.route-cart main section, body.route-cart main section table tbody tr td:nth-child(2) div, body.route-purchase main, body.route-purchase main section, body.route-purchase main section article.purchase-items table tbody tr td:first-child div, body.route-mypage main article, body[class$=order] main section, body[class^=route-mypage-order-] main, body[class^=route-mypage-order-] main section, body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div, body.route-not-found main, body:not(.route-join):not(.route-login) header ul li a,
-body:not(.route-join):not(.route-login) header ul li button {
+body[class^=route-search] main section.product-lists > a article.item, body.route-login, body.route-login main section ul.button-row li, body.route-login main section form fieldset, body.route-logout main, body.route-join, body.route-join main section ul.button-row li, body.route-join main section form, body.route-join main section form fieldset, body.route-join main section form fieldset div.business-only.active, body.route-join main article.join-success, body[class^=route-items] main.no-product, body.route-cart main, body.route-cart main section, body.route-cart main section table tbody tr td:nth-child(2) div, body.route-purchase main, body.route-purchase main section, body.route-purchase main section article.purchase-items table tbody tr td:first-child div, body.route-mypage main article, body[class$=order] main section, body[class^=route-mypage-order-] main, body[class^=route-mypage-order-] main section, body[class^=route-mypage-order-] main section article.purchased-items table tbody tr td:first-child div, body.route-not-found main, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a,
+body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button {
   display: flex;
   flex-direction: column;
 }
 
 .flex-center, body.route-cart main section table tbody tr td .amount-controller button, body.route-home main section.carousel div.event-banner,
-body[class^=route-search] main section.carousel div.event-banner, body.route-login, body.route-logout main, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-cart main section input[type=checkbox] + label, body.route-cart main section table thead tr th button, body.route-purchase main section article.purchase-items table thead tr th button, body[class^=route-mypage-order-] main section article.purchased-items table thead tr th button, body.route-not-found main, body.route-not-found main article div.msg ul li, body:not(.route-join):not(.route-login) header div.header-left h1, body:not(.route-join):not(.route-login) header div.header-left form button, body:not(.route-join):not(.route-login) header ul li ul.dropdown li, body:not(.route-join):not(.route-login) header ul li ul.dropdown li a {
+body[class^=route-search] main section.carousel div.event-banner, body.route-login, body.route-logout main, body.route-join, body.route-join main article.join-success, body[class^=route-items] article.product-info div.purchase div.buy-info div.amount button, body[class^=route-items] main.no-product, body[class^=route-items] main.no-product ul, body.route-cart main section input[type=checkbox] + label, body.route-cart main section table thead tr th button, body.route-purchase main section article.purchase-items table thead tr th button, body[class^=route-mypage-order-] main section article.purchased-items table thead tr th button, body.route-not-found main, body.route-not-found main article div.msg ul li, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left h1, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form button, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown li, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li ul.dropdown li a {
   display: flex;
   justify-content: center;
   align-items: center;
