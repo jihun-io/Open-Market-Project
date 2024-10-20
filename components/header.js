@@ -157,11 +157,6 @@ export function headerBtns() {
         const dropdown = document.querySelector("ul.dropdown");
         dropdown.classList.toggle("active");
         myPageBtn.classList.toggle("active");
-        // if (myPageBtn.classList.contains("active")) {
-        //   myPageImg.src = "/images/icon-user-2.svg";
-        // } else {
-        //   myPageImg.src = "/images/icon-user.svg";
-        // }
       });
 
       document.addEventListener("click", (e) => {
@@ -169,7 +164,6 @@ export function headerBtns() {
           const dropdown = document.querySelector("ul.dropdown");
           dropdown.classList.remove("active");
           myPageBtn.classList.remove("active");
-          // myPageImg.src = "/images/icon-user.svg";
         }
       });
     }

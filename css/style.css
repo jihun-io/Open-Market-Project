@@ -2324,11 +2324,6 @@ body.route-seller dialog ul li button.modal-yes {
   background-color: var(--highlight);
 }
 
-img {
-  width: 2rem;
-  height: 2rem;
-}
-
 body.route-seller-product main {
   display: grid;
   grid-template-areas: "heading heading" "sidebar form";

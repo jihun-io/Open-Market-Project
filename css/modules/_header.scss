@@ -59,7 +59,6 @@ body:not(.route-join):not(.route-login):not([class^="route-seller"]) header {
     column-gap: 2.6rem;
 
     li {
-      // position: relative;
       z-index: 100;
       &:first-child {
         width: 4.6rem;

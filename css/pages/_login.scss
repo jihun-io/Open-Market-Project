@@ -81,9 +81,6 @@ body.route-login {
         }
       }
       form {
-        // background-color: var(--gray-bg);
-        // border: 1px solid var(--gray-border);
-        // border-top: 0;
         fieldset {
           @extend .flex-col;
           @extend %padding;
@@ -95,8 +92,6 @@ body.route-login {
           input {
             width: calc(100vw / 4);
             min-width: 32rem;
-            // width: 48rem;
-            // padding: 2rem;
             height: 6rem;
             border-bottom: 1px solid var(--gray-border);
             &[type="password"] {

@@ -202,7 +202,6 @@ body.route-seller {
                     flex-direction: column;
                     justify-content: center;
                     row-gap: 1rem;
-                    // width: 20rem;
                     p {
                       &.product-title {
                         line-height: 2.2rem;
@@ -296,8 +295,7 @@ body.route-seller {
   }
 }
 
-img {
-  // temp
-  width: 2rem;
-  height: 2rem;
-}
+// img {
+//   width: 2rem;
+//   height: 2rem;
+// }
