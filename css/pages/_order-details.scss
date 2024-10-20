@@ -276,7 +276,9 @@ body[class^="route-mypage-order-"] {
 
             div.purchase-layout {
               display: grid;
+              grid-template-areas: "method info" "btn btn";
               grid-template-columns: 1fr 48rem;
+              grid-template-rows: 1fr auto;
               column-gap: 4rem;
               margin-bottom: 35.8rem;
               h4 {
@@ -294,6 +296,7 @@ body[class^="route-mypage-order-"] {
               }
 
               fieldset.purchase-method {
+                grid-area: method;
                 ul {
                   display: grid;
                   grid-template-columns: repeat(
@@ -336,6 +339,7 @@ body[class^="route-mypage-order-"] {
               }
 
               fieldset.purchase-info {
+                grid-area: info;
                 width: 100%;
 
                 div.final-payment {
@@ -445,6 +449,7 @@ body[class^="route-mypage-order-"] {
               }
 
               button.purchase-cancel {
+                grid-area: btn;
                 @extend %btn-highlight;
                 color: #fff;
                 font-size: 1.8rem;

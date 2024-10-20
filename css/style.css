@@ -1884,7 +1884,9 @@ body[class^=route-mypage-order-] main section article.shipping-info form fieldse
 }
 body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout {
   display: grid;
+  grid-template-areas: "method info" "btn btn";
   grid-template-columns: 1fr 48rem;
+  grid-template-rows: 1fr auto;
   -moz-column-gap: 4rem;
        column-gap: 4rem;
   margin-bottom: 35.8rem;
@@ -1902,6 +1904,9 @@ body[class^=route-mypage-order-] main section article.shipping-info form div.pur
     display: flex;
     flex-direction: column;
   }
+}
+body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-method {
+  grid-area: method;
 }
 body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-method ul {
   display: grid;
@@ -1936,6 +1941,7 @@ body[class^=route-mypage-order-] main section article.shipping-info form div.pur
   background-image: url("/images/icon-radio-on.svg");
 }
 body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info {
+  grid-area: info;
   width: 100%;
 }
 body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout fieldset.purchase-info div.final-payment {
@@ -2035,6 +2041,7 @@ body[class^=route-mypage-order-] main section article.shipping-info form div.pur
   cursor: not-allowed;
 }
 body[class^=route-mypage-order-] main section article.shipping-info form div.purchase-layout button.purchase-cancel {
+  grid-area: btn;
   color: #fff;
   font-size: 1.8rem;
   padding: 1.9rem 6.55rem;
