@@ -246,6 +246,10 @@ body.route-seller-product {
               color: #000;
             }
 
+            &:visited {
+              color: #000;
+            }
+
             &.save {
               @extend %seller-btn-highlight;
             }

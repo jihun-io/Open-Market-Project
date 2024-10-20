@@ -2572,6 +2572,10 @@ body.route-seller-product main form ul.btns li a:active,
 body.route-seller-product main form ul.btns li button:active {
   color: #000;
 }
+body.route-seller-product main form ul.btns li a:visited,
+body.route-seller-product main form ul.btns li button:visited {
+  color: #000;
+}
 @media (max-width: 960px) {
   body.route-seller-product main form {
     grid-template-areas: "image" "info" "desc" "btn";
