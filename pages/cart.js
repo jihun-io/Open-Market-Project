@@ -27,14 +27,12 @@ function minusIcon() {
 
 async function getCartItems(API_URL) {
   if (!sessionStorage.getItem("encryptedAccess")) {
-    location.href = "/logout";
-    return;
+    location.href = "/login";
   }
 
   if (localStorage.getItem("user_type") === "SELLER") {
     alert("비정상적인 접근입니다.");
     location.href = "/";
-    return;
   }
 
   const decryptedAccess = await DecryptingAccess(
