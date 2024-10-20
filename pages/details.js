@@ -33,6 +33,10 @@ function purchaseBtn(stock) {
     return /*html*/ `
     <button class="purchase" disabled>품절되었습니다.</button>
     `;
+  } else if (localStorage.getItem("user_type") === "SELLER") {
+    return /*html*/ `
+    <button class="purchase" disabled>구매하기</button>
+    `;
   } else {
     return /*html*/ `
     <button class="purchase">구매하기</button>
@@ -41,7 +45,7 @@ function purchaseBtn(stock) {
 }
 
 function cartBtn(stock) {
-  if (stock === 0) {
+  if (stock === 0 || localStorage.getItem("user_type") === "SELLER") {
     return /*html*/ `
     <button class="cart" disabled>장바구니</button>
     `;
