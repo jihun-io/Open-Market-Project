@@ -33,7 +33,7 @@ export default async function Home({ API_URL }) {
   const products = await getProducts(API_URL);
   return {
     title: "홈 - HODU",
-    content: `
+    content: /*html*/ `
     ${Header()}
     <main>
       <section class="carousel">
