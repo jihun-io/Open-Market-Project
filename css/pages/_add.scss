@@ -1,0 +1,282 @@
+body.route-seller-product {
+  main {
+    @extend %seller-padding;
+    display: grid;
+    grid-template-areas:
+      "heading heading"
+      "sidebar form";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 8rem;
+    @media (max-width: 1400px) {
+      grid-template-areas: "heading" "sidebar" "form";
+      grid-template-columns: 1fr;
+    }
+    h2 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 4.4rem;
+      margin-top: 4.4rem;
+      margin-bottom: 4.2rem;
+      grid-area: heading;
+    }
+
+    aside {
+      grid-area: sidebar;
+      h3 {
+        color: var(--red-text);
+      }
+      ul {
+        width: 32rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.4rem;
+        padding: 2rem;
+        background-color: #ffefe8;
+        border-radius: 5px;
+        row-gap: 1.4rem;
+        line-height: normal;
+        li::before {
+          content: "-";
+          display: inline-block;
+        }
+        @media (max-width: 1400px) {
+          width: 100%;
+          margin-bottom: 4rem;
+        }
+      }
+    }
+
+    form {
+      grid-area: form;
+      display: grid;
+      grid-template-areas: "image info" "desc desc" "btn btn";
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      column-gap: 4rem;
+      row-gap: 4rem;
+      margin-bottom: 24.6rem;
+
+      p[class^="msg-"] {
+        display: none;
+        margin-bottom: 1.6rem;
+        color: var(--red-text);
+        &.invalid {
+          display: block;
+        }
+      }
+
+      label {
+        font-size: 1.6rem;
+        color: var(--gray);
+
+        line-height: normal;
+        margin-bottom: 1rem;
+      }
+
+      fieldset.img {
+        grid-area: image;
+        display: flex;
+        flex-direction: column;
+        aspect-ratio: 494 / 524;
+        &.invalid {
+          margin-bottom: 3.6rem;
+          & label[for="image"] {
+            border: 1px solid var(--red-text);
+          }
+        }
+        input[type="file"] {
+          display: none;
+        }
+        label[for="image"] {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          aspect-ratio: 1/1;
+          background-color: var(--gray-border);
+          background-image: url("/images/icon-img.png");
+          cursor: pointer;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 50px;
+          &.uploaded {
+            background-size: contain;
+          }
+        }
+      }
+
+      fieldset.info {
+        grid-area: info;
+        display: flex;
+        flex-direction: column;
+        label {
+          line-height: normal;
+        }
+
+        div.input-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          border: 1px solid var(--gray-border);
+          max-width: 22rem;
+          padding: 1.7rem 1.6rem;
+          border-radius: 5px;
+          overflow: hidden;
+          &:not(:last-child) {
+            margin-bottom: 1.6rem;
+          }
+          input {
+            font-size: 1.6rem;
+            line-height: normal;
+            width: 100%;
+          }
+          &.title {
+            width: 100%;
+            max-width: 100%;
+            p.characters-limits {
+              margin-left: 1.5rem;
+              color: var(--gray-border);
+            }
+          }
+          &.invalid {
+            border: 1px solid var(--red-text);
+          }
+          div.unit-wrapper {
+            margin: -1.8rem -1.7rem -1.8rem 1.6rem;
+            padding: 1.8rem 2rem;
+            height: 100%;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gray-border);
+            p {
+              font-size: 1.4rem;
+              color: var(--gray-border);
+              line-height: normal;
+              &.unit {
+                height: 100%;
+                font-size: 1.6rem;
+                right: 0;
+                color: #fff;
+              }
+            }
+          }
+        }
+
+        ul.shipping-radio {
+          display: flex;
+          flex-direction: row;
+          column-gap: 1rem;
+          max-width: 45rem;
+          margin-bottom: 1.6rem;
+
+          &.invalid {
+            border: 1px solid var(--red-text);
+          }
+          li {
+            @extend %seller-btn;
+            flex-basis: 50%;
+
+            input[type="radio"] {
+              display: none;
+              &:checked + label {
+                background-color: var(--highlight);
+                color: #fff;
+              }
+            }
+            label {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+              padding-top: 1.7rem;
+              padding-bottom: 1.7rem;
+              text-align: center;
+              font-weight: 500;
+              color: var(--gray);
+              cursor: pointer;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      fieldset.description {
+        grid-area: desc;
+        display: flex;
+        flex-direction: column;
+        height: 30vh;
+        max-height: 700px;
+        textarea#desc {
+          height: 100%;
+          border: 1px solid var(--gray-border);
+          border-radius: 5px;
+          padding: 1.6rem;
+          &.invalid {
+            border: 1px solid var(--red-text);
+          }
+        }
+      }
+
+      ul.btns {
+        grid-area: btn;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        column-gap: 1.4rem;
+        li {
+          flex-basis: 50%;
+          max-width: 20rem;
+          a,
+          button {
+            @extend %seller-btn;
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding-top: 1.9rem;
+            padding-bottom: 1.9rem;
+            line-height: 1.6rem;
+
+            &:active {
+              color: #000;
+            }
+
+            &.save {
+              @extend %seller-btn-highlight;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 960px) {
+        grid-template-areas:
+          "image"
+          "info"
+          "desc"
+          "btn";
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+
+        fieldset.img {
+          width: 25vh;
+        }
+
+        fieldset.info {
+          div.input-wrapper {
+            white-space: nowrap;
+            max-width: 50%;
+          }
+          ul.shipping-radio {
+            white-space: nowrap;
+            max-width: 50%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2053,42 +2053,6 @@ body[class^=route-mypage-order-] dialog {
   padding: 0;
 }
 
-body.route-seller main section.content article table tbody tr td:nth-child(3) button, body.route-seller main section.content article table tbody tr td:nth-child(4) button, body.route-seller main section.content article table tbody tr td:nth-child(3) button.modify, body.route-seller main section.content article table tbody tr td:nth-child(4) button.modify, body.route-seller main section.dashboard-title button {
-  border-radius: 5px;
-  border: 1px solid #c4c4c4;
-  background: #fff;
-}
-body.route-seller main section.content article table tbody tr td:nth-child(3) button.modify, body.route-seller main section.content article table tbody tr td:nth-child(4) button.modify, body.route-seller main section.dashboard-title button {
-  background: var(--highlight);
-  border: 1px solid var(--highlight);
-  color: #fff;
-}
-body.route-seller header {
-  display: flex;
-  justify-content: flex-start;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
-  padding-top: 2.6rem;
-  padding-bottom: 2.6rem;
-}
-body.route-seller header h1 {
-  display: flex;
-  flex-direction: row;
-  font-size: 3rem;
-  font-weight: 500;
-  align-items: center;
-  justify-content: center;
-  line-height: 3.8rem;
-}
-body.route-seller header h1 a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1.6rem;
-}
-body.route-seller header h1 a img {
-  width: 8rem;
-  height: 2.4rem;
-}
 body.route-seller main section.dashboard-title {
   display: flex;
   flex-wrap: wrap;
@@ -2315,6 +2279,266 @@ body.route-seller main section.content article table tbody tr td:nth-child(3) bu
 img {
   width: 2rem;
   height: 2rem;
+}
+
+body.route-seller-product main {
+  display: grid;
+  grid-template-areas: "heading heading" "sidebar form";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  -moz-column-gap: 8rem;
+       column-gap: 8rem;
+}
+@media (max-width: 1400px) {
+  body.route-seller-product main {
+    grid-template-areas: "heading" "sidebar" "form";
+    grid-template-columns: 1fr;
+  }
+}
+body.route-seller-product main h2 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 4.4rem;
+  margin-top: 4.4rem;
+  margin-bottom: 4.2rem;
+  grid-area: heading;
+}
+body.route-seller-product main aside {
+  grid-area: sidebar;
+}
+body.route-seller-product main aside h3 {
+  color: var(--red-text);
+}
+body.route-seller-product main aside ul {
+  width: 32rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  padding: 2rem;
+  background-color: #ffefe8;
+  border-radius: 5px;
+  row-gap: 1.4rem;
+  line-height: normal;
+}
+body.route-seller-product main aside ul li::before {
+  content: "-";
+  display: inline-block;
+}
+@media (max-width: 1400px) {
+  body.route-seller-product main aside ul {
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+}
+body.route-seller-product main form {
+  grid-area: form;
+  display: grid;
+  grid-template-areas: "image info" "desc desc" "btn btn";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+  row-gap: 4rem;
+  margin-bottom: 24.6rem;
+}
+body.route-seller-product main form p[class^=msg-] {
+  display: none;
+  margin-bottom: 1.6rem;
+  color: var(--red-text);
+}
+body.route-seller-product main form p[class^=msg-].invalid {
+  display: block;
+}
+body.route-seller-product main form label {
+  font-size: 1.6rem;
+  color: var(--gray);
+  line-height: normal;
+  margin-bottom: 1rem;
+}
+body.route-seller-product main form fieldset.img {
+  grid-area: image;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 494/524;
+}
+body.route-seller-product main form fieldset.img.invalid {
+  margin-bottom: 3.6rem;
+}
+body.route-seller-product main form fieldset.img.invalid label[for=image] {
+  border: 1px solid var(--red-text);
+}
+body.route-seller-product main form fieldset.img input[type=file] {
+  display: none;
+}
+body.route-seller-product main form fieldset.img label[for=image] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: var(--gray-border);
+  background-image: url("/images/icon-img.png");
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px;
+}
+body.route-seller-product main form fieldset.img label[for=image].uploaded {
+  background-size: contain;
+}
+body.route-seller-product main form fieldset.info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+}
+body.route-seller-product main form fieldset.info label {
+  line-height: normal;
+}
+body.route-seller-product main form fieldset.info div.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--gray-border);
+  max-width: 22rem;
+  padding: 1.7rem 1.6rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+body.route-seller-product main form fieldset.info div.input-wrapper:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+body.route-seller-product main form fieldset.info div.input-wrapper input {
+  font-size: 1.6rem;
+  line-height: normal;
+  width: 100%;
+}
+body.route-seller-product main form fieldset.info div.input-wrapper.title {
+  width: 100%;
+  max-width: 100%;
+}
+body.route-seller-product main form fieldset.info div.input-wrapper.title p.characters-limits {
+  margin-left: 1.5rem;
+  color: var(--gray-border);
+}
+body.route-seller-product main form fieldset.info div.input-wrapper.invalid {
+  border: 1px solid var(--red-text);
+}
+body.route-seller-product main form fieldset.info div.input-wrapper div.unit-wrapper {
+  margin: -1.8rem -1.7rem -1.8rem 1.6rem;
+  padding: 1.8rem 2rem;
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-border);
+}
+body.route-seller-product main form fieldset.info div.input-wrapper div.unit-wrapper p {
+  font-size: 1.4rem;
+  color: var(--gray-border);
+  line-height: normal;
+}
+body.route-seller-product main form fieldset.info div.input-wrapper div.unit-wrapper p.unit {
+  height: 100%;
+  font-size: 1.6rem;
+  right: 0;
+  color: #fff;
+}
+body.route-seller-product main form fieldset.info ul.shipping-radio {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  max-width: 45rem;
+  margin-bottom: 1.6rem;
+}
+body.route-seller-product main form fieldset.info ul.shipping-radio.invalid {
+  border: 1px solid var(--red-text);
+}
+body.route-seller-product main form fieldset.info ul.shipping-radio li {
+  flex-basis: 50%;
+}
+body.route-seller-product main form fieldset.info ul.shipping-radio li input[type=radio] {
+  display: none;
+}
+body.route-seller-product main form fieldset.info ul.shipping-radio li input[type=radio]:checked + label {
+  background-color: var(--highlight);
+  color: #fff;
+}
+body.route-seller-product main form fieldset.info ul.shipping-radio li label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 1.7rem;
+  padding-bottom: 1.7rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--gray);
+  cursor: pointer;
+  margin-bottom: 0;
+}
+body.route-seller-product main form fieldset.description {
+  grid-area: desc;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  max-height: 700px;
+}
+body.route-seller-product main form fieldset.description textarea#desc {
+  height: 100%;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  padding: 1.6rem;
+}
+body.route-seller-product main form fieldset.description textarea#desc.invalid {
+  border: 1px solid var(--red-text);
+}
+body.route-seller-product main form ul.btns {
+  grid-area: btn;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  -moz-column-gap: 1.4rem;
+       column-gap: 1.4rem;
+}
+body.route-seller-product main form ul.btns li {
+  flex-basis: 50%;
+  max-width: 20rem;
+}
+body.route-seller-product main form ul.btns li a,
+body.route-seller-product main form ul.btns li button {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding-top: 1.9rem;
+  padding-bottom: 1.9rem;
+  line-height: 1.6rem;
+}
+body.route-seller-product main form ul.btns li a:active,
+body.route-seller-product main form ul.btns li button:active {
+  color: #000;
+}
+@media (max-width: 960px) {
+  body.route-seller-product main form {
+    grid-template-areas: "image" "info" "desc" "btn";
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+  body.route-seller-product main form fieldset.img {
+    width: 25vh;
+  }
+  body.route-seller-product main form fieldset.info div.input-wrapper {
+    white-space: nowrap;
+    max-width: 50%;
+  }
+  body.route-seller-product main form fieldset.info ul.shipping-radio {
+    white-space: nowrap;
+    max-width: 50%;
+  }
 }
 
 body.route-not-found main {
@@ -2587,6 +2811,33 @@ body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li 
     display: none;
   }
 }
+body[class^=route-seller] header {
+  display: flex;
+  justify-content: flex-start;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+}
+body[class^=route-seller] header h1 {
+  display: flex;
+  flex-direction: row;
+  font-size: 3rem;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  line-height: 3.8rem;
+}
+body[class^=route-seller] header h1 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.6rem;
+}
+body[class^=route-seller] header h1 a img {
+  width: 8rem;
+  height: 2.4rem;
+}
+
 footer {
   padding-top: 5.4rem;
   padding-bottom: 6.3rem;
@@ -2655,9 +2906,14 @@ footer ul.shop-info li {
 }
 
 .padding, body.route-home main section.product-lists,
-body[class^=route-search] main section.product-lists, body[class^=route-items] article, body.route-cart main, body.route-purchase main, body[class^=route-mypage-order-] main, body.route-seller header, body.route-seller main section.dashboard-title, body.route-seller main section.content, body:not(.route-join):not(.route-login):not([class^=route-seller]) header, footer {
+body[class^=route-search] main section.product-lists, body[class^=route-items] article, body.route-cart main, body.route-purchase main, body[class^=route-mypage-order-] main, body:not(.route-join):not(.route-login):not([class^=route-seller]) header, footer {
   padding-left: max(2rem, min(22.73vw - 116.36px, 320px));
   padding-right: max(2rem, min(22.73vw - 116.36px, 320px));
+}
+
+body.route-seller main section.dashboard-title, body.route-seller main section.content, body.route-seller-product main, body[class^=route-seller] header {
+  padding-left: max(2rem, min(22.73vw - 116.36px, 100px));
+  padding-right: max(2rem, min(22.73vw - 116.36px, 100px));
 }
 
 .flex-row, body.route-home main section.carousel div.controller,
@@ -2741,6 +2997,21 @@ body.route-cart main section button.purchase {
   padding: 1.9rem 6.6rem;
   border: 0px;
   line-height: 3rem;
+}
+
+body.route-seller main section.dashboard-title button, body.route-seller main section.content article table tbody tr td:nth-child(3) button.modify, body.route-seller main section.content article table tbody tr td:nth-child(4) button.modify, body.route-seller-product main form ul.btns li a.save,
+body.route-seller-product main form ul.btns li button.save, body.route-seller main section.content article table tbody tr td:nth-child(3) button, body.route-seller main section.content article table tbody tr td:nth-child(4) button, body.route-seller-product main form fieldset.info ul.shipping-radio li, body.route-seller-product main form ul.btns li a,
+body.route-seller-product main form ul.btns li button {
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+  background: #fff;
+}
+
+body.route-seller main section.dashboard-title button, body.route-seller main section.content article table tbody tr td:nth-child(3) button.modify, body.route-seller main section.content article table tbody tr td:nth-child(4) button.modify, body.route-seller-product main form ul.btns li a.save,
+body.route-seller-product main form ul.btns li button.save {
+  background: var(--highlight);
+  border: 1px solid var(--highlight);
+  color: #fff;
 }
 
 * {

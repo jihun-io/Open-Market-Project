@@ -11,7 +11,8 @@ import Mypage from "../pages/mypage.js";
 import Order from "../pages/order.js";
 import OrderDetails, { orderCancel } from "../pages/orderDetails.js";
 import { headerBtns } from "../components/header.js";
-import SellerDashboard from "../pages/dashboard.js";
+import SellerDashboard, { dashboardEvents } from "../pages/dashboard.js";
+import ProductAdd, { productEvents } from "../pages/add.js";
 
 const API_URL = "https://estapi.openmarket.weniv.co.kr";
 
@@ -27,6 +28,7 @@ const routes = [
   { path: "/mypage/order", component: Order },
   { path: "/mypage/order/:id", component: OrderDetails },
   { path: "/seller", component: SellerDashboard },
+  { path: "/seller/product", component: ProductAdd },
   { path: "/logout", component: Logout },
 ];
 
@@ -37,6 +39,8 @@ const routeScripts = {
   "/cart": cartScripts,
   "/purchase": purchaseScripts,
   "/mypage/order/:id": orderCancel,
+  "/seller": dashboardEvents,
+  "/seller/product": productEvents,
 };
 
 function matchRoute(path) {
