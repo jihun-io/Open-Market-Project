@@ -251,13 +251,23 @@ export async function cartScripts() {
             .textContent.replaceAll(",", "")
             .replace("원", "")
         );
-        totalShippingFee += parseInt(
-          item
-            .querySelector(".shipping-method")
-            .textContent.split("배송비 ")[1]
-            .replace("원", "")
-            .replace(",", "")
-        );
+
+        let shippingFee;
+        if (
+          item.querySelector(".shipping-method").textContent.includes("무료")
+        ) {
+          shippingFee = 0;
+        } else {
+          shippingFee = parseInt(
+            item
+              .querySelector(".shipping-method")
+              .textContent.split("배송비 ")[1]
+              .replace("원", "")
+              .replace(",", "")
+          );
+        }
+
+        totalShippingFee += shippingFee;
       });
 
       totalPayment = totalAmount + totalShippingFee - totalDiscount;
