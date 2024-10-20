@@ -225,3 +225,32 @@ body:not(.route-join):not(.route-login):not([class^="route-seller"]) header {
     }
   }
 }
+
+body[class^="route-seller"] header {
+  @extend %seller-padding;
+  display: flex;
+  justify-content: flex-start;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+  h1 {
+    display: flex;
+    flex-direction: row;
+    font-size: 3rem;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    line-height: 3.8rem;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.6rem;
+      img {
+        width: 8rem;
+        height: 2.4rem;
+      }
+    }
+  }
+}
