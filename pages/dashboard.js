@@ -2,6 +2,8 @@ import SellerHeader from "../components/sellerHeader.js";
 import DecryptingAccess from "../scripts/decryptingAccess.js";
 
 let api;
+let data;
+
 async function getData() {
   const decryptedAccess = await DecryptingAccess(
     sessionStorage.getItem("encryptedAccess")
@@ -28,6 +30,34 @@ async function getData() {
   }
 }
 
+async function deleteProduct(index) {
+  const decryptedAccess = await DecryptingAccess(
+    sessionStorage.getItem("encryptedAccess")
+  );
+
+  const url = `${api}/products/${data[index].id}/`;
+  try {
+    const res = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${decryptedAccess}`,
+      },
+    });
+    if (!res.ok) {
+      console.error(res);
+    } else {
+      if (res.status === 204) {
+        alert("상품이 삭제되었습니다.");
+      } else {
+        alert("상품을 삭제하는 중 문제가 발생했습니다.");
+      }
+      location.reload();
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function tableBody() {
   const sellerProducts = await getData();
 
@@ -38,6 +68,8 @@ async function tableBody() {
       </tr>
     `;
   }
+
+  data = sellerProducts.results;
 
   const tbody = sellerProducts.results
     .map((product) => {
@@ -117,4 +149,32 @@ export default async function SellerDashboard({ API_URL }) {
     </main>
     `,
   };
+}
+
+export function dashboardEvents() {
+  const table = document.querySelector("table");
+  table.addEventListener("click", (e) => {
+    const target = e.target;
+    const parent = target.closest("tr");
+    const index = Array.from(parent.parentNode.children).indexOf(parent);
+
+    if (target.classList.contains("modify")) {
+      sessionStorage.setItem("modifyProduct", JSON.stringify(data[index]));
+      location.href = "/seller/product";
+    }
+
+    if (target.classList.contains("delete")) {
+      const isDelete = confirm("정말 삭제하시겠습니까?");
+      if (isDelete) {
+        deleteProduct(index);
+      }
+    }
+  });
+
+  const uploadBtn = document.querySelector(".dashboard-title button");
+
+  uploadBtn.addEventListener("click", () => {
+    sessionStorage.removeItem("modifyProduct");
+    location.href = "/seller/product";
+  });
 }
