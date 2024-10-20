@@ -156,6 +156,22 @@ async function router() {
 
   tokenRefresh();
 
+  history.prev = history.current;
+  history.current = path;
+  if (localStorage.getItem("history") === null) {
+    localStorage.setItem(
+      "history",
+      JSON.stringify({ prev: "", current: path })
+    );
+  } else {
+    const historyObj = JSON.parse(localStorage.getItem("history"));
+    if (historyObj.current !== path) {
+      historyObj.prev = historyObj.current;
+      historyObj.current = path;
+      localStorage.setItem("history", JSON.stringify(historyObj));
+    }
+  }
+
   content.innerHTML = pageContent;
   document.title = pageTitle;
 

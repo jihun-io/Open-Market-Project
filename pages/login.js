@@ -5,7 +5,10 @@ let defaultApiUrl;
 export default function Login({ API_URL }) {
   defaultApiUrl = API_URL;
 
-  localStorage.clear();
+  localStorage.removeItem("username");
+  localStorage.removeItem("name");
+  localStorage.removeItem("user_type");
+  localStorage.removeItem("encryptedRefresh");
   sessionStorage.clear();
 
   return {
@@ -47,12 +50,6 @@ export default function Login({ API_URL }) {
     `,
   };
 }
-
-// function generateKeyFromFingerprint() {
-//   const fingerprint =
-//     navigator.userAgent + screen.width + screen.height + navigator.language;
-//   return CryptoJS.SHA256(fingerprint).toString();
-// }
 
 export async function loginSubmit() {
   const fpPromise = FingerprintJS.load();
@@ -138,11 +135,24 @@ export async function loginSubmit() {
             ).toString();
             sessionStorage.setItem("encryptedAccess", encryptedAccessToken);
 
-            document.cookie = `test=test; path=/;`;
-            history.back();
+            const history = localStorage.getItem("history");
+
+            if (
+              history &&
+              JSON.parse(history).prev !== "/logout" &&
+              JSON.parse(history).prev !== "/join" &&
+              JSON.parse(history).prev !== "/login" &&
+              JSON.parse(history).prev !== "/seller"
+            ) {
+              location.href = JSON.parse(history).prev;
+            } else {
+              location.href = "/";
+            }
           }
         } else {
           const result = await res.json();
+          password.value = "";
+          password.focus();
           msg.classList.add("active");
           msg.textContent = result.error;
           throw new Error(result.error);
