@@ -80,3 +80,18 @@ body[class^="route-search"] {
     }
   }
 }
+
+body.route-search {
+  section.result {
+    h2 {
+      font-weight: 700;
+      font-size: 3.6rem;
+      text-align: center;
+      margin-top: 5.4rem;
+      margin-bottom: 5.2rem;
+    }
+    p {
+      text-align: center;
+    }
+  }
+}

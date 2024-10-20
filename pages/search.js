@@ -31,19 +31,26 @@ async function getProducts(API_URL) {
     })
     .join("");
 
-  return `<p>${data.count}개의 상품이 존재합니다.</p>${result}`;
+  return {
+    count: data.count,
+    result: result,
+  };
 }
 
 export default async function Home({ API_URL }) {
   const products = await getProducts(API_URL);
   return {
     title: "검색 결과 - HODU",
-    content: `
+    content: /*html*/ `
     ${Header()}
     <main>
+      <section class="result">
+        <h2>검색 결과</h2>
+        <p class="count">${products.count}개의 상품이 존재합니다.</p>
+      </section>
       <section class="product-lists">
         <h2 class="sr-only">상품 목록</h2>
-        ${products}
+        ${products.result}
       </section>
     </main>
     ${Footer()}
