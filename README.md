@@ -22,7 +22,27 @@ SPA(Single Page Application)로 제작하였으며, 필수 과제와 도전 과�
 
 <img src="https://img.shields.io/badge/cloudflare-f38020?style=for-the-badge&logo=cloudflare&logoColor=white"> <img src="https://img.shields.io/badge/cloudflare pages-f38020?style=for-the-badge&logo=cloudflarepages&logoColor=white">
 
-## 3. 디렉토리 구조
+## 3. 개발 일정
+```mermaid
+gantt
+    title 오픈 마켓 프로젝트 상세 개발 일정
+    dateFormat  YYYY-MM-DD
+    section 마크업 개발
+    메인 및 상세 페이지 마크업        :2024-10-14, 2d
+    로그인 및 회원가입 페이지 마크업   :2024-10-15, 2d
+    section 프론트엔드 개발
+    SPA 라우팅 구현                 :2024-10-16, 1d
+    메인 페이지 기능 구현             :2024-10-16, 2d
+    상품 상세 페이지 기능 구현         :2024-10-16, 2d
+    회원가입 및 로그인 기능 구현       :2024-10-17, 1d
+    장바구니 기능 구현               :2024-10-18, 2d
+    구매 기능 구현                   :2024-10-19, 2d
+    판매자 페이지 기능 구현           :2024-10-20, 2d
+    section 마무리
+    버그 수정 및 최적화              :2024-10-21, 1d
+```
+
+## 4. 디렉토리 구조
 
 ```
 📦Open-Market-Project
@@ -107,9 +127,9 @@ SPA(Single Page Application)로 제작하였으며, 필수 과제와 도전 과�
 ┗ 📜index.html
 ```
 
-## 4. 주요 기능
+## 5. 주요 기능
 
-### 4.1. 메인 페이지
+### 5.1. 메인 페이지
 <img src="https://github.com/user-attachments/assets/25bcb3f0-565f-4a38-8614-2f4028debae7" width="320" /><img src="https://github.com/user-attachments/assets/4ad225ae-bdcb-4601-83f1-3e8800e42a68" width="320" />
 
 현재 호두샵에 등록된 상품 목록을 보여줍니다. 상품을 선택하여 상세 페이지로 이동할 수 있습니다. 
@@ -118,12 +138,12 @@ SPA(Single Page Application)로 제작하였으며, 필수 과제와 도전 과�
 
 구매자의 경우 장바구니 버튼이, 판매자의 경우 판매자 센터 버튼이 활성화됩니다.
 
-### 4.2. 검색 페이지
+### 5.2. 검색 페이지
 <img src="https://github.com/user-attachments/assets/c2ddd806-32f3-432b-b90c-0a85fefd0949" width="320" />
 
 검색어를 입력하여 검색 결과를 확인할 수 있습니다. 검색 결과는 상품 목록 페이지와 동일하게 표시됩니다.
 
-### 4.3. 상세 페이지
+### 5.3. 상세 페이지
 <img src="https://github.com/user-attachments/assets/16d1b943-0674-4c0e-86b9-3d1b2a77e73b" width="320" /><img src="https://github.com/user-attachments/assets/ab4f9abd-6971-4313-8d10-9da4c7871862" width="320" />
 
 상품의 이미지, 이름, 판매자, 배송비, 상품 금액을 확인할 수 있습니다. 
@@ -133,21 +153,21 @@ SPA(Single Page Application)로 제작하였으며, 필수 과제와 도전 과�
 비로그인 사용자가 상품을 구매하거나 장바구니에 담으려고 할 경우 로그인 모달이 표시되며, 로그인 모달에서 확인 버튼을 클릭하여 로그인 페이지로 이동할 수 있습니다.
 
 
-### 4.4. 로그인 페이지
+### 5.4. 로그인 페이지
 <img src="https://github.com/user-attachments/assets/6f171848-f6b7-47ea-ba3f-8d8a19da0cd0" width="320" /><img src="https://github.com/user-attachments/assets/4d640435-a388-4451-aa56-9e32adf6a463" width="320" />
 
 이메일과 비밀번호를 입력하여 구매회원 및 판매회원으로 로그인할 수 있습니다. 
 
 로그인에 성공하면 메인 페이지로 이동하고, 실패하면 에러 메시지가 표시됩니다.
 
-### 4.5. 회원가입 페이지
+### 5.5. 회원가입 페이지
 <img src="https://github.com/user-attachments/assets/95d033c4-ce57-406b-adef-c58b180c451f" width="320" /><img src="https://github.com/user-attachments/assets/a83a8935-e92f-4b20-8b45-b5c0d32ad1b1" width="320" />
 
 이메일, 비밀번호, 이름, 전화번호, 판매자의 경우 사업자등록번호와 스토어 이름을 입력하여 구매회원 및 판매회원으로 가입할 수 있습니다. 
 
 회원가입에 성공하면 로그인 페이지로 이동하고, 실패하면 에러 메시지가 표시됩니다.
 
-### 4.6. 장바구니 페이지
+### 5.6. 장바구니 페이지
 <img src="https://github.com/user-attachments/assets/a6808eab-9ab6-4901-bbff-194267805f72" width="320" />
 
 장바구니에 담긴 상품을 확인할 수 있습니다. 
@@ -158,19 +178,19 @@ SPA(Single Page Application)로 제작하였으며, 필수 과제와 도전 과�
 
 구매 버튼을 클릭하면 주문 페이지로 이동합니다.
 
-### 4.7. 주문 페이지
+### 5.7. 주문 페이지
 <img src="https://github.com/user-attachments/assets/6ca5fe51-71bc-4079-a5b0-84d5d9d81756" width="320" />
 
 주문자 정보와 배송지 정보를 입력할 수 있습니다. 
 
 주문자 정보와 배송지 정보를 입력하고 결제 버튼을 클릭하면 주문이 완료됩니다.
 
-### 4.8. 마이페이지
+### 5.8. 마이페이지
 <img src="https://github.com/user-attachments/assets/53063afd-0e16-4f8d-8934-071de1fb89a7" width="320" />
 
 주문 목록 페이지와 회원 정보 수정 페이지(구현하지 않음)로 이동할 수 있는 링크를 제공합니다.
 
-### 4.9. 주문 목록 페이지
+### 5.9. 주문 목록 페이지
 <img src="https://github.com/user-attachments/assets/afdecfc6-5d3f-49a0-a2bb-ac7dcb0e70fe" width="320" />
 
 주문한 상품의 요약 목록을 확인할 수 있습니다. 
@@ -178,19 +198,19 @@ SPA(Single Page Application)로 제작하였으며, 필수 과제와 도전 과�
 해당 주문의 상세 정보 페이지로 이동할 수 있고, 주문 상태를 확인할 수 있습니다.
 
 
-### 4.10. 주문 상세 페이지
+### 5.10. 주문 상세 페이지
 <img src="https://github.com/user-attachments/assets/03a5f9a0-6dc3-4cfe-abc8-70211e281c68" width="320" />
 
 주문한 상품들의 정보와 배송 정보, 결제 수단, 최종결제 정보를 확인할 수 있으며, 주문 취소 버튼을 클릭하여 주문을 취소할 수 있습니다.
 
-### 4.11. 판매자 센터 페이지
+### 5.11. 판매자 센터 페이지
 <img src="https://github.com/user-attachments/assets/b8358ba8-a8c7-4778-8454-d68744e5fc63" width="320" />
 
 현재 판매자 계정이 판매 중인 상품의 목록을 확인할 수 있습니다. 
 
 판매 중인 상품을 수정하거나 삭제할 수 있으며, 상품 업로드 버튼을 클릭하여 상품을 새로 등록할 수 있습니다.
 
-### 4.12. 상품 등록 페이지
+### 5.12. 상품 등록 페이지
 <img src="https://github.com/user-attachments/assets/0d63c8fe-1ebb-4cbc-a57c-e3e04c4c16b1" width="320" />
 
 상품을 새로 등록하거나, 기존 상품을 수정할 수 있습니다. 
@@ -243,9 +263,9 @@ graph TD
     AI --> B
 ```
 
-## 5. 기능 상세
+## 6. 기능 상세
 
-### 5.1. SPA 라우터
+### 6.1. SPA 라우터
 웹 페이지의 경로에 따라 `pages/(페이지).js`를 렌더링합니다. 브라우저의 뒤로 가기, 앞으로 가기 버튼을 클릭하거나 주소를 직접 입력하여 페이지를 이동할 수 있습니다.
 
 ```mermaid
@@ -270,15 +290,15 @@ flowchart TD
     style N fill:#9ff,stroke:#333,stroke-width:2px
 ```
 
-### 5.2. 로그인 상태
+### 6.2. 로그인 상태
 LocalStorage와 SessionStorage에 사용자 정보와 토큰을 저장하되, 액세스 토큰과 리프레시 토큰은 CryptoJS를 사용해서 암호화하여 저장합니다. 암호화에 사용되는 키는 FingerprintJS를 활용했습니다. 사용자 정보와 토큰을 저장하고 있는지 확인하여 로그인 상태를 판단합니다.
 
-### 5.3. 우편번호 검색
+### 6.3. 우편번호 검색
 <img src="https://github.com/user-attachments/assets/a7fef9ee-83d3-4d34-95bc-8bc0239c4e78" width="480">
 
 우편번호 검색 API는 카카오의 주소 검색 API를 이용합니다. 상품 주문 페이지에서 우편번호 검색 버튼을 클릭하면 주소 검색 모달이 표시됩니다. 모달에서 주소를 검색하고 검색 결과를 선택하면 주문 페이지의 주소 입력 폼에 삽입됩니다.
 
-### 5.4. 반응형 웹 디자인
+### 6.4. 반응형 웹 디자인
 
 
 https://github.com/user-attachments/assets/0a50fdc7-57e2-42b0-b66f-89281c1b68bc
@@ -287,7 +307,7 @@ https://github.com/user-attachments/assets/0a50fdc7-57e2-42b0-b66f-89281c1b68bc
 
 미디어 쿼리를 사용하여 다양한 뷰포트 너비에 대응하는 반응형 웹 디자인을 구현했습니다. 또한, 일정 뷰포트 미만일 경우 헤더의 검색 창을 최소화하여 뷰포트의 공간을 효율적으로 활용했습니다.
 
-## 6. 알려진 문제들
+## 7. 알려진 문제들
 
 - 배포 환경에서 실행했을 때 불러오는 이미지의 용량이 커서 Lazy Loading을 적용했음에도 페이지 로드 속도가 다소 느립니다. React 프로젝트로 리팩토링하여 이미지 최적화를 진행하면 페이지 로드 속도를 개선할 수 있을 것으로 기대합니다.
 
@@ -295,7 +315,7 @@ https://github.com/user-attachments/assets/0a50fdc7-57e2-42b0-b66f-89281c1b68bc
 
 - FingerprintJS의 브라우저 지문 생성 과정에서 일반적인 브라우징 환경에서 생성된 지문과 Chromium 개발자 도구의 '반응형 테스트 도구'의 브라우징 환경에서 생성된 브라우저 지문이 일치하지 않아 로그인 상태가 유지되지 않는 문제가 있습니다. 이 문제를 해결하기 위해 디바이스의 화면 해상도 값을 지문 생성 과정에서 제외하였지만, 그럼에도 불구하고 반응형 테스트 도구에서 특정 작업을 수행하면 로그인 상태가 유지되지 않는 문제가 존재합니다.
 
-## 7. 개발을 통해 느낀 점
+## 8. 개발을 통해 느낀 점
 
 - 그간 토이 프로젝트로 간단한 웹 페이지들을 만들어 본 경험이 있지만, 실제 현업에서의 프로젝트와 유사하게 명세와 디자인대로 웹 페이지를 구현하는 것은 처음이었습니다. 저의 마음대로 만들어도 되는 토이 프로젝트와 달리 주어진 명세와 디자인을 따라야 하다 보니, 실무에서 개발할 때는 더욱 세심하게 여러 사항들을 고려하여 작업해야 한다는 것을 느꼈습니다.
 
