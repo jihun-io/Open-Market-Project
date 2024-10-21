@@ -442,7 +442,7 @@ export async function purchaseScripts() {
         alert("주문 과정에서 문제가 발생했습니다.");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   });
 }

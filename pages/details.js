@@ -63,7 +63,7 @@ async function getData(API_URL, productId) {
       return data;
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
       return error;
     });
   return res;
@@ -75,7 +75,7 @@ async function fetchData(API_URL, productId) {
       return data;
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
       return error;
     });
 
@@ -400,7 +400,7 @@ export function detailsScript() {
           alert("장바구니 담기에 실패했습니다.");
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   });

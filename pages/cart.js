@@ -58,7 +58,7 @@ async function getCartItems(API_URL) {
 
     cartItems = data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
   if (cartItems.count === 0) {
     return /*html*/ `
@@ -366,7 +366,7 @@ export async function cartScripts() {
           return;
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
@@ -385,7 +385,7 @@ export async function cartScripts() {
           location.reload();
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
