@@ -104,9 +104,6 @@ SPA(Single Page Application)로 제작하였으며, 필수 과제와 도전 과�
 ┃ ┣ 📜decryptingAccess.js
 ┃ ┣ 📜fingerprintjs-v4-life.min.js
 ┃ ┗ 📜router.js
-┣ 📜.gitattributes
-┣ 📜.gitignore
-┣ 📜README.md
 ┗ 📜index.html
 ```
 
