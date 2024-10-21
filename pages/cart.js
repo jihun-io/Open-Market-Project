@@ -446,7 +446,6 @@ export async function cartScripts() {
           "input[type='checkbox']:not(#selectAll):checked"
         );
         checkedItems.forEach((item) => {
-          console.log(item);
           const id = item.id;
           const quantity = parseInt(
             item.parentElement.parentElement.querySelector(
