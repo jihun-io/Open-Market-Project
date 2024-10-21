@@ -156,14 +156,14 @@ gantt
 ### 5.4. 로그인 페이지
 <img src="https://github.com/user-attachments/assets/6f171848-f6b7-47ea-ba3f-8d8a19da0cd0" width="320" /><img src="https://github.com/user-attachments/assets/4d640435-a388-4451-aa56-9e32adf6a463" width="320" />
 
-이메일과 비밀번호를 입력하여 구매회원 및 판매회원으로 로그인할 수 있습니다. 
+아이디와 비밀번호를 입력하여 구매회원 및 판매회원으로 로그인할 수 있습니다. 
 
 로그인에 성공하면 메인 페이지로 이동하고, 실패하면 에러 메시지가 표시됩니다.
 
 ### 5.5. 회원가입 페이지
 <img src="https://github.com/user-attachments/assets/95d033c4-ce57-406b-adef-c58b180c451f" width="320" /><img src="https://github.com/user-attachments/assets/a83a8935-e92f-4b20-8b45-b5c0d32ad1b1" width="320" />
 
-이메일, 비밀번호, 이름, 전화번호, 판매자의 경우 사업자등록번호와 스토어 이름을 입력하여 구매회원 및 판매회원으로 가입할 수 있습니다. 
+아이디, 비밀번호, 이름, 전화번호, 판매자의 경우 사업자등록번호와 스토어 이름을 입력하여 구매회원 및 판매회원으로 가입할 수 있습니다. 
 
 회원가입에 성공하면 로그인 페이지로 이동하고, 실패하면 에러 메시지가 표시됩니다.
 
