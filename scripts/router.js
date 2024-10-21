@@ -1,4 +1,4 @@
-import Home from "../pages/home.js";
+import Home, { carousel } from "../pages/home.js";
 import Search from "../pages/search.js";
 import NotFound from "../pages/not-found.js";
 import Login, { loginSubmit } from "../pages/login.js";
@@ -33,6 +33,7 @@ const routes = [
 ];
 
 const routeScripts = {
+  "/": carousel,
   "/items/:id": detailsScript,
   "/join": formSubmit,
   "/login": loginSubmit,

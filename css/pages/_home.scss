@@ -5,6 +5,7 @@ body[class^="route-search"] {
       height: 50rem;
       background-color: var(--gray-bg);
       position: relative;
+      overflow: hidden;
       div.controller {
         @extend .flex-row;
         padding: 0 3rem;
@@ -13,6 +14,24 @@ body[class^="route-search"] {
         transform: translateY(-50%);
         width: 100%;
         justify-content: space-between;
+      }
+
+      ul.images {
+        @extend .flex-row;
+        position: relative;
+        width: calc(100% * 5);
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.5s;
+        li {
+          width: calc(100% * 5);
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
       }
       div.event-banner {
         @extend .flex-center;

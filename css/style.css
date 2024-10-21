@@ -5,6 +5,7 @@ body[class^=route-search] main section.carousel {
   height: 50rem;
   background-color: var(--gray-bg);
   position: relative;
+  overflow: hidden;
 }
 body.route-home main section.carousel div.controller,
 body[class^=route-search] main section.carousel div.controller {
@@ -14,6 +15,26 @@ body[class^=route-search] main section.carousel div.controller {
   transform: translateY(-50%);
   width: 100%;
   justify-content: space-between;
+}
+body.route-home main section.carousel ul.images,
+body[class^=route-search] main section.carousel ul.images {
+  position: relative;
+  width: 500%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+body.route-home main section.carousel ul.images li,
+body[class^=route-search] main section.carousel ul.images li {
+  width: 500%;
+  height: 100%;
+}
+body.route-home main section.carousel ul.images li img,
+body[class^=route-search] main section.carousel ul.images li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 body.route-home main section.carousel div.event-banner,
 body[class^=route-search] main section.carousel div.event-banner {
@@ -2982,7 +3003,8 @@ body.route-seller main section.dashboard-title, body.route-seller main section.c
 }
 
 .flex-row, body.route-home main section.carousel div.controller,
-body[class^=route-search] main section.carousel div.controller, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-cart main section summary, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.seller-btn,
+body[class^=route-search] main section.carousel div.controller, body.route-home main section.carousel ul.images,
+body[class^=route-search] main section.carousel ul.images, body.route-login main section ul.button-row, body.route-login main ul.joins, body.route-join main section ul.button-row, body.route-join main ul.joins, body[class^=route-items] article.product-info, body[class^=route-items] article.product-info div.purchase div.buy-info ul.btn-row, body[class^=route-items] article.product-details ul, body[class^=route-items] main.no-product ul, body.route-cart main section summary, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left, body:not(.route-join):not(.route-login):not([class^=route-seller]) header div.header-left form, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul, body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li a.seller-btn,
 body:not(.route-join):not(.route-login):not([class^=route-seller]) header ul li button.seller-btn, footer nav, footer nav ul.legal, footer nav ul.social {
   display: flex;
   flex-direction: row;
