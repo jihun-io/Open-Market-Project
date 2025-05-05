@@ -14,7 +14,7 @@ import { headerBtns } from "../components/header.js";
 import SellerDashboard, { dashboardEvents } from "../pages/dashboard.js";
 import ProductAdd, { productEvents } from "../pages/add.js";
 
-const API_URL = "https://estapi.openmarket.weniv.co.kr";
+const API_URL = "https://api.wenivops.co.kr/services/open-market";
 
 const routes = [
   { path: "/", component: Home },
